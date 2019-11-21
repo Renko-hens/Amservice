@@ -16,12 +16,11 @@ html(
       http-equiv = "X-UA-Compatible", content = "ie=edge"
     )
     link(
-      rel = "stylesheet", href = "https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700&display=swap"
+      rel = "stylesheet", href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap&subset=cyrillic,cyrillic-ext"
     )
     meta(
       name = "description", content = description
     )
-    <script>document.getElementsByTagName("html")[0].className += " js";</script>
 
     title #{title}
     block head
@@ -29,14 +28,12 @@ html(
   body(
     class = pageClass
     )
+    include ../inc/modules/header
+
     main(
       class = "main"
     )
-    .wrapper
-      include ../inc/modules/header
       .content-wrapper
         block content
-      include ../inc/modules/footer
-    script(
-      src="site/templates/js/util.js"
-    )
+    
+    include ../inc/modules/footer

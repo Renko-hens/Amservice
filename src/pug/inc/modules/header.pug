@@ -1,3 +1,107 @@
-header
-  .container
-    span header is here
+header(
+  class = "main-header"
+)
+  div(
+    class = "main-header__container"
+  )
+    div(
+      class = "main-header__pictures"
+    )
+      a(
+        class = "main-header__logo-link"
+        href = "/"
+      )
+        img(
+          class = "main-header__logo"
+          src = "site/templates/img/logo.svg" 
+          alt = "Ам-сервис"
+        )
+      
+    nav(
+      class = "main-header__navigation"
+    )
+      ul(
+        class = "main-header__nav-list"
+      )
+        li(
+          class = "main-header__nav-item"
+        )
+          a(
+            class = "main-header__nav-link link"
+            href = "/"
+          ) Главная
+
+        li(
+          class = "main-header__nav-item"
+        )
+          a(
+            class = "main-header__nav-link link"
+            href = "/"
+          ) Ремонт авто
+
+        li(
+          class = "main-header__nav-item"
+        )
+          a(
+            class = "main-header__nav-link link"
+            href = "/"
+          ) Малярно-кузовной ремонт
+
+        li(
+          class = "main-header__nav-item"
+        )
+          a(
+            class = "main-header__nav-link link"
+            href = "/"
+          ) Запчасти/аксессуары
+
+        li(
+          class = "main-header__nav-item"
+        )
+          a(
+            class = "main-header__nav-link link"
+            href = "/"
+          ) Тюнинг 
+
+        li(
+          class = "main-header__nav-item"
+        )
+          a(
+            class = "main-header__nav-link link"
+            href = "/"
+          ) Детейлинг
+
+        li(
+          class = "main-header__nav-item"
+        )
+          a(
+            class = "main-header__nav-link link"
+            href = "/"
+          ) Наши работы
+
+        li(
+          class = "main-header__nav-item"
+        )
+          a(
+            class = "main-header__nav-link link"
+            href = "/"
+          ) Контакты
+    div(
+      class = "main-header__info-text"
+    )
+      a(
+        class = "main-header__info-phone link"
+        href = "tel: +78123806750"
+      ) +7 (812) 380-67-50
+
+    div(
+      class = "main-header__menu"
+    ) 
+      button(
+        class = "main-header__menu-button"
+      ) 
+        <svg class="main-header__button-svg" title="Open menu" viewBox="0 0 32 32" fill="currentColor">
+          <rect class="main-header__button-line" y="4" width="32" height="2"></rect>
+          <rect class="main-header__button-line" y="14" width="32" height="2"></rect>
+          <rect class="main-header__button-line" y="24" width="32" height="2"></rect>
+        </svg>

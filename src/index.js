@@ -1,19 +1,12 @@
-// 1. устнаваливаю CH как библиотеку
-// 2. Инициализирую её
-// 3. в папке scss я буду писать только личные стили (позиционирование и компоненты?)
-// 4. дальше подключаю библиотеку и личные стили в index.js
-// 5. всё прекрасно компилится и это profit
+// BOOTSTRAP
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // SCSS
 import './site/templates/scss/style.scss';
 
-
-// CSS (пример)
-// import './site/templates/css/vds.css';
-
-
 // JAVASCRIPT (пример)
-// import './js/scripts.js'
+import './js/scripts.js'
 
 
 // Vue.js

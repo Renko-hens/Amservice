@@ -1,0 +1,233 @@
+.main-header {
+  display: flex;
+  align-items: center;
+
+  padding: 0 24px;
+  min-height: 96px;
+  transition: margin 0.3s;
+}
+
+.main-header--mobile{
+  margin-bottom: 76px;
+  transition: margin 0.3s;
+}
+
+.main-header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 100%;
+  margin: 0 auto;
+  max-width: 940px;
+}
+
+.main-header__pictures {
+  display: flex;
+  align-items: center;
+  flex-basis: 144px;
+} 
+
+@media (max-width: 768px) {
+  .main-header__pictures {
+    flex-basis: auto;
+  }
+}
+
+.main-header__logo {
+  max-width: 120px;
+}
+
+@media (max-width: 528px) {
+  .main-header__logo {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-header__logo {
+    max-width: 60px;
+  }
+}
+
+.main-header__navigation {
+  display: flex;
+  align-items: center;
+  flex-basis: 64%;
+  padding: 0 24px;
+}
+
+@media (min-width:769px) and (max-width: 1024px) {
+  .main-header__navigation {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header__navigation {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header__navigation--show {
+    position: fixed;
+    opacity: 1;
+    display: block;
+    padding: 0;
+    transform: translateY(80px);
+    transition: opacity 0.1s, transform 0.2s;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header__navigation--hide {
+    position: fixed;
+    opacity: 0;
+    display: block;
+    padding: 0;
+    transform: translateY(70px);
+    transition: opacity 0.1s, transform 0.2s;
+  }
+}
+
+.main-header__nav-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .main-header__nav-list {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+.main-header__nav-item {
+  margin-right: 24px;
+}
+
+@media (max-width: 1024px) {
+  .main-header__nav-item {
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header__nav-item {
+    margin: 0;
+  }
+}
+
+.main-header__nav-link {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .main-header__nav-link {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 840px) {
+  .main-header__nav-link {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header__nav-link {
+    font-size: 16px;
+    line-height: 2;
+  }
+}
+
+.main-header__nav-link:hover,
+.main-header__nav-link:focus {
+  color: var(--color-text-hover);
+  transition: color 0.16s;
+}
+
+.main-header__info-text {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-basis: 30%;
+}
+
+@media (max-width: 768px) {
+  .main-header__info-text {
+    flex-basis: auto;
+  }
+}
+
+.main-header__info-phone {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: color 0.16s;
+}
+
+@media (min-width: 426px) and (max-width: 1024px) {
+  .main-header__info-phone {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-header__info-phone {
+    font-size: 16px;
+  }
+}
+
+.main-header__info-phone:hover,
+.main-header__info-phone:focus {
+  color: var(--color-primary-hover);
+  transition: color 0.16s;
+}
+
+.main-header__menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .main-header__menu {
+    flex-basis: auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header__menu-button {
+    width: 36px;
+    height: 36px;
+
+    border: 0;
+    background: none;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-header__menu-button {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.main-header__button-line {
+  transition: transform .27s,opacity .17s;
+}
+
+.main-header__menu-button--show .main-header__button-line:first-child {
+  transform: translateX(8px) translateY(1px) rotate(45deg);
+}
+
+.main-header__menu-button--show .main-header__button-line:nth-child(2) {
+  opacity: 0;
+}
+
+.main-header__menu-button--show .main-header__button-line:last-child {
+  transform: translateX(-13px) translateY(10px) rotate(-45deg);
+}

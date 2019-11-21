@@ -60,7 +60,7 @@ module.exports = {
       // loader для скриптов
       test: /\.js$/,
       loader: "babel-loader",
-      exclude: ["/node_modules/", PATHS.src + "/js/util.js"],
+      exclude: ["/node_modules/"],
     },
     {
       test: /\.vue$/,
@@ -156,8 +156,6 @@ module.exports = {
       // Копируем файлы и отправляем их в dist
       { from: `${PATHS.src}/${PATHS.site}img`, to: `${PATHS.site}img` },
       { from: `${PATHS.src}/${PATHS.site}fonts`, to: `${PATHS.site}fonts` },
-      // берет с pm codyhouse файл utils.js и перенесит его, обязательно подключить к файлу
-      { from: `node_modules/codyhouse-framework/main/assets/js/util.js`, to: `${PATHS.site}js` },
       { from: `${PATHS.src}/static`, to: "" },
     ]),
     // pug файлы все проверяет

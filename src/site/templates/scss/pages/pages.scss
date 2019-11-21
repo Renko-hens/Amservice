@@ -1,0 +1,17 @@
+// reset styles #First 
+@import 'reset/reset';
+
+// Bootstrap 
+@import 'bootstrap-custom/main-slider/main-slider';
+
+// Global styles after color #Second in oversized position
+@import 'global/color/color';
+@import 'global/animate/animate';
+@import 'global/global';
+
+// Parts
+@import 'parts/header/header';
+@import 'parts/footer/footer';
+
+// Blocks
+@import 'blocks/main/main';
