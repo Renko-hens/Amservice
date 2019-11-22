@@ -12,6 +12,10 @@
 // Parts
 @import 'parts/header/header';
 @import 'parts/footer/footer';
+@import 'parts/information-card/information-card';
 
 // Blocks
-@import 'blocks/main/main';
+
+//// Main page
+@import 'blocks/main/payment/payment';
+@import 'blocks/main/services/services';

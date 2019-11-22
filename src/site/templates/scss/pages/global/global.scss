@@ -1,5 +1,6 @@
 body {
   font-family: 'Oswald', sans-serif;
+  color: var(--color-text-darken);
 }
 
 .link {
@@ -9,4 +10,9 @@ body {
 
 .link:hover {
   text-decoration: none;
+}
+
+.container--custom {
+  max-width: 960px;
+  margin: 0 auto;
 }

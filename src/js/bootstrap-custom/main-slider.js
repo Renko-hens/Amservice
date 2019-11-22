@@ -1,22 +1,17 @@
-import $ from 'jquery'
-
-$('.carousel .carousel-item').each(function(){
-    var next = $(this).next();
-    if (!next.length) {
-    next = $(this).siblings(':first');
+$('.loop').owlCarousel({
+  center: true,
+  items:2,
+  loop:true,
+  autoWidth: true,
+  margin: 24,
+  responsive:{
+    0:{
+      items: 1,
+      autoWidth: false,
+      touchDrag: true 
+    },
+    940:{
+      items: 2
     }
-    next.children(':first-child').clone().appendTo($(this));
-    
-    for (var i=0;i<2;i++) {
-        next=next.next();
-        if (!next.length) {
-        	next = $(this).siblings(':first');
-      	}
-        
-        next.children(':first-child').clone().appendTo($(this));
-      }
+  }
 });
-
-
-if( window.innerWidth <= 768 ){
-} 
