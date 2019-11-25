@@ -1,5 +1,5 @@
 // Bootstrap
-import './bootstrap-custom/main-slider';
+import './sliders/sliders';
 
 // Components
 import './components/menu-button';

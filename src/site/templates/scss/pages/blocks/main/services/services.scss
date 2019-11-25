@@ -1,11 +1,17 @@
 .services {
-  margin: 64px 0;
+  margin-bottom: 64px;
 }
 
-.services__title {
-  font-size: 48px;
-  font-weight: 600;
-  margin-bottom: 24px;
+@media (max-width: 768px) {
+  .services {
+    margin-bottom: 56px;
+  }
+}
+
+@media (max-width: 425px) {
+  .services {
+    margin-bottom: 40px;
+  }
 }
 
 .services__link--prepare-waxed {
@@ -29,6 +35,20 @@
 .services__link--tire-service {
   background: url('/site/templates/img/tires.png') no-repeat right 8% top 50%, linear-gradient(0deg, rgba(152,160,189,1) 0%, rgba(222,226,240,1) 100%);
 }
+
+@media(max-width: 670px) {
+  .services__link--tire-service{
+    background-size: 30%;
+    background-position: right 3% top 50%;
+  }
+}
+
+@media(max-width: 560px) {
+  .services__link--tire-service{
+    background: linear-gradient(0deg, rgba(152,160,189,1) 0%, rgba(222,226,240,1) 100%);
+  }
+}
+
 
 .services__link--autumn {
   background-image: url('/site/templates/img/autumn.jpg');

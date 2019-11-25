@@ -1,3 +1,19 @@
+.payment {
+  margin-bottom: 64px;
+}
+
+@media (max-width: 768px) {
+  .payment {
+    margin-bottom: 56px;
+  }
+}
+
+@media (max-width: 425px) {
+  .payment {
+    margin-bottom: 40px;
+  }
+}
+
 .payment__link {
   min-height: 216px;
   padding: 12px 16px 20px 16px;

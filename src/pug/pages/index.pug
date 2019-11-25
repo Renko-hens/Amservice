@@ -8,6 +8,7 @@ block variables
 block content
   include ../inc/modules/main-slider
 
+  //- payment 
   section(
     class = "payment"
   )
@@ -71,6 +72,7 @@ block content
                 <path d="M12.82.92l-1.57 1.6 3.13 3.13H.5v2.63h13.9l-3.15 3.15 1.57 1.6 6.05-6.05L12.82.92z">
               </svg>
   
+  //- services
   section(
     class = "services"
   )
@@ -175,7 +177,7 @@ block content
               class = "services__tires"
             )
             div(
-              class = "information-card__wrapper-text information-card__wrapper-text--darken px-5"
+              class = "information-card__wrapper-text information-card__wrapper-text--darken px-md-5"
             )
               h3(
                 class = "information-card__title information-card__title--strong title"
@@ -212,7 +214,7 @@ block content
               ) Осень близко! Выгодные цены! 
 
               p(
-                class = "information-card__description information-card__description--small "
+                class = "information-card__description information-card__description--small mt-4"
               ) Комплексная диагностика для вашего автомобиля на самых выгодных условиях!
               
 
@@ -245,7 +247,7 @@ block content
               </svg>
           
           p(
-            class = "information-card__description information-card__description--small px-4 py-3"
+            class = "information-card__description information-card__description--small px-1 px-md-2 px-lg-4 py-3"
           ) Позаботьтесь о здоровье своего любимого автомобиля Chevrolet! Мы рады предложить Вам провести ТО по выгодным ценам для 100% уверенности на дороге.
 
         div(
@@ -270,5 +272,205 @@ block content
               </svg>
           
           p(
-            class = "information-card__description information-card__description--small px-4 py-3"
+            class = "information-card__description information-card__description--small px-1 px-md-2 px-lg-4 py-3"
           ) Позаботьтесь о здоровье своего любимого автомобиля Opel! Мы рады предложить Вам провести ТО по выгодным ценам для 100% уверенности на дороге.
+        
+  //- about-us 
+  section(
+    class="about-us"
+  ) 
+    div(
+      class = "about-us__container container container--custom"
+    )
+      h2(
+        class = "about-us__title title"
+      ) О нас
+
+      div(
+        class = "about-us__wrapper row"
+      )
+        section(
+          class = "owl-carousel owl-theme about-us__slider col-sm-12 col-md-6"
+        )  
+          div(
+            class = "owl-carousel__item"
+          )
+            img(
+              class = "owl-carousel__image",
+              src = "site/templates/img/about-us.jpg",
+              alt = "Самая выгодная цена на ТО Шевроле"
+            )
+          div(
+            class = "owl-carousel__item"
+          )
+            img(
+              class = "owl-carousel__image",
+              src = "site/templates/img/about-us.jpg",
+              alt = "Самая выгодная цена на ТО Шевроле"
+            )
+          div(
+            class = "owl-carousel__item"
+          )
+            img(
+              class = "owl-carousel__image",
+              src = "site/templates/img/about-us.jpg",
+              alt = "Самая выгодная цена на ТО Шевроле"
+            )
+
+        div(
+          class = "about-us__text col-sm-12 col-md-6"
+        )
+          h3(
+            class = "about-us__text-title title"
+          ) Добро пожаловать в&nbsp;«АМ&#8209Сервис»!
+
+          p(
+            class = "about-us__text-description"
+          ) Наш центр предлагает полный комплекс работ по техническому обслуживанию и ремонту автомобилей всех марок.
+            |  Современное оборудование и большой выбор запчастей и аксессуаров позволяет нам осуществлять недорогой и качественный сервис. Работы проводятся специалистами высокой квалификации с более, чем десятилетним опытом, поэтому мы можем гарантировать качество обслуживания наших клиентов в техническом центре «АМ Сервис».
+
+  section(
+    class="news"
+  ) 
+    div(
+      class = "news__container container container--custom"
+    )
+      h2(
+        class = "news__title title"
+      ) Новости
+
+      section(
+        class = "owl-carousel owl-theme news__cards information-cards information-cards--slider"
+      )  
+        div(
+          class = "owl-carousel__item news-card information-card"
+        )
+          a(
+            class = "news-card__link information-card__link link d-flex flex-column justify-content-end"
+            href="/"
+          )
+            div(
+              class = "information-card__wrapper-text"
+            )
+
+              h3(
+                class = "information-card__label"
+              ) Единая команда на «Июньке 2017»
+                
+              p(
+                class = "information-card__dates"
+              ) 14.06.2223
+
+        div(
+          class = "owl-carousel__item news-card information-card"
+        )
+          a(
+            class = "news-card__link information-card__link link d-flex flex-column justify-content-end"
+            href="/"
+          )
+            div(
+              class = "information-card__wrapper-text"
+            )
+
+              h3(
+                class = "information-card__label"
+              ) Единая команда на «Июньке 2017»
+                
+              p(
+                class = "information-card__dates"
+              ) 14.06.2223
+
+        div(
+          class = "owl-carousel__item news-card information-card"
+        )
+          a(
+            class = "news-card__link information-card__link link d-flex flex-column justify-content-end"
+            href="/"
+          )
+            div(
+              class = "information-card__wrapper-text"
+            )
+
+              h3(
+                class = "information-card__label"
+              ) Единая команда на «Июньке 2017»
+                
+              p(
+                class = "information-card__dates"
+              ) 14.06.2223
+
+        div(
+          class = "owl-carousel__item news-card information-card"
+        )
+          a(
+            class = "news-card__link information-card__link link d-flex flex-column justify-content-end"
+            href="/"
+          )
+            div(
+              class = "information-card__wrapper-text"
+            )
+
+              h3(
+                class = "information-card__label"
+              ) Единая команда на «Июньке 2017»
+                
+              p(
+                class = "information-card__dates"
+              ) 14.06.2223
+
+        div(
+          class = "owl-carousel__item news-card information-card"
+        )
+          a(
+            class = "news-card__link information-card__link link d-flex flex-column justify-content-end"
+            href="/"
+          )
+            div(
+              class = "information-card__wrapper-text"
+            )
+
+              h3(
+                class = "information-card__label"
+              ) Единая команда на «Июньке 2017»
+                
+              p(
+                class = "information-card__dates"
+              ) 14.06.2223
+
+        div(
+          class = "owl-carousel__item news-card information-card"
+        )
+          a(
+            class = "news-card__link information-card__link link d-flex flex-column justify-content-end"
+            href="/"
+          )
+            div(
+              class = "information-card__wrapper-text"
+            )
+
+              h3(
+                class = "information-card__label"
+              ) Единая команда на «Июньке 2017»
+                
+              p(
+                class = "information-card__dates"
+              ) 14.06.2223
+
+        div(
+          class = "owl-carousel__item news-card information-card"
+        )
+          a(
+            class = "news-card__link information-card__link link d-flex flex-column justify-content-end"
+            href="/"
+          )
+            div(
+              class = "information-card__wrapper-text"
+            )
+
+              h3(
+                class = "information-card__label"
+              ) Единая команда на «Июньке 2017»
+                
+              p(
+                class = "information-card__dates"
+              ) 14.06.2223
