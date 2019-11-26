@@ -1,7 +1,10 @@
 .news {
   margin-bottom: 64px;
 }
+.news__cards {
+  padding: 0;
+}
 
 .news-card__link {
-  background-color: red;
+  background-color: var(--color-bimbo);
 }
