@@ -1,3 +1,80 @@
 .contact-us {
   background-color: var(--color-primary);
+  margin-bottom: 64px;
+  padding: 80px 0;
+}
+
+.contact-us__container {
+  padding: 0 28px;
+}
+
+.contact-us__wrapper {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 28px 14px;
+}
+
+@media(max-width: 426px) {
+  .contact-us__wrapper {
+    padding: 28px 4px;
+  }
+}
+
+.contact-us__text-title {
+  font-size: 32px;
+}
+
+@media(max-width: 426px) {
+  .contact-us__text-title {
+    font-size: 28px;
+  }
+}
+
+.contact-us__text-description {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+@media(max-width: 426px) {
+  .contact-us__text-description {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+}
+
+
+.form-communication__label {
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.form-communication__input {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.form-communication__text-checkbox {
+  font-size: 14px;
+  margin-left: 12px;
+  line-height: 1.4;
+}
+
+.form-communication__button {
+  background-color: var(--color-primary);
+}
+
+@media(max-width: 940px) {
+  .communication__map {
+    height: 420px;
+  }
+}
+
+@media(max-width: 575px) {
+  .communication__map {
+    margin-top: 32px;
+    height: 320px;
+  }
 }

@@ -476,69 +476,100 @@ block content
               ) 14.06.2223
 
   section(
-    class = "сontact-us"
+    class = "contact-us"
   ) 
     div(
-      class = "contact-us__container container container--custom grid grid-gap-sm"
+      class = "contact-us__container container container--custom grid grid-gap-md"
     )
       div(
-        class = "row"
+        class = "contact-us__wrapper row"
       )
         div(
-          class = "contact-us__communication-block communication col-6"
+          class = "contact-us__text col-sm-7 col-md-6"
         )
-          form
+          h3(
+            class = "contact-us__text-title title"
+          ) Свяжитесь с нами
+
+          p(
+            class = "contact-us__text-description"
+          ) Если у вас есть к нам вопросы, мы обязательно на них ответим
+
+          form(
+            class = "contact-us__form form-communication"
+          )
             div(
-              class="form-group"
+              class="form-group form-communication__group"
             )
               label(
+                class = "form-communication__label" 
+                for="exampleInputName1"
+              ) Имя*
+
+              input(
+                type="text" 
+                class="form-control form-communication__input" 
+                id="exampleInputName1"
+              )
+        
+            div(
+              class="form-group form-communication__group"
+            )
+              label(
+                class = "form-communication__label" 
+                for="exampleInputPhone1"
+              ) Телефон*
+
+              input(
+                type="text" 
+                class="form-control form-communication__input" 
+                id="exampleInputPhone1"
+              )
+
+            div(
+              class="form-group form-communication__group"
+            )
+              label(
+                class = "form-communication__label" 
                 for="exampleInputEmail1"
-              ) Email address
-              input(
-                type="email" 
-                class="form-control" 
-                id="exampleInputEmail1" 
-                aria-describedby="emailHelp" 
-                placeholder="Enter email"
-              )
-              small(
-                id="emailHelp" 
-                class="form-text text-muted"
-              ) We'll never share your email with anyone else.
+              ) E-mail*
 
-            div(
-              class="form-group"
-            )
-              label(
-                for="exampleInputPassword1"
-              ) Password
               input(
-                type="password" 
-                class="form-control" 
-                id="exampleInputPassword1" 
-                placeholder="Password"
+                type="text" 
+                class="form-control form-communication__input" 
+                id="exampleInputEmail1"
               )
 
-            div(
-              class="form-group form-check"
-            )
-              input(
-                type="checkbox" 
-                class="form-check-input" 
-                id="exampleCheck1"
-              )
-              
-              label(
-                class="form-check-label" 
-                for="exampleCheck1"
-              ) Check me out
+              div
+                input(
+                  class="checkbox form-communication__checkbox" 
+                  type="checkbox" 
+                  id="checkbox1" 
+                  checked
+                )
+
+                label(
+                  class = "form-communication__label" 
+                  for="checkbox1"
+                ) 
+                  span(
+                    class = "form-communication__text-checkbox"
+                  ) Даю согласие на обработку своих персональных данных и соглашаюсь 
+                    |с политикой конфиденциальности
 
             button(
-              type="submit" 
-              class="btn btn-primary"
-            ) Submit
-        
-        div(
-          class = "communication__map col-6"
+              type="button" 
+              class="btn btn-primary btn-lg form-communication__button col-12 col-sm-7"
+            ) Отправить
+              div(
+                class="lds-ring"
+              )
+                div
+                div
+                div
+                div
+
+        iframe(
+          class = "communication__map col-sm-5 col-md-6"
+          src="https://www.google.com/maps/d/embed?mid=1U3qqAXUGQqlBbl5VQHbB5NeKotN2ClTo" 
         )
-          <iframe src="https://www.google.com/maps/d/embed?mid=1U3qqAXUGQqlBbl5VQHbB5NeKotN2ClTo" width="420" height="320"></iframe>
