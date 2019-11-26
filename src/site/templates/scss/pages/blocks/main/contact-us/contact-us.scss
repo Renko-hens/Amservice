@@ -24,6 +24,13 @@
   font-size: 32px;
 }
 
+@media(max-width: 768px) {
+  .contact-us__text-title {
+    font-size: 32px;
+  }
+}
+
+
 @media(max-width: 426px) {
   .contact-us__text-title {
     font-size: 28px;
