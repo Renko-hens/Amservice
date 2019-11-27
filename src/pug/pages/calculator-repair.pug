@@ -1,0 +1,137 @@
+extends ../layout/main
+
+block variables
+  - var title = "Калькулятор ремонта";
+  - var description = "Калькулятор ремонта вашего автомобиля";
+  - var pageCLass = "calculator-repair";
+
+block content
+  section(
+    class = "calculator-repair"
+  )
+    div(
+      class = "calculator-repair__container container container--custom"
+    )
+      div(
+        class = "calculator__title-text"
+      )
+        h2(
+          class = "calculator__title"
+        )
+
+        form(
+          class = "calculator__form form-calculate"
+        )
+          div(
+            class = "form-calcuate__block"
+          )
+            div(
+              class = "form-calculate__label"
+            ) 
+              h3(
+                class = "form-calculate__title"
+              ) Выберите марку
+
+            select(
+              class = "form-calculate__select"
+              name = "?"
+            )
+              option(
+                class = "form-calculate__option"
+                value = "Марка"
+              ) a
+
+              option(
+                class = "form-calculate__option"
+                value = "Марка"
+              ) b
+
+              option(
+                class = "form-calculate__option"
+                value = "Марка"
+              ) c
+
+              svg(
+                class = "form-calculate__svg-dropdown"
+              )
+
+          div(
+            class = "form-calcuate__block"
+          )
+            div(
+              class = "form-calculate__label"
+            ) 
+              h3(
+                class = "form-calculate__title"
+              ) Выберите модель
+
+            select(
+              class = "form-calculate__select"
+              name = "?"
+            )
+              option(
+                class = "form-calculate__option"
+                value = "Марка"
+              ) 1
+
+              option(
+                class = "form-calculate__option"
+                value = "Марка"
+              ) 2
+
+              option(
+                class = "form-calculate__option"
+                value = "Марка"
+              ) 3
+
+              svg(
+                class = "form-calculate__svg-dropdown"
+              )
+
+          div(
+            class = "form-calcuate__block"
+          )
+            div(
+              class = "form-calculate__label"
+            ) 
+              h3(
+                class = "form-calculate__title"
+              ) Выберите год выпуска
+
+            select(
+              class = "form-calculate__select"
+              name = "?"
+            )
+              option(
+                class = "form-calculate__option"
+                value = "Марка"
+              ) Boomer
+
+              option(
+                class = "form-calculate__option"
+                value = "Марка"
+              ) Pepsi
+
+              option(
+                class = "form-calculate__option"
+                value = "Марка"
+              ) Millenium
+
+              svg(
+                class = "form-calculate__svg-dropdown"
+              )
+
+          div(
+            class = "form-calculate__controls"
+          )
+            button(
+              class = "form-calculate__button"
+            ) Выьрать услуги
+
+
+  section(
+    class = "form-summary"
+  )
+    div(
+      class = "form-summary__container container container--custom"
+    )

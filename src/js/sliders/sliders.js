@@ -33,7 +33,7 @@ $('.about-us__slider').owlCarousel({
 
 $('.information-cards--slider').owlCarousel({
   items: 4,
-  margin: 20,
+  margin: 30,
   nav:true,
   dots: false,
   responsive:{

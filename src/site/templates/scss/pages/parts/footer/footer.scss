@@ -1,0 +1,147 @@
+.main-footer {
+  padding: 8px 0;
+  background-color: var(--color-bimbo);
+}
+
+.main-footer__container {
+  padding: 0 16px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+.main-footer__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-footer__item {
+  margin: 0 8px;
+}
+
+.main-footer__link {
+  color: var(--color-text-darken);
+  transition: color 0.16s;
+}
+
+.main-footer__link:hover {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: color 0.16s;
+}
+
+.main-footer__contacts {
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 0;
+}
+
+.main-footer__socials {
+  display: flex;
+  align-items: center;
+  margin: 0 8px;
+}
+
+.main-footer__picture {
+  margin: 0 8px;
+}
+
+.main-footer__address {
+  text-align: right;
+}
+
+.main-footer__phone {
+  color: var(--color-text-darken);
+  transition: color 0.16s;
+}
+
+.main-footer__phone:hover {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: color 0.16s;
+}
+
+@media (min-width: 426px) and (max-width: 670px) {
+  .main-footer__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-footer__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 670px) {
+  .main-footer__list {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-footer__list {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 670px) {
+  .main-footer__item {
+    margin: 0 12px;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-footer__item {
+    margin-left: 0;
+    margin-right: 12px;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 670px) {
+  .main-footer__copyright {
+    text-align: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-footer__copyright {
+    text-align: left;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 670px) {
+  .main-footer__socials {
+    margin: 12px 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-footer__socials {
+    margin: 12px 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-footer__picture {
+    margin: 0;
+    margin-right: 12px;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 670px) {
+  .main-footer__address {
+    text-align: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-footer__address {
+    text-align: left;
+  }
+}

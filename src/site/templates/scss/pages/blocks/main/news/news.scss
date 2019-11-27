@@ -1,10 +1,21 @@
 .news {
   margin-bottom: 64px;
 }
+
 .news__cards {
   padding: 0;
 }
 
 .news-card__link {
   background-color: var(--color-bimbo);
+  background-image: url('/site/templates/img/about-us.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.news-card .information-card__link:hover,
+.news-card .information-card__link:focus {
+  box-shadow: none;
+  transform: none;
+  transition: none;
 }

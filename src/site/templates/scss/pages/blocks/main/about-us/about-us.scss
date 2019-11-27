@@ -20,8 +20,15 @@
   }
 }
 
+@media(max-width: 767px) {
+  .about-us__slider {
+    margin-bottom: 20px;
+  }
+}
+
 .about-us__wrapper {
   display: flex;
+  justify-content: space-between;
 }
 
 @media(max-width: 960px) {
@@ -36,10 +43,16 @@
   }
 }
 
-@media(max-width: 767px) {
-   .about-us__text {
-     padding: 0;
-   }
+@media(min-width: 426px) and (max-width: 767px) {
+  .about-us__text {
+    padding: 0 20px;
+  }
+}
+
+@media(max-width: 425px) {
+  .about-us__text {
+    padding: 0;
+  }
 }
 
 .about-us__text-title {
@@ -51,7 +64,6 @@
     font-size: 24px;
   }
 }
-
 
 .about-us__text-description {
   font-size: 16px;

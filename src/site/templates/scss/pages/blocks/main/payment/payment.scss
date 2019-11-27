@@ -15,8 +15,8 @@
 }
 
 .payment__link {
+  padding: 12px 20px 20px 20px;
   min-height: 216px;
-  padding: 12px 16px 20px 16px;
   background-color: var(--color-primary);
   background-repeat: no-repeat;
   background-position: right 20px bottom 20px;
@@ -29,6 +29,7 @@
 .payment__link--repair {
   background-image: url('/site/templates/img/repair.svg');
 }
+
 .payment__link--paint {
   background-image: url('/site/templates/img/paint.svg');
 }

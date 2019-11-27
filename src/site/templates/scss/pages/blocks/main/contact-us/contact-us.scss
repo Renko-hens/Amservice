@@ -1,23 +1,36 @@
 .contact-us {
-  background-color: var(--color-primary);
-  margin-bottom: 64px;
   padding: 80px 0;
+  background-color: var(--color-primary);
 }
 
 .contact-us__container {
+  position: relative;
   padding: 0 28px;
 }
 
 .contact-us__wrapper {
+  padding: 28px 14px;
   background-color: #ffffff;
   border-radius: 12px;
-  padding: 28px 14px;
+  transition: 0.6s filter linear;
 }
+
 
 @media(max-width: 426px) {
   .contact-us__wrapper {
     padding: 28px 4px;
   }
+}
+
+.contact-us__wrapper--loader {
+  filter: opacity(80%);
+  transition: 0.6s filter linear;
+  pointer-events: none
+}
+
+.contact-us__picture-success {
+  width: 104px;
+  margin: 0 auto;
 }
 
 .contact-us__text-title {
@@ -38,34 +51,37 @@
 }
 
 .contact-us__text-description {
+  margin-bottom: 32px;
   font-size: 18px;
   font-weight: 300;
-  margin-bottom: 32px;
 }
 
 @media(max-width: 426px) {
   .contact-us__text-description {
+    margin-bottom: 32px;
     font-size: 16px;
     font-weight: 300;
-    margin-bottom: 32px;
   }
 }
 
+.contact-us__text-description--success {
+  line-height: 1.5;
+}
 
 .form-communication__label {
+  margin-bottom: 8px;
   font-size: 16px;
   font-weight: 300;
-  margin-bottom: 8px;
 }
 
 .form-communication__input {
-  font-size: 16px;
   margin-bottom: 8px;
+  font-size: 16px;
 }
 
 .form-communication__text-checkbox {
-  font-size: 14px;
   margin-left: 12px;
+  font-size: 14px;
   line-height: 1.4;
 }
 
@@ -81,7 +97,7 @@
 
 @media(max-width: 575px) {
   .communication__map {
-    margin-top: 32px;
     height: 320px;
+    margin-top: 32px;
   }
 }

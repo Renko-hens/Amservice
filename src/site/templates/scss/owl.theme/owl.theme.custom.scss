@@ -36,12 +36,12 @@
 
 
 .owl-theme.news__cards .owl-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
   justify-content: space-between;
   width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .owl-theme.news__cards .owl-nav .owl-prev {
@@ -69,7 +69,6 @@
 .owl-theme.news__cards .owl-nav .owl-prev span{
   font-size: 0;
 }
-
 
 .owl-theme.news__cards .owl-nav .owl-next {
   position: relative;
