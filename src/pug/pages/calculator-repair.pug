@@ -23,109 +23,99 @@ block content
           class = "calculator-repair__form form-calculate"
         )
           div(
-            class = "form-calcuate__block"
+            class = "form-calcuate__block row"
           )
             div(
-              class = "form-calculate__label"
-            ) 
-              h3(
-                class = "form-calculate__title"
+              class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
+            )
+              label(
+                class = "form-calculate__label"
+                for = "formControlSelectMark"
               ) Выберите марку
 
-            select(
-              class = "form-calculate__select"
-              name = "?"
-            )
-              option(
-                class = "form-calculate__option"
-                value = "Марка"
-              ) a
-
-              option(
-                class = "form-calculate__option"
-                value = "Марка"
-              ) b
-
-              option(
-                class = "form-calculate__option"
-                value = "Марка"
-              ) c
-
-              svg(
-                class = "form-calculate__svg-dropdown"
+              select(
+                class = "form-calculate__select form-control"
+                id = "formControlSelectMark"
+                name = "?"
               )
+                option(
+                  class = "form-calculate__option"
+                ) Марка
+                
+                option(
+                  class = "form-calculate__option"
+                ) Tesla
 
-          div(
-            class = "form-calcuate__block"
-          )
+                option(
+                  class = "form-calculate__option"
+                ) Lada
+
+                option(
+                  class = "form-calculate__option"
+                ) Subaru
+
             div(
-              class = "form-calculate__label"
-            ) 
-              h3(
-                class = "form-calculate__title"
+              class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
+            )
+              label(
+                class = "form-calculate__label"
+                for = "formControlSelectModel"
               ) Выберите модель
 
-            select(
-              class = "form-calculate__select"
-              name = "?"
-            )
-              option(
-                class = "form-calculate__option"
-                value = "Марка"
-              ) 1
-
-              option(
-                class = "form-calculate__option"
-                value = "Марка"
-              ) 2
-
-              option(
-                class = "form-calculate__option"
-                value = "Марка"
-              ) 3
-
-              svg(
-                class = "form-calculate__svg-dropdown"
+              select(
+                class = "form-calculate__select form-control"
+                id = "formControlSelectModel"
+                name = "?"
               )
+                option(
+                  class = "form-calculate__option"
+                ) Модель
 
-          div(
-            class = "form-calcuate__block"
-          )
+                option(
+                  class = "form-calculate__option"
+                ) Cybertruck
+
+                option(
+                  class = "form-calculate__option"
+                ) Banana
+
+                option(
+                  class = "form-calculate__option"
+                ) Baklagan
+
             div(
-              class = "form-calculate__label"
-            ) 
-              h3(
-                class = "form-calculate__title"
+              class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
+            )
+              label(
+                class = "form-calculate__label"
+                for = "formControlSelectYears"
               ) Выберите год выпуска
 
-            select(
-              class = "form-calculate__select"
-              name = "?"
-            )
-              option(
-                class = "form-calculate__option"
-                value = "Марка"
-              ) Boomer
-
-              option(
-                class = "form-calculate__option"
-                value = "Марка"
-              ) Pepsi
-
-              option(
-                class = "form-calculate__option"
-                value = "Марка"
-              ) Millenium
-
-              svg(
-                class = "form-calculate__svg-dropdown"
+              select(
+                class = "form-calculate__select form-control"
+                id = "formControlSelectYears"
               )
+                option(
+                  class = "form-calculate__option"
+                ) Год выпуска
+                
+                option(
+                  class = "form-calculate__option"
+                ) Boomer-Zoomer
+
+                option(
+                  class = "form-calculate__option"
+                ) Pepsi
+
+                option(
+                  class = "form-calculate__option"
+                ) Z
 
           div(
             class = "form-calculate__controls"
           )
             button(
-              class = "form-calculate__button"
+              class = "form-calculate__button btn btn-outline-light col-12 col-sm-3"
               type = "button"
             ) Выбрать услуги
 
@@ -136,3 +126,447 @@ block content
     div(
       class = "form-summary__container container container--custom"
     )
+
+      //- Категории
+      div(
+        class = "form-summary__block categories"
+      )
+        div(
+          class = "form-summary__header-wrapper"
+        )
+          h2(
+            class = "form-summary__main-title title"
+          ) Категории
+
+        ul(
+          class = "form-summary__list categories__list"
+        )
+          //- Диагностика
+          li(
+            class = "form-summary__item categories__item"
+          )
+            button(
+              class = "form-summary__button-category categories__button"
+            )
+              div(
+                class = "categories__picture-wrapper"
+              )
+                img(
+                  src = "/"
+                  class = "categories__image"
+                )
+              
+              div(
+                class = "categories__title-wrapper"
+              )
+                h3(
+                  class = "categories__title-category"
+                ) Диагностика
+
+          //- Дополнительное оборудование
+          li(
+            class = "form-summary__item categories__item"
+          )  
+            button(
+              class = "form-summary__button-category categories__button"
+            )
+              div(
+                class = "categories__picture-wrapper"
+              )
+                img(
+                  src = "/"
+                  class = "categories__image"
+                )
+              
+              div(
+                class = "categories__title-wrapper"
+              )
+                h3(
+                  class = "categories__title-category"
+                ) Дополнительное оборудование
+          
+          //- Тормозная система
+          li(
+            class = "form-summary__item categories__item"
+          )  
+            button(
+              class = "form-summary__button-category categories__button"
+            )
+              div(
+                class = "categories__picture-wrapper"
+              )
+                img(
+                  src = "/"
+                  class = "categories__image"
+                )
+              
+              div(
+                class = "categories__title-wrapper"
+              )
+                h3(
+                  class = "categories__title-category"
+                ) Тормозная система
+              
+      //- Услуги
+      div(
+        class = "form-summary__block services"
+      )
+        div(
+          class = "form-summary__header-wrapper"
+        )
+          h2(
+            class = "form-summary__main-title title"
+          ) Услуги
+
+        ul(
+          class = "form-summary__list services__list"
+        )
+          li(
+            class = "form-summary__item services__item"
+          )
+            div(
+              class = "form-summary__checkbox-wrapper services__checkbox-wrapper"
+            )
+              input(
+                class = "form-summary__checkbox services__checkbox"
+                type = "checkbox"
+              )
+            
+            div(
+              class = "form-summary__description-wrapper services__description-wrapper"
+            )
+              p(
+                class = "form-summary__description services__description"
+              ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
+            
+            div(
+              class = "form-summary__price-wrapper services__price-wrapper"
+            )
+              p(
+                class = "form-summary__price services__price"
+              ) 12 245 ₽
+
+          li(
+            class = "form-summary__item services__item"
+          )
+            div(
+              class = "form-summary__checkbox-wrapper services__checkbox-wrapper"
+            )
+              input(
+                class = "form-summary__checkbox services__checkbox"
+                type = "checkbox"
+              )
+            
+            div(
+              class = "form-summary__description-wrapper services__description-wrapper"
+            )
+              p(
+                class = "form-summary__description services__description"
+              ) Motor FIT + расширенная диагностик ДВС и электронных систем
+            
+            div(
+              class = "form-summary__price-wrapper services__price-wrapper"
+            )
+              p(
+                class = "form-summary__price services__price"
+              ) 12 245 ₽
+              
+          li(
+            class = "form-summary__item services__item"
+          )
+            div(
+              class = "form-summary__checkbox-wrapper services__checkbox-wrapper"
+            )
+              input(
+                class = "form-summary__checkbox services__checkbox"
+                type = "checkbox"
+              )
+            
+            div(
+              class = "form-summary__description-wrapper services__description-wrapper"
+            )
+              p(
+                class = "form-summary__description services__description"
+              ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
+            
+            div(
+              class = "form-summary__price-wrapper services__price-wrapper"
+            )
+              p(
+                class = "form-summary__price services__price"
+              ) 12 245 ₽
+
+      //- Выбранные услуги
+      div(
+        class = "form-summary__block selected-services"
+      )
+        div(
+          class = "form-summary__header-wrapper"
+        )
+          h2(
+            class = "form-summary__main-title title"
+          ) Выбранные услуги
+
+        ul(
+          class = "form-summary__list services__list"
+        )
+          li(
+            class = "form-summary__item services__item"
+          )
+            div(
+              class = "form-summary__checkbox-wrapper selected-services__checkbox-wrapper"
+            )
+              input(
+                class = "form-summary__checkbox selected-services__checkbox"
+                type = "checkbox"
+                checked
+              )
+            
+            div(
+              class = "form-summary__description-wrapper selected-services__description-wrapper"
+            )
+              p(
+                class = "form-summary__description selected-services__description"
+              ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
+            
+            div(
+              class = "form-summary__price-wrapper selected-services__price-wrapper"
+            )
+              p(
+                class = "form-summary__price selected-services__price"
+              ) 12 245 ₽
+              
+          li(
+            class = "form-summary__item selected-services__item"
+          )
+            div(
+              class = "form-summary__checkbox-wrapper selected-services__checkbox-wrapper"
+            )
+              input(
+                class = "form-summary__checkbox selected-services__checkbox"
+                type = "checkbox"
+                checked
+              )
+            
+            div(
+              class = "form-summary__description-wrapper selected-services__description-wrapper"
+            )
+              p(
+                class = "form-summary__description selected-services__description"
+              ) Motor FIT + расширенная диагностик ДВС и электронных систем
+            
+            div(
+              class = "form-summary__price-wrapper selected-services__price-wrapper"
+            )
+              p(
+                class = "form-summary__price selected-services__price"
+              ) 12 245 ₽
+              
+          li(
+            class = "form-summary__item selected-services__item"
+          )
+            div(
+              class = "form-summary__checkbox-wrapper selected-services__checkbox-wrapper"
+            )
+              input(
+                class = "form-summary__checkbox selected-services__checkbox"
+                type = "checkbox"
+                checked
+              )
+            
+            div(
+              class = "form-summary__description-wrapper selected-services__description-wrapper"
+            )
+              p(
+                class = "form-summary__description selected-services__description"
+              ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
+            
+            div(
+              class = "form-summary__price-wrapper selected-services__price-wrapper"
+            )
+              p(
+                class = "form-summary__price selected-services__price"
+              ) 12 245 ₽
+
+      //- Итого 
+      div(
+        class = "form-summary__wrapper-amount"
+      )
+        p(
+          class = "form-summary__total-amount"
+        ) Итого : 
+          span(
+            class = "form-summary__value-amount"
+          ) 18 745 ₽
+
+        div(
+          class = "form-summmary__controls"
+        )
+          button(
+            class = "form-summary__button-sign btn btn-primary"
+            data-toggle="modal" 
+            data-target="#exampleModalCenter"
+          ) Записаться на сервис
+
+      ul(
+        class = "form-summary__rules-list"
+      )
+        li(
+          class = "form-summary__rules-item"
+        )
+          p(
+            class = "form-summary__rules-text"
+          ) 1. Все расчеты в Он-Лайн калькуляторе (кроме замены фар, фонарей и стекол) , включают в себя стоимость материалов для окраски и/или кузовного ремонта.
+      
+        li(
+          class = "form-summary__rules-item"
+        )
+          p(
+            class = "form-summary__rules-text"
+          ) 2. В стоимость замены, кузовного ремонта и покраски, включена стоимость работ по разборкее/сборке как самой детали, так и снятие/установка сопряженных элементов конструкции, препятствующих кузовному ремонту и/или покраске автомобиля.
+
+        li(
+          class = "form-summary__rules-item"
+        )
+          p(
+            class = "form-summary__rules-text"
+          ) 3. Расчет наружной покраски автомобиля, выполняется по специальным нормативам и итоги расчета по покраске всех элементов кузова на данном калькуляторе, не могут служить основанием для рассмотрения в качестве возможных претензий по сумме расчета.
+
+        li(
+          class = "form-summary__rules-item"
+        )
+          p(
+            class = "form-summary__rules-text"
+          ) 4. Он-лайн калькулятор стоимости кузовного ремонта и покраски автомобиля, не является основанием для выполнения окончательных расчетов с заказчиком, поскольку предназначен для ознакомления возможных клиентов с уровнем цен автоцентра "Крас и Ко", посредством сервиса на официальном сайте компании.
+
+        li(
+          class = "form-summary__rules-item"
+        )
+          p(
+            class = "form-summary__rules-text"
+          ) 5. Окончательная стоимость работ и материалов, формируется после осмотра и дефектации транспортного средства в условиях автосервиса "Крас и Ко".
+
+        li(
+          class = "form-summary__rules-item"
+        )
+          p(
+            class = "form-summary__rules-text"
+          ) 6. В настоящем Он-Лайн калькуляторе, использованы средневзвешенные нормативы на кузовные работы, работы по разборке/сборке и покраске, сформированные посредством выборки их применения на различных марках и моделях автомобилей.
+
+        li(
+          class = "form-summary__rules-item"
+        )
+          p(
+            class = "form-summary__rules-text"
+          ) 7. Настоящий калькулятор не применим для расчета стоимости ремонта эксклюзивных и/или представительских автомобилей, а также стоимости эксклюзивной покраски кузова или его элементов.
+
+        li(
+          class = "form-summary__rules-item"
+        )
+          p(
+            class = "form-summary__rules-text"
+          ) 8. Он-Лайн калькулятор не учитывает стоимость работ по подготовке стапеля, кондуктора, установке автомобиля на стапель, проверку и регулировку развал-схождения, а также работы по диагностике и ремонту подвески.
+
+      //- Форма записи на сервис
+      div(
+        class="modal fade" 
+        id="exampleModalCenter" 
+        tabindex="-1" 
+        role="dialog" 
+        aria-labelledby="exampleModalCenterTitle" 
+        aria-hidden="true"
+      )
+        div(
+          class="modal-dialog modal-dialog-centered" 
+          role="document"
+        )
+          div(
+            class="modal-content"
+          )
+            div(
+              class = "modal-header"
+            )
+              h3(
+                class = "record-title title"
+              ) Запись на сервис
+              
+              button(
+                type="button" 
+                class="close" 
+                data-dismiss="modal" 
+                aria-label="Close"
+              )
+                span(
+                  aria-hidden="true"
+                ) &times;
+
+            div(
+              class = "modal-body"
+            )
+                
+              form(
+                class = "form-communication"
+              )
+                div(
+                  class="form-group form-communication__group"
+                )
+                  label(
+                    class = "form-communication__label" 
+                    for="exampleInputName1"
+                  ) Имя*
+
+                  input(
+                    type="text" 
+                    class="form-control form-communication__input" 
+                    id="exampleInputName1"
+                  )
+            
+                div(
+                  class="form-group form-communication__group"
+                )
+                  label(
+                    class = "form-communication__label" 
+                    for = "exampleInputPhone1"
+                  ) Телефон*
+
+                  input(
+                    type = "text" 
+                    class = "form-control form-communication__input" 
+                    id = "exampleInputPhone1"
+                  )
+
+                div(
+                  class = "form-group form-communication__group"
+                )
+                  label(
+                    class = "form-communication__label" 
+                    for = "exampleInputEmail1"
+                  ) E-mail*
+
+                  input(
+                    type = "text" 
+                    class = "form-control form-communication__input" 
+                    id = "exampleInputEmail1"
+                  )
+
+                  div
+                    input(
+                      class = "checkbox form-communication__checkbox" 
+                      type = "checkbox" 
+                      id = "checkbox1" 
+                      checked
+                    )
+
+                    label(
+                      class = "form-communication__label" 
+                      for = "checkbox1"
+                    ) 
+                      span(
+                        class = "form-communication__text-checkbox"
+                      ) Даю согласие на обработку своих персональных данных и соглашаюсь 
+                        |с политикой конфиденциальности
+
+                button(
+                  type = "button" 
+                  class = "btn btn-primary btn-lg form-communication__button col-12 col-sm-7"
+                ) Отправить

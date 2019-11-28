@@ -1,0 +1,23 @@
+.form-calculate__label {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.form-calculate__select {
+  color: var(--color-form-control);
+  font-size: 14px;
+  height: calc(2.715em + 2px);
+  padding: .4rem .75rem;  
+}
+
+.form-calculate__button {
+  font-size: 18px;
+  padding: .75rem;
+}
+
+@media(max-width: 670px) {
+  .form-calculate__button {
+    font-size: 16px;
+    padding: .75rem;
+  }
+}

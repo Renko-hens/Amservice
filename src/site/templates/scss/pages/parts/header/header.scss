@@ -155,6 +155,10 @@
   transition: color 0.16s;
 }
 
+.main-header__nav-link--active {
+  color: var(--color-primary);
+}
+
 .main-header__info-text {
   display: flex;
   justify-content: flex-end;

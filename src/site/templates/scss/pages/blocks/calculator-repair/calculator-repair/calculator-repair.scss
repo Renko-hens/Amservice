@@ -1,0 +1,23 @@
+.calculator-repair {
+  color: var(--color-text-light);
+  padding: 0 24px;
+}
+
+.calculator-repair__container {
+  max-width: 940px; 
+
+  padding: 24px;
+
+  background-color: var(--color-primary);
+  border-radius: 12px;
+}
+
+.calculator-repair__title {
+  font-size: 36px;
+}
+
+@media(max-width: 768px) {
+  .calculator-repair__title {
+    font-size: 28px;
+  }
+}
