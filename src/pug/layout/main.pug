@@ -4,6 +4,7 @@ block variables
 doctype html
 html(
   lang = "ru"
+  class = "am-service"
 )
   head
     meta(
@@ -25,9 +26,7 @@ html(
     title #{title}
     block head
 
-  body(
-    class = pageClass
-    )
+  body
     include ../inc/modules/header
 
     main(

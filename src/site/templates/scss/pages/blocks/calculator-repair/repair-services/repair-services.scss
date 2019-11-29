@@ -1,0 +1,47 @@
+.repair-services {
+  max-height: 782px;
+  overflow: hidden;
+}
+
+.repair-services__list {
+  background-color: var(--color-calculator);
+  border-radius: 12px;
+  max-height: 782px;
+  overflow: auto;
+}
+
+.repair-services__list::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 7px;
+}
+
+.repair-services__list::-webkit-scrollbar-thumb {
+	border-radius: 2px;
+	background-color: rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0 1px rgba(255,255,255,0.5);
+}
+
+.repair-services__item {
+  line-height: 1.4;
+}
+
+.repair-services__item:hover {
+  color: var(--color-text-light);
+}
+
+.repair-services__item:hover {
+  background-color: var(--color-primary);
+}
+
+.repair-services__checkbox-wrapper {
+  flex-basis: calc(5% - 8px);
+}
+
+.repair-services__description-wrapper {
+  flex-basis: calc(75% - 8px);
+}
+
+.repair-services__price-wrapper {
+  flex-basis: calc(20% - 8px);
+}
+
