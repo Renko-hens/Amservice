@@ -1,36 +1,26 @@
-.repair-services {
-  max-height: 782px;
-  overflow: hidden;
+.repair-services__wrapper-list {
+  max-height: 736px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  padding-right: 0;
 }
 
 .repair-services__list {
   background-color: var(--color-calculator);
   border-radius: 12px;
-  max-height: 782px;
-  overflow: auto;
-}
-
-.repair-services__list::-webkit-scrollbar {
-	-webkit-appearance: none;
-	width: 7px;
-}
-
-.repair-services__list::-webkit-scrollbar-thumb {
-	border-radius: 2px;
-	background-color: rgba(0,0,0,0.5);
-	-webkit-box-shadow: 0 0 1px rgba(255,255,255,0.5);
 }
 
 .repair-services__item {
   line-height: 1.4;
 }
 
-.repair-services__item:hover {
-  color: var(--color-text-light);
-}
+// .repair-services__item:hover {
+//   color: var(--color-text-light);
+// }
 
 .repair-services__item:hover {
-  background-color: var(--color-primary);
+  background-color: #C6CAD8;
 }
 
 .repair-services__checkbox-wrapper {

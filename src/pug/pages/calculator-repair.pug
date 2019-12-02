@@ -134,7 +134,7 @@ block content
       )
         //- Категории
         div(
-          class = "form-summary__block categories col-12 col-sm-4"
+          class = "form-summary__block categories col-12 col-md-4"
         )
           div(
             class = "form-summary__header-wrapper"
@@ -142,143 +142,150 @@ block content
             h2(
               class = "form-summary__main-title title"
             ) Категории
-          ul(
-            class = "form-summary__list-categories categories__list"
-          ) 
-            - for (var i = 0; i < x; i++)
-                li(
-                class = "form-summary__item-categories categories__item"
-                )
-                  button(
-                    class = "form-summary__button-category categories__button"
+
+          div(
+            class = "form-summary__wrapper-list"
+          )
+            ul(
+              class = "form-summary__list-categories categories__list"
+            ) 
+              - for (var i = 0; i < x; i++)
+                  li(
+                  class = "form-summary__item-categories categories__item"
                   )
-                    div(
-                      class = "categories__picture-wrapper"
+                    button(
+                      class = "form-summary__button-category categories__button"
                     )
-                      img(
-                        src = "/site/templates/img/diagnostick.svg"
-                        class = "categories__image"
+                      div(
+                        class = "categories__picture-wrapper"
                       )
-                    
-                    div(
-                      class = "categories__title-wrapper"
-                    )
-                      h3(
-                        class = "categories__title-category"
-                      ) 
-                        | !{itemsCategory[i]}
-                
+                        img(
+                          src = "/site/templates/img/diagnostick.svg"
+                          class = "categories__image"
+                        )
+                      
+                      div(
+                        class = "categories__title-wrapper"
+                      )
+                        h3(
+                          class = "categories__title-category"
+                        ) 
+                          | !{itemsCategory[i]}
+                  
         //- Услуги
         div(
-          class = "form-summary__block repair-services  col-12 col-sm-4"
+          class = "form-summary__block repair-services  col-12 col-md-4"
         )
           div(
-            class = "form-summary__header-wrapper"
+            class = "form-summary__header-wrapper col-12"
           )
             h2(
               class = "form-summary__main-title title"
             ) Услуги
 
-          ul(
-            class = "form-summary__list repair-services__list"
+          div(
+            class = "form-summary__wrapper-list repair-services__wrapper-list col-12"
           )
-            - for (var i = 0; i < x; i++)
-              li(
-                class = "form-summary__item repair-services__item"
-              )
-                div(
-                  class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
-                ) 
-                  label(
-                    class = "form-summary__label"
-                  )
-                    input(
-                      class = "form-summary__checkbox repair-services__checkbox"
-                      type="checkbox" 
+            ul(
+              class = "form-summary__list repair-services__list"
+            )
+              - for (var i = 0; i < x; i++)
+                li(
+                  class = "form-summary__item repair-services__item"
+                )
+                  div(
+                    class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
+                  ) 
+                    label(
+                      class = "form-summary__label"
                     )
-                    div(
-                      class = "form-summary__checkbox-text"
-                    )
-                
-                div(
-                  class = "form-summary__description-wrapper repair-services__description-wrapper"
-                )
-                  p(
-                    class = "form-summary__description repair-services__description"
-                  ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
-                
-                div(
-                  class = "form-summary__price-wrapper repair-services__price-wrapper"
-                )
-                  p(
-                    class = "form-summary__price repair-services__price"
-                  ) 12 245 ₽
-
-              li(
-                class = "form-summary__item repair-services__item"
-              )
-                div(
-                  class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
-                )
-                  label(
-                    class = "form-summary__label"
-                  )
-                    input(
-                      class = "form-summary__checkbox repair-services__checkbox"
-                      type="checkbox" 
-                    )
-                    div(
-                      class = "form-summary__checkbox-text"
-                    )
-                
-                div(
-                  class = "form-summary__description-wrapper repair-services__description-wrapper"
-                )
-                  p(
-                    class = "form-summary__description repair-services__description"
-                  ) Motor FIT + расширенная диагностик ДВС и электронных систем
-                
-                div(
-                  class = "form-summary__price-wrapper repair-services__price-wrapper"
-                )
-                  p(
-                    class = "form-summary__price repair-services__price"
-                  ) 12 245 ₽
+                      input(
+                        class = "form-summary__checkbox repair-services__checkbox"
+                        type="checkbox" 
+                      )
+                      div(
+                        class = "form-summary__checkbox-text"
+                      )
                   
-              li(
-                class = "form-summary__item repair-services__item"
-              )
-                div(
-                  class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
-                )
-                  label(
-                    class = "form-summary__label"
+                  div(
+                    class = "form-summary__description-wrapper repair-services__description-wrapper"
                   )
-                    input(
-                      class = "form-summary__checkbox repair-services__checkbox"
-                      type = "checkbox" 
-                    )
-                    div(
-                      class = "form-summary__checkbox-text"
-                    )
-                
-                div(
-                  class = "form-summary__description-wrapper repair-services__description-wrapper"
+                    p(
+                      class = "form-summary__description repair-services__description"
+                    ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
+                  
+                  div(
+                    class = "form-summary__price-wrapper repair-services__price-wrapper"
+                  )
+                    p(
+                      class = "form-summary__price repair-services__price"
+                    ) 12&nbsp;245&nbsp;₽
+
+                li(
+                  class = "form-summary__item repair-services__item"
                 )
-                  p(
-                    class = "form-summary__description repair-services__description"
-                  ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
-                
-                div(
-                  class = "form-summary__price-wrapper repair-services__price-wrapper"
+                  div(
+                    class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
+                  )
+                    label(
+                      class = "form-summary__label"
+                    )
+                      input(
+                        class = "form-summary__checkbox repair-services__checkbox"
+                        type="checkbox" 
+                      )
+                      div(
+                        class = "form-summary__checkbox-text"
+                      )
+                  
+                  div(
+                    class = "form-summary__description-wrapper repair-services__description-wrapper"
+                  )
+                    p(
+                      class = "form-summary__description repair-services__description"
+                    ) Motor FIT + расширенная диагностик ДВС и электронных систем
+                  
+                  div(
+                    class = "form-summary__price-wrapper repair-services__price-wrapper"
+                  )
+                    p(
+                      class = "form-summary__price repair-services__price"
+                    ) 12&nbsp;245&nbsp;₽
+                    
+                li(
+                  class = "form-summary__item repair-services__item"
                 )
-                  p(
-                    class = "form-summary__price repair-services__price"
-                  ) 12&nbsp;245&nbsp;₽
+                  div(
+                    class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
+                  )
+                    label(
+                      class = "form-summary__label"
+                    )
+                      input(
+                        class = "form-summary__checkbox repair-services__checkbox"
+                        type = "checkbox" 
+                      )
+                      div(
+                        class = "form-summary__checkbox-text"
+                      )
+                  
+                  div(
+                    class = "form-summary__description-wrapper repair-services__description-wrapper"
+                  )
+                    p(
+                      class = "form-summary__description repair-services__description"
+                    ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
+                  
+                  div(
+                    class = "form-summary__price-wrapper repair-services__price-wrapper"
+                  )
+                    p(
+                      class = "form-summary__price repair-services__price"
+                    ) 12&nbsp;245&nbsp;₽
 
         //- Выбранные услуги
         div(
-          class = "form-summary__block selected-services  col-12 col-sm-4"
+          class = "form-summary__block selected-services  col-12 col-md-4"
         )
           div(
             class = "form-summary__header-wrapper"
@@ -287,104 +294,108 @@ block content
               class = "form-summary__main-title title"
             ) Выбранные услуги
 
-          ul(
-            class = "form-summary__list services__list"
+          div(
+            class = "form-summary__wrapper-list selected-services__wrapper-list col-12"
           )
-            li(
-              class = "form-summary__item services__item"
+            ul(
+              class = "form-summary__list selected-services__list"
             )
-              div(
-                class = "form-summary__checkbox-wrapper selected-services__checkbox-wrapper"
-              )
-                label(
-                  class = "form-summary__label"
+              - for (var i = 0; i < 1; i++)
+                li(
+                  class = "form-summary__item selected-services__item"
                 )
-                  input(
-                    class = "form-summary__checkbox repair-services__checkbox"
-                    type="checkbox"
-                    checked 
-                  )
                   div(
-                    class = "form-summary__checkbox-text"
+                    class = "form-summary__checkbox-wrapper selected-services__checkbox-wrapper"
                   )
-              
-              div(
-                class = "form-summary__description-wrapper selected-services__description-wrapper"
-              )
-                p(
-                  class = "form-summary__description selected-services__description"
-                ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
-              
-              div(
-                class = "form-summary__price-wrapper selected-services__price-wrapper"
-              )
-                p(
-                  class = "form-summary__price selected-services__price"
-                ) 12 245 ₽
-                
-            li(
-              class = "form-summary__item selected-services__item"
-            )
-              div(
-                class = "form-summary__checkbox-wrapper selected-services__checkbox-wrapper"
-              )
-                label(
-                  class = "form-summary__label"
+                    label(
+                      class = "form-summary__label"
+                    )
+                      input(
+                        class = "form-summary__checkbox repair-services__checkbox"
+                        type="checkbox"
+                        checked 
+                      )
+                      div(
+                        class = "form-summary__checkbox-text"
+                      )
+                  
+                  div(
+                    class = "form-summary__description-wrapper selected-services__description-wrapper"
+                  )
+                    p(
+                      class = "form-summary__description selected-services__description"
+                    ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
+                  
+                  div(
+                    class = "form-summary__price-wrapper selected-services__price-wrapper"
+                  )
+                    p(
+                      class = "form-summary__price selected-services__price"
+                    ) 12&nbsp;245&nbsp;₽
+                    
+                li(
+                  class = "form-summary__item selected-services__item"
                 )
-                  input(
-                    class = "form-summary__checkbox repair-services__checkbox"
-                    type="checkbox"
-                    checked 
-                  )
                   div(
-                    class = "form-summary__checkbox-text"
+                    class = "form-summary__checkbox-wrapper selected-services__checkbox-wrapper"
                   )
+                    label(
+                      class = "form-summary__label"
+                    )
+                      input(
+                        class = "form-summary__checkbox repair-services__checkbox"
+                        type="checkbox"
+                        checked 
+                      )
+                      div(
+                        class = "form-summary__checkbox-text"
+                      )
 
-              div(
-                class = "form-summary__description-wrapper selected-services__description-wrapper"
-              )
-                p(
-                  class = "form-summary__description selected-services__description"
-                ) Motor FIT + расширенная диагностик ДВС и электронных систем
-              
-              div(
-                class = "form-summary__price-wrapper selected-services__price-wrapper"
-              )
-                p(
-                  class = "form-summary__price selected-services__price"
-                ) 12 245 ₽
-                
-            li(
-              class = "form-summary__item selected-services__item"
-            )
-              div(
-                class = "form-summary__checkbox-wrapper selected-services__checkbox-wrapper"
-              )
-                label(
-                  class = "form-summary__label"
-                )
-                  input(
-                    class = "form-summary__checkbox repair-services__checkbox"
-                    type="checkbox"
-                    checked 
-                  )
                   div(
-                    class = "form-summary__checkbox-text"
+                    class = "form-summary__description-wrapper selected-services__description-wrapper"
                   )
-              
-              div(
-                class = "form-summary__description-wrapper selected-services__description-wrapper"
-              )
-                p(
-                  class = "form-summary__description selected-services__description"
-                ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
-              
-              div(
-                class = "form-summary__price-wrapper selected-services__price-wrapper"
-              )
-                p(
-                  class = "form-summary__price selected-services__price"
-                ) 12 245 ₽
+                    p(
+                      class = "form-summary__description selected-services__description"
+                    ) Motor FIT + расширенная диагностик ДВС и электронных систем
+                  
+                  div(
+                    class = "form-summary__price-wrapper selected-services__price-wrapper"
+                  )
+                    p(
+                      class = "form-summary__price selected-services__price"
+                    ) 12&nbsp;245&nbsp;₽
+                    
+                li(
+                  class = "form-summary__item selected-services__item"
+                )
+                  div(
+                    class = "form-summary__checkbox-wrapper selected-services__checkbox-wrapper"
+                  )
+                    label(
+                      class = "form-summary__label"
+                    )
+                      input(
+                        class = "form-summary__checkbox repair-services__checkbox"
+                        type="checkbox"
+                        checked 
+                      )
+                      div(
+                        class = "form-summary__checkbox-text"
+                      )
+                  
+                  div(
+                    class = "form-summary__description-wrapper selected-services__description-wrapper"
+                  )
+                    p(
+                      class = "form-summary__description selected-services__description"
+                    ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
+                  
+                  div(
+                    class = "form-summary__price-wrapper selected-services__price-wrapper"
+                  )
+                    p(
+                      class = "form-summary__price selected-services__price"
+                    ) 12&nbsp;245&nbsp;₽
 
       //- Итого 
       div(
@@ -401,7 +412,7 @@ block content
           class = "form-summmary__controls"
         )
           button(
-            class = "form-summary__button-sign btn btn-primary"
+            class = "form-summary__button-sign btn btn-primary  col-12 col-sm-5 col-md-3"
             data-toggle="modal" 
             data-target="#exampleModalCenter"
           ) Записаться на сервис
@@ -442,7 +453,7 @@ block content
         )
           p(
             class = "form-summary__rules-text"
-          ) 5. Окончательная стоимость работ и материалов, формируется после осмотра и дефектации транспортного средства в условиях автосервиса "Крас и Ко".
+          ) 5. Окончательная стоимость работ и материалов, формируется после осмотра и дефектации транспортного средства в условиях автосервиса.
 
         li(
           class = "form-summary__rules-item"

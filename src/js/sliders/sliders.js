@@ -2,12 +2,7 @@ $('.loop').owlCarousel({
   items:2,
   center: true,
   margin: 24,
-  loop:true,
-  lazyLoad: true,
-  autoWidth: true,
-  autoplay:true,
-  autoplayTimeout: 3000,
-  autoplayHoverPause:true,
+  loop: true,
   responsive:{
     0:{
       items: 1,
@@ -15,7 +10,11 @@ $('.loop').owlCarousel({
       touchDrag: true 
     },
     940:{
-      items: 2
+      items: 2,
+      autoWidth: true,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      autoplayHoverPause:true,
     }
   }
 });
