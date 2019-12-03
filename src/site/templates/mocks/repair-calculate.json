@@ -1,40 +1,44 @@
 {
-  "id": 222,
+  "id": 0,
   "name": "Категория",
 
   "categories": [
     {
-      "id": 0,
-      "name": "diagnostic",
+      "id": 111,
+      "name": "Диагностика",
+
       "services": [
         {
-          "id": 0,
-          "name": "clean",
+          "id": 221,
+          "name": "Диагностика экрана",
           "price": 2000
         },
         {
-          "id": 0,
-          "name": "diagnostic",
+          "id": 222,
+          "name": "Мощность",
           "price": 2000
         }
       ]
+      
     },
 
     {
-      "id": 0,
-      "name": "diagnostic",
+      "id": 112,
+      "name": "Дополнительное оборудование",
+
       "services": [
         {
-          "id": 0,
-          "name": "clean",
+          "id": 221,
+          "name": "Ручка руля",
           "price": 2000
         },
         {
-          "id": 0,
-          "name": "diagnostic",
+          "id": 222,
+          "name": "Асак",
           "price": 2000
         }
       ]
+
     }
   ]
 }

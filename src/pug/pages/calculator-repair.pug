@@ -9,6 +9,59 @@ block variables
   - var itemsCategory = ['Диагностика', 'Дополнительное оборудование', 'Тормозная система','Ходовая (подвеска)','Трансмиссия (сцепление)','Рулевое управление','Электрика', 'Топливная система', 'Трансмиссия (сцепление)', 'Рулевое управление', 'Электрика', 'Топливная система', '13', '14']
 
 block content
+  div(
+    class = "breadcrumbs"
+  )
+    ol(
+      class = "breadcrumbs__container container container--custom"
+    )
+      li(
+        class = "breadcrumbs__item"
+        itemprop="itemListElement" 
+        itemscope
+      )
+        a(
+          class = "breadcrumbs__link link"
+          itemprop="item" 
+          href="/"
+        )
+          span(
+            class = "breadcrumbs__text"
+            itemprop="name"
+          ) Главная
+        
+        p(
+          class = "breadcrumbs__symbol"
+        ) >
+
+        meta(
+          itemprop="position" 
+          content="1"
+        )
+        
+      li(
+        class = "breadcrumbs__item"
+        itemprop="itemListElement" 
+        itemscope
+      )
+        a(
+          class = "breadcrumbs__link link"
+          itemprop="item" 
+        )
+          span(
+            class = "breadcrumbs__text"
+            itemprop="name"
+          ) Ремонт авто
+
+        p(
+          class = "breadcrumbs__symbol"
+        )
+
+        meta(
+          itemprop="position" 
+          content="2"
+        )
+
   section(
     class = "calculator-repair"
   )
@@ -121,7 +174,6 @@ block content
               class = "form-calculate__button btn btn-outline-light col-12 col-sm-3"
               type = "button"
             ) Выбрать услуги
-
 
   section(
     class = "form-summary"
@@ -578,4 +630,4 @@ block content
                 button(
                   type = "button" 
                   class = "btn btn-primary btn-lg form-communication__button col-12 col-sm-7"
-                ) Отправить
+                ) Оставить заявку

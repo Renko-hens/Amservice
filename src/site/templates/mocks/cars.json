@@ -1,0 +1,16 @@
+{
+  "id": 0,
+  "name": "Модели",
+
+  "models": [
+    {
+      "cars": "Tesla"
+    },
+    {
+      "cars": "Lada"
+    },
+    {
+      "cars": "Subaru"
+    }
+  ]
+}

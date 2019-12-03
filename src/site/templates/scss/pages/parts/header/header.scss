@@ -39,8 +39,10 @@
   }
 }
 
-.main-header__logo {
-  max-width: 120px;
+@media (max-width: 768px) {
+  .main-header__logo {
+    max-width: 120px;
+  }
 }
 
 @media (max-width: 528px) {
@@ -51,7 +53,7 @@
 
 @media (min-width: 200px) and (max-width: 425px) {
   .main-header__logo {
-    max-width: 60px;
+    max-width: 80px;
   }
 }
 
@@ -151,7 +153,7 @@
 
 .main-header__nav-link:hover,
 .main-header__nav-link:focus {
-  color: var(--color-text-hover);
+  color: var(--color-secondary);
   transition: color 0.16s;
 }
 
@@ -163,7 +165,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  flex-basis: 30%;
+  flex-basis: 33%;
 }
 
 @media (max-width: 768px) {
