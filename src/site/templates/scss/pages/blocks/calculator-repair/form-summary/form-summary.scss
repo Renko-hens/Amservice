@@ -2,6 +2,10 @@
   margin: 32px 0 54px 0;
 }
 
+.lel {
+  max-width: 2px;
+}
+
 .form-summary__wrapper {
   margin-bottom: 32px;
 }
@@ -108,8 +112,8 @@
   width: 11px;
   height: 5px;
   border-radius: 1px;
-  border-left: 2px solid var(--color-calculator-hover);
-  border-bottom: 2px solid var(--color-calculator-hover);
+  border-left: 2px solid var(--color-form-control);
+  border-bottom: 2px solid var(--color-form-control);
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
