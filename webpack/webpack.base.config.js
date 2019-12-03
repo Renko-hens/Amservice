@@ -130,6 +130,14 @@ module.exports = {
       exclude: "/node_modules/"
     },
     {
+      test: /\.(json)$/,
+      loader: "file-loader",
+      options: {
+        name: "[name].[ext]"
+      },
+      exclude: "/node_modules/"
+    },
+    {
       test: /\.(woff(2)?|ttf|eot|svg)/,
       loader: "file-loader",
       options: {
@@ -163,6 +171,7 @@ module.exports = {
       // Копируем файлы и отправляем их в dist
       { from: `${PATHS.src}/${PATHS.site}img`, to: `${PATHS.site}img` },
       { from: `${PATHS.src}/${PATHS.site}fonts`, to: `${PATHS.site}fonts` },
+      { from: `${PATHS.src}/${PATHS.site}mocks`, to: `${PATHS.site}mocks` },
       { from: `${PATHS.src}/static`, to: "" },
     ]),
     // pug файлы все проверяет

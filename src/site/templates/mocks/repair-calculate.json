@@ -1,0 +1,40 @@
+{
+  "id": 222,
+  "name": "Категория",
+
+  "categories": [
+    {
+      "id": 0,
+      "name": "diagnostic",
+      "services": [
+        {
+          "id": 0,
+          "name": "clean",
+          "price": 2000
+        },
+        {
+          "id": 0,
+          "name": "diagnostic",
+          "price": 2000
+        }
+      ]
+    },
+
+    {
+      "id": 0,
+      "name": "diagnostic",
+      "services": [
+        {
+          "id": 0,
+          "name": "clean",
+          "price": 2000
+        },
+        {
+          "id": 0,
+          "name": "diagnostic",
+          "price": 2000
+        }
+      ]
+    }
+  ]
+}
