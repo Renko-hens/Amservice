@@ -155,3 +155,165 @@ body {
 .btn-primary {
   background-color: var(--color-primary);
 }
+
+.banner {
+  margin-bottom: 40px;
+}
+
+.banner__wrapper-image {
+  display: flex;
+  justify-content: center;
+
+  max-width: 940px;
+  max-height: 400px;
+}
+
+.banner__image {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.text {
+  margin: 40px 0;
+}
+
+.text__container h2 {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.text__container h3 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.text__container h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.text__container p {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.text__container p span {
+  font-size: 16px;
+}
+
+.text__container ol li:not(:first-child) {
+  list-style: decimal;
+  margin-left: 24px;
+}
+
+.text__container ul li:not(:first-child) {
+  list-style-image: url('/site/templates/img/dot-in-a-circle.svg');
+  margin-left: 24px;
+}
+
+.text__container ol li p ,
+.text__container ul li p {
+  font-size: 16px;
+}
+
+
+// table
+
+.table-universal {
+  margin: 40px 0;
+}
+
+.table-universal__container {
+  overflow-y: auto;
+}
+
+.table-universal table {
+  width: 100%;
+}
+
+table {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.table-universal thead th {
+  border: none;
+}
+
+.table-universal td {
+  padding: 18px;
+  vertical-align: top;
+  border-top: 0;
+  border-bottom: 1px solid #C6CAD8;
+}
+
+.table-universal th {
+  padding: 24px;
+}
+
+.table-universal td ,
+.table-universal th {
+  vertical-align: top;
+  border-top: 0;
+  border-bottom: 1px solid #C6CAD8;
+}
+
+.table-universal thead th {
+  vertical-align: middle;
+}
+
+th {
+background: #E9EBF2;
+color: #343B4C;
+padding: 10px 20px;
+font-weight: 600;
+font-size: 16px;
+}
+
+td {
+border-style: solid;
+border-width: 0 1px 1px 0;
+border-color: white;
+}
+
+th:first-child, td:first-child {
+text-align: left;
+}
+
+th:first-child {
+border-top-left-radius: 12px;
+border-bottom-left-radius: 12px;
+}
+
+th:last-child {
+border-top-right-radius: 12px;
+border-bottom-right-radius: 12px;
+}
+
+td {
+padding: 10px 20px;
+background: #ffffff;
+}
+
+tr:last-child td:first-child {
+border-radius: 0 0 0 10px;
+}
+
+tr:last-child td:last-child {
+border-radius: 0 0 10px 0;
+}
+
+tr td:last-child {
+border-right: none;
+}
+
+.table-universal p {
+  color: #8D96B2;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+}

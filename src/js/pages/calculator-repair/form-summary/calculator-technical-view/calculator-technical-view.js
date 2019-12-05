@@ -2,9 +2,9 @@ const calculatorRepair = document.querySelector('.calculator-repair');
 const calculatorRepairContainer = document.querySelector('.calculator-repair__container');
 const form = document.querySelector('.calculator-repair__form');
 const formResults = document.querySelector('.selected-services__list');
-const select1 = document.querySelector('#formControlSelectMark');
-const select2 = document.querySelector('#formControlSelectModel');
-const select3 = document.querySelector('#formControlSelectYears');
+const repairSelectMark = document.querySelector('#formControlSelectMark');
+const repairSelectModel = document.querySelector('#formControlSelectModel');
+const repairSelectYears = document.querySelector('#formControlSelectYears');
 const contentElement = document.querySelector('.form-summary__wrapper');
 const servicesElement = document.querySelector('.repair-services__list');
 const resultsElement = document.querySelector('.selected-services__list');
@@ -255,7 +255,7 @@ const getBrands = () => {
         return option;
       });
     
-      fillSelectElement(select1, options);
+      fillSelectElement(repairSelectMark, options);
     })
     .catch(function(error) {
       console.error(error);
@@ -266,8 +266,8 @@ const getBrands = () => {
 // Запрос на получение списка марок по ID(данные для второго селекта))
 const getModelsById = (id) => {
   if (!id) {
-    emptySelectElement(select2);
-    emptySelectElement(select3);
+    emptySelectElement(repairSelectModel);
+    emptySelectElement(repairSelectYears);
     disabledButton(servicesButtonElement);
     return;
   };
@@ -289,15 +289,15 @@ const getModelsById = (id) => {
     })
     .then(function(json) {
       const options = json.response.map((el) => {
-        cleanSelectElement(select2);
-        emptySelectElement(select3);
+        cleanSelectElement(repairSelectModel);
+        emptySelectElement(repairSelectYears);
         const option = document.createElement('option');
         option.textContent = el.title;
         option.value = el.id;
         return option;
       });
     
-      fillSelectElement(select2, options);
+      fillSelectElement(repairSelectModel, options);
     })
     .catch(function(error) {
       console.error(error);
@@ -308,7 +308,7 @@ const getModelsById = (id) => {
 // Запрос на получение списка Годов по ID марки
 const getYearsById = (id) => {
   if (!id) {
-    emptySelectElement(select3);
+    emptySelectElement(repairSelectYears);
     disabledButton(servicesButtonElement);
     return;
   };
@@ -319,7 +319,7 @@ const getYearsById = (id) => {
       return response.json();
     })
     .then(function(json) {
-      cleanSelectElement(select3);
+      cleanSelectElement(repairSelectYears);
       const options = json.map((el) => {
         const option = document.createElement('option');
         option.textContent = el.year;
@@ -327,7 +327,7 @@ const getYearsById = (id) => {
         return option;
       });
       
-      fillSelectElement(select3, options);
+      fillSelectElement(repairSelectYears, options);
     })
     .catch(function(error) {
       console.error(error);
@@ -335,9 +335,9 @@ const getYearsById = (id) => {
 }
 
 
-select1.addEventListener('change', handleSelect1);
-select2.addEventListener('change', handleSelect2);
-select3.addEventListener('change', handleSelect3);
+repairSelectMark.addEventListener('change', handleSelect1);
+repairSelectModel.addEventListener('change', handleSelect2);
+repairSelectYears.addEventListener('change', handleSelect3);
 form.addEventListener('submit', handleFormSubmit);
 contentElement.addEventListener('click', handleServices);
 formResults.addEventListener('submit', handleResultsFormSubmit);
