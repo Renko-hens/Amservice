@@ -6,7 +6,6 @@ const repairSelectMark = document.querySelector('#formControlSelectMark');
 const repairSelectModel = document.querySelector('#formControlSelectModel');
 const repairSelectYears = document.querySelector('#formControlSelectYears');
 const contentElement = document.querySelector('.form-summary__wrapper');
-const categoriesElement = document.querySelector('.categories__list');
 const servicesElement = document.querySelector('.repair-services__list');
 const resultsElement = document.querySelector('.selected-services__list');
 const servicesButtonElement = document.querySelector('.form-calculate__button');
@@ -64,12 +63,6 @@ const handleSelect3 = (event) => {
 }
 
 
-// const handleFillService = (event) => {
-//   const id = event.target.value;
-//   getServicesById(id);
-// }
-
-
 const cleanSelectElement = (selectElement) => {
   selectElement.innerHTML = '<option value="">Выберите параметры</option>';
 }
@@ -121,102 +114,53 @@ const handleFormSubmit = (event) => {
   let data = {
     model: form.elements.models.value,
     brand: form.elements.brands.value,
-    year: form.elements.years.value
+    year: form.elements.years.value,
+    services: [
+        {
+          id: 221,
+          name: "Диагностика экрана",
+          price: 2000
+        },
+        {
+          id: 222,
+          name: "Мощность",
+          price: 2000
+        }
+      ]
   };
     
-  fetch('http://localhost:8081/site/templates/mocks/repair-calculate-categories.json'
-  // , {
-  //   method: 'POST',
-  //   body: JSON.stringify(data),
-  //   headers: {
-  //     "Content-type": "application/json; charset=UTF-8"
-  //   }
-  // }
-  )
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
   .then(handleErrors)
   .then(response => response.json())
   .then((json) => {
-    categoriesElement.innerHTML = '';
-
-    json.forEach((response) => {
-      categoriesElement.insertAdjacentHTML(
+    servicesElement.innerHTML = '';
+    json.services.forEach((service) => {
+      servicesElement.insertAdjacentHTML(
         'beforeend',
-        `<li class="form-summary__item-categories categories__item value="${response.id}">
-          <button class="form-summary__button-category categories__button"  id="${response.id}-tab" data-toggle="tab" href="#${response.role}" role="tab" aria-controls="${response.role}" aria-selected="true">
-            <div class="categories__picture-wrapper"><img class="categories__image" src="/site/templates/img/diagnostick.svg"></div>
-            <div class="categories__title-wrapper">
-              <h3 class="categories__title-category">${response.name}</h3>
-            </div>
-          </button>
+        `<li class="form-summary__item repair-services__item">
+          <div class="form-summary__checkbox-wrapper repair-services__checkbox-wrapper"> 
+            <label class="form-summary__label">
+              <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" value=${service.id}>
+              <div class="form-summary__checkbox-text"></div>
+            </label>
+          </div>
+          <div class="form-summary__description-wrapper repair-services__description-wrapper">
+            <p class="form-summary__description repair-services__description">${service.name}</p>
+          </div>
+          <div class="form-summary__price-wrapper repair-services__price-wrapper">
+            <p class="form-summary__price repair-services__price">${service.price}₽</p>
+          </div>
         </li>`
       );
-
-      response.forEach((services) => {
-        categoriesElement.insertAdjacentHTML(
-          'beforeend',
-          `<li class="form-summary__item repair-services__item"  id="${services.id}" role="tabpanel" aria-labelledby="${response.role}-tab">
-            <div class="form-summary__checkbox-wrapper repair-services__checkbox-wrapper"> 
-              <label class="form-summary__label">
-                <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" value=${services.id}>
-                <div class="form-summary__checkbox-text"></div>
-              </label>
-            </div>
-            <div class="form-summary__description-wrapper repair-services__description-wrapper">
-              <p class="form-summary__description repair-services__description">${services.name}</p>
-            </div>
-            <div class="form-summary__price-wrapper repair-services__price-wrapper">
-              <p class="form-summary__price repair-services__price">${services.price}₽</p>
-            </div>
-          </li>`
-        );
-      });
-
-      // categoriesElement.addEventListener('click', handleFillService);
-    });
-  })
-  .then(() => {
-    deleteLoader(calculatorRepairContainer)
-  })
-  .catch((error) => {
-    console.error(error);
-  })
-}
-
-
-// Отправка данных селектов и создание чекбоксов на основе полученных данных 
-const handleFormSubmit = (event) => {
-  event.preventDefault();
-
-  disabledButton(servicesButtonElement)
-  createLoader(calculatorRepair, calculatorRepairContainer);
-  
-  const form = event.target;
+    }
+    );
     
-  fetch('http://localhost:8081/site/templates/mocks/repair-calculate-services.json')
-  .then(handleErrors)
-  .then(response => response.json())
-  .then((json) => {
-    categoriesElement.innerHTML = '';
-
-      response.forEach((services) => {
-        categoriesElement.insertAdjacentHTML(
-          'beforeend',
-          `<li class="form-summary__item repair-services__item"  id="${services.id}" role="tabpanel" aria-labelledby="${response.role}-tab">
-            <div class="form-summary__checkbox-wrapper repair-services__checkbox-wrapper"> 
-              <label class="form-summary__label">
-                <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" value=${services.id}>
-                <div class="form-summary__checkbox-text"></div>
-              </label>
-            </div>
-            <div class="form-summary__description-wrapper repair-services__description-wrapper">
-              <p class="form-summary__description repair-services__description">${services.name}</p>
-            </div>
-            <div class="form-summary__price-wrapper repair-services__price-wrapper">
-              <p class="form-summary__price repair-services__price">${services.price}₽</p>
-            </div>
-          </li>`
-        );
-      });
   })
   .then(() => {
     deleteLoader(calculatorRepairContainer)
@@ -265,6 +209,7 @@ const handleServices = (event) => {
     const value = checkbox.value;
     
     if (checkbox.checked) {
+      checkbox.c
       selectedServices.push(value);
       resultsElement.append(li);
     } else {
@@ -302,37 +247,6 @@ const getBrands = () => {
       console.error(error);
     });
 }
-
-// const getServicesById = (id) => {
-//   fetch(`http://localhost:8081/site/templates/mocks/repair-calculate.json?id=${id}`)
-//     .then(handleErrors)
-//     .then(function(response) {
-//       return response.json();
-//     })
-//     .then((json) => { 
-//       servicesElement.innerHTML = '';
-//       json.response.map((service) => {
-//         servicesElement.insertAdjacentHTML(
-//           'beforeend',
-//           `<li class="form-summary__item repair-services__item">
-//             <div class="form-summary__checkbox-wrapper repair-services__checkbox-wrapper"> 
-//               <label class="form-summary__label">
-//                 <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" value=${service.id}>
-//                 <div class="form-summary__checkbox-text"></div>
-//               </label>
-//             </div>
-//             <div class="form-summary__description-wrapper repair-services__description-wrapper">
-//               <p class="form-summary__description repair-services__description">${service.name}</p>
-//             </div>
-//             <div class="form-summary__price-wrapper repair-services__price-wrapper">
-//               <p class="form-summary__price repair-services__price">${service.price}₽</p>
-//             </div>
-//           </li>`
-//         );
-//       }
-//       );
-//     })
-// }
 
 
 // Запрос на получение списка марок по ID(данные для второго селекта))
@@ -385,17 +299,28 @@ const getYearsById = (id) => {
     return;
   };
   
-  fetch(`http://localhost:8081/site/templates/mocks/years.json?year=${id}`)
+  let dataYears = {
+    "modelID": id
+  };
+
+
+  fetch(`https://amservice.unilead.team/api/calculators/post/calculator_repair/years`, {
+    method: 'POST',
+    body: JSON.stringify(dataYears),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
     .then(handleErrors)
     .then(function(response) {
       return response.json();
     })
     .then(function(json) {
-      cleanSelectElement(repairSelectYears);
-      const options = json.map((el) => {
+      const options = json.response.map((el) => {
+        cleanSelectElement(repairSelectYears);
         const option = document.createElement('option');
-        option.textContent = el.year;
-        option.value = el.id;
+        option.textContent = el;
+        option.value = el;
         return option;
       });
       
