@@ -171,29 +171,30 @@ block content
           )
             ul(
               class = "form-summary__list-categories categories__list"
+              role="tablist"
             ) 
-              - for (var i = 0; i < x; i++)
-                  li(
-                  class = "form-summary__item-categories categories__item"
-                  )
-                    button(
-                      class = "form-summary__button-category categories__button"
-                    )
-                      div(
-                        class = "categories__picture-wrapper"
-                      )
-                        img(
-                          src = "/site/templates/img/diagnostick.svg"
-                          class = "categories__image"
-                        )
+              //- - for (var i = 0; i < x; i++)
+              //-     li(
+              //-     class = "form-summary__item-categories categories__item"
+              //-     )
+              //-       button(
+              //-         class = "form-summary__button-category categories__button"
+              //-       )
+              //-         div(
+              //-           class = "categories__picture-wrapper"
+              //-         )
+              //-           img(
+              //-             src = "/site/templates/img/diagnostick.svg"
+              //-             class = "categories__image"
+              //-           )
                       
-                      div(
-                        class = "categories__title-wrapper"
-                      )
-                        h3(
-                          class = "categories__title-category"
-                        ) 
-                          | !{itemsCategory[i]}
+              //-         div(
+              //-           class = "categories__title-wrapper"
+              //-         )
+              //-           h3(
+              //-             class = "categories__title-category"
+              //-           ) 
+              //-             | !{itemsCategory[i]}
                   
         //- Услуги
         div(
@@ -210,63 +211,63 @@ block content
             class = "form-summary__wrapper-list repair-services__wrapper-list col-12"
           )
             ul(
-              class = "form-summary__list repair-services__list"
+              class = "form-summary__list repair-services__list tab-content"
             )
-              - for (var i = 0; i < x; i++)
-                li(
-                  class = "form-summary__item repair-services__item"
-                )
-                  div(
-                    class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
-                  ) 
-                    label(
-                      class = "form-summary__label"
-                    )
-                      input(
-                        class = "form-summary__checkbox repair-services__checkbox"
-                        type="checkbox" 
-                      )
-                      div(
-                        class = "form-summary__checkbox-text"
-                      )
+              //- - for (var i = 0; i < x; i++)
+              //-   li(
+              //-     class = "form-summary__item repair-services__item"
+              //-   )
+              //-     div(
+              //-       class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
+              //-     ) 
+              //-       label(
+              //-         class = "form-summary__label"
+              //-       )
+              //-         input(
+              //-           class = "form-summary__checkbox repair-services__checkbox"
+              //-           type="checkbox" 
+              //-         )
+              //-         div(
+              //-           class = "form-summary__checkbox-text"
+              //-         )
                   
-                  div(
-                    class = "form-summary__description-wrapper repair-services__description-wrapper"
-                  )
-                    p(
-                      class = "form-summary__description repair-services__description"
-                    ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
+              //-     div(
+              //-       class = "form-summary__description-wrapper repair-services__description-wrapper"
+              //-     )
+              //-       p(
+              //-         class = "form-summary__description repair-services__description"
+              //-       ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
                   
-                  div(
-                    class = "form-summary__price-wrapper repair-services__price-wrapper"
-                  )
-                    p(
-                      class = "form-summary__price repair-services__price"
-                    ) 12&nbsp;245&nbsp;₽
+              //-     div(
+              //-       class = "form-summary__price-wrapper repair-services__price-wrapper"
+              //-     )
+              //-       p(
+              //-         class = "form-summary__price repair-services__price"
+              //-       ) 12&nbsp;245&nbsp;₽
 
-                li(
-                  class = "form-summary__item repair-services__item"
-                )
-                  div(
-                    class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
-                  )
-                    label(
-                      class = "form-summary__label"
-                    )
-                      input(
-                        class = "form-summary__checkbox repair-services__checkbox"
-                        type="checkbox" 
-                      )
-                      div(
-                        class = "form-summary__checkbox-text"
-                      )
+              //-   li(
+              //-     class = "form-summary__item repair-services__item"
+              //-   )
+              //-     div(
+              //-       class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
+              //-     )
+              //-       label(
+              //-         class = "form-summary__label"
+              //-       )
+              //-         input(
+              //-           class = "form-summary__checkbox repair-services__checkbox"
+              //-           type="checkbox" 
+              //-         )
+              //-         div(
+              //-           class = "form-summary__checkbox-text"
+              //-         )
                   
-                  div(
-                    class = "form-summary__description-wrapper repair-services__description-wrapper"
-                  )
-                    p(
-                      class = "form-summary__description repair-services__description"
-                    ) Motor FIT + расширенная диагностик ДВС и электронных систем
+              //-     div(
+              //-       class = "form-summary__description-wrapper repair-services__description-wrapper"
+              //-     )
+              //-       p(
+              //-         class = "form-summary__description repair-services__description"
+              //-       ) Motor FIT + расширенная диагностик ДВС и электронных систем
 
         //- Выбранные услуги
         div(
