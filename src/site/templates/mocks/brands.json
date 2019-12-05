@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "brand": "CyberTruck"
+  },
+  {
+    "id": 2,
+    "brand": "Model S"
+  },
+  {
+    "id": 3,
+    "brand": "Model X"
+  },
+  {
+    "id": 4,
+    "brand": "Model T"
+  }
+]
