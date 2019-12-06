@@ -6,11 +6,15 @@ const repairSelectMark = document.querySelector('#formControlSelectMark');
 const repairSelectModel = document.querySelector('#formControlSelectModel');
 const repairSelectYears = document.querySelector('#formControlSelectYears');
 const contentElement = document.querySelector('.form-summary__wrapper');
+const categoriesElement = document.querySelector('.form-summary__list-categories');
 const servicesElement = document.querySelector('.repair-services__list');
 const resultsElement = document.querySelector('.selected-services__list');
 const servicesButtonElement = document.querySelector('.form-calculate__button');
 const selectedServices = [];
 
+const prostoOBJECT = {
+  
+}
 
 // Проверка на то что запрос не пидр
 const handleErrors = (response) => {
@@ -102,51 +106,93 @@ const deleteLoader = (lastChild) => {
 }
 
 
+
 // Отправка данных селектов и создание чекбоксов на основе полученных данных 
 const handleFormSubmit = (event) => {
+  event.preventDefault();
+
+  disabledButton(servicesButtonElement);
+
+    // const form = event.target;
+  
+    // let data = {
+      // model: form.elements.models.value,
+      // brand: form.elements.brands.value,
+      // year: form.elements.years.value,
+    // };
+    
+  fetch('http://localhost:8081/site/templates/mocks/repair-calculate-categories.json'
+  // ,{
+  //   method: 'POST',
+  //   body: JSON.stringify(data),
+  //   headers: {
+  //     "Content-type": "application/json; charset=UTF-8"
+  //   }
+  // }
+  )
+  .then(handleErrors)
+  .then(response => response.json())
+  
+  .then((json) => {
+    categoriesElement.innerHTML = '';
+    json.forEach((category) => {
+      categoriesElement.insertAdjacentHTML(
+        'beforeend',
+        `<li class="form-summary__item-categories categories__item">
+          <button class="form-summary__button-category categories__button" data-id=${category.id}>
+            <div class="categories__picture-wrapper"><img class="categories__image" src="/site/templates/img/diagnostick.svg"></div>
+            <div class="categories__title-wrapper">
+              <h3 class="categories__title-category">${category.name}</h3>
+            </div>
+          </button>
+        </li>`
+      );
+    }
+    );
+  })
+  .catch((error) => {
+    console.error(error);
+  })
+}
+
+
+// Отправка данных селектов и создание чекбоксов на основе полученных данных 
+const handleCategoryClick = (event) => {
   event.preventDefault();
 
   disabledButton(servicesButtonElement)
   createLoader(calculatorRepair, calculatorRepairContainer);
   
-  const form = event.target;
-  
-  let data = {
-    model: form.elements.models.value,
-    brand: form.elements.brands.value,
-    year: form.elements.years.value,
-    services: [
-        {
-          id: 221,
-          name: "Диагностика экрана",
-          price: 2000
-        },
-        {
-          id: 222,
-          name: "Мощность",
-          price: 2000
-        }
-      ]
-  };
+  // const buttonId = event.target.closest('button.form-summary__button-category');
+
+  // let data = {
+  //   model: form.elements.models.value,
+  //   brand: form.elements.brands.value,
+  //   year: form.elements.years.value,
+  //   id : buttonId.dataset.id
+  // };
     
-  fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
-  })
+  fetch('http://localhost:8081/site/templates/mocks/repair-calculate-services.json'
+  // , {
+  //   method: 'POST',
+  //   body: JSON.stringify(data),
+  //   headers: {
+  //     "Content-type": "application/json; charset=UTF-8"
+  //   }
+  // }
+  )
   .then(handleErrors)
   .then(response => response.json())
   .then((json) => {
     servicesElement.innerHTML = '';
-    json.services.forEach((service) => {
+    console.log(json);
+    json.map((service) => {
       servicesElement.insertAdjacentHTML(
         'beforeend',
-        `<li class="form-summary__item repair-services__item">
+        `<li class="form-summary__item repair-services__item" data-id="${service.id}">
           <div class="form-summary__checkbox-wrapper repair-services__checkbox-wrapper"> 
             <label class="form-summary__label">
-              <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" value=${service.id}>
+              <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" value=${service.model}>
               <div class="form-summary__checkbox-text"></div>
             </label>
           </div>
@@ -160,7 +206,6 @@ const handleFormSubmit = (event) => {
       );
     }
     );
-    
   })
   .then(() => {
     deleteLoader(calculatorRepairContainer)
@@ -209,7 +254,6 @@ const handleServices = (event) => {
     const value = checkbox.value;
     
     if (checkbox.checked) {
-      checkbox.c
       selectedServices.push(value);
       resultsElement.append(li);
     } else {
@@ -338,6 +382,8 @@ repairSelectYears.addEventListener('change', handleSelect3);
 form.addEventListener('submit', handleFormSubmit);
 contentElement.addEventListener('click', handleServices);
 formResults.addEventListener('submit', handleResultsFormSubmit);
+
+categoriesElement.addEventListener("click", handleCategoryClick);
 
 // Браузер полностью загрузил HTML, теперь можно выполнять функции
 document.addEventListener("DOMContentLoaded", getBrands);
