@@ -7,6 +7,59 @@ block variables
 
 block content
 
+  div(
+    class = "breadcrumbs"
+  )
+    ol(
+      class = "breadcrumbs__container container container--custom"
+    )
+      li(
+        class = "breadcrumbs__item"
+        itemprop="itemListElement" 
+        itemscope
+      )
+        a(
+          class = "breadcrumbs__link link"
+          itemprop="item" 
+          href="/"
+        )
+          span(
+            class = "breadcrumbs__text"
+            itemprop="name"
+          ) Главная
+        
+        p(
+          class = "breadcrumbs__symbol"
+        ) >
+
+        meta(
+          itemprop="position" 
+          content="1"
+        )
+        
+      li(
+        class = "breadcrumbs__item"
+        itemprop="itemListElement" 
+        itemscope
+      )
+        a(
+          class = "breadcrumbs__link link"
+          itemprop="item" 
+        )
+          span(
+            class = "breadcrumbs__text"
+            itemprop="name"
+          ) Текст
+
+        p(
+          class = "breadcrumbs__symbol"
+        )
+
+        meta(
+          itemprop="position" 
+          content="2"
+        )
+
   section(
     class = "banner"
   )
@@ -63,12 +116,6 @@ block content
         li
           p Orlando 1.8 XER	1 800	2 935	4 735
 
-  section(
-    class = "table-universal"
-  )
-    div(
-      class ="table-universal__container container container--custom"
-    )
       table
         thead
           tr
@@ -110,7 +157,6 @@ block content
             td GM
       
       p * ТО включает замену масла, масляного фильтра, салонного фильтра, воздушного фильтра, фильтра двигателя, а также контрольный осмотр (подвеска, тормозная система, рулевое, освещение и проверка технических жидкостей).
-
   section(
     class="news"
   ) 

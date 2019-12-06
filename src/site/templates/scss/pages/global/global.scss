@@ -222,47 +222,38 @@ body {
 
 // table
 
-.table-universal {
-  margin: 40px 0;
-}
-
-.table-universal__container {
+.text .text__container table {
+  display: block;
   overflow-y: auto;
-}
-
-.table-universal table {
+  margin: 40px 0;
   width: 100%;
-}
-
-table {
   font-size: 14px;
   text-align: center;
-  margin-bottom: 40px;
 }
 
-.table-universal thead th {
+.text .text__container table thead th {
   border: none;
 }
 
-.table-universal td {
+.text .text__container table td {
   padding: 18px;
   vertical-align: top;
   border-top: 0;
   border-bottom: 1px solid #C6CAD8;
 }
 
-.table-universal th {
+.text .text__container table th {
   padding: 24px;
 }
 
-.table-universal td ,
-.table-universal th {
+.text .text__container table td ,
+.text .text__container table th {
   vertical-align: top;
   border-top: 0;
   border-bottom: 1px solid #C6CAD8;
 }
 
-.table-universal thead th {
+.text .text__container table thead th {
   vertical-align: middle;
 }
 
@@ -311,7 +302,7 @@ tr td:last-child {
 border-right: none;
 }
 
-.table-universal p {
+.text .text__container table + p {
   color: #8D96B2;
   font-size: 14px;
   font-weight: 300;

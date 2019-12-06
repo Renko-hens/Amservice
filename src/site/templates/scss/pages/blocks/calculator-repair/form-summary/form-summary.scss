@@ -2,6 +2,11 @@
   margin: 32px 0 54px 0;
 }
 
+// display: none нужен чтобы по клику показывать данные элементы
+.form-summary__container {
+  display: none; 
+}
+
 .lel {
   max-width: 2px;
 }
