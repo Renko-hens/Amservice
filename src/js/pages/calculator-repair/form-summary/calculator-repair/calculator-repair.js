@@ -19,7 +19,7 @@ const resultsList = document.querySelector('.selected-services__list');
 const servicesButtonElement = document.querySelector('.form-calculate__button');
 
 const selectedServices = [];
-
+const selectedServicesId = [];
 
 
 // Проверка на то что запрос не отправлен
@@ -47,6 +47,10 @@ const emptySelectElement = (selectElement) => {
   selectElement.disabled = true;
 }
 
+//  Очищаем select
+const cleanSelectElement = (selectElement) => {
+  selectElement.innerHTML = '<option value="">Выберите параметры</option>';
+}
 
 //  Включение кнопки
 const includeButton = (buttonElement) => {
@@ -135,6 +139,8 @@ const getModelsById = (id) => {
     .then(handleErrors)
     .then(response => response.json())
     .then(function(json) {
+      cleanSelectElement(repairSelectModel);
+      emptySelectElement(repairSelectYears);
       const options = json.response.map((el) => {
         const option = document.createElement('option');
         option.textContent = el.title;
@@ -172,6 +178,13 @@ const getYearsById = (id) => {
     .then(handleErrors)
     .then(response => response.json())
     .then(function(json) {
+      cleanSelectElement(repairSelectYears);
+      
+      if (json.response == 0) {
+        console.log(json);
+        console.log("ошибка");
+      }
+      
       const options = json.response.map((el) => {
         const option = document.createElement('option');
         option.textContent = el;
@@ -209,6 +222,16 @@ const handleSelect3 = (event) => {
   } else {
     includeButton(servicesButtonElement);
   }
+}
+
+const updateAmount = totalAmmountElement => {  
+
+  // console.log(selectedServices);
+  let summary = selectedServices.reduce((previousValue, currentValue) => {
+    return (+previousValue) + (+currentValue);
+  }, 0);
+
+  totalAmmountElement.textContent = summary + " ₽";
 }
 
 
@@ -296,7 +319,7 @@ const handleCategoryClick = (event) => {
         `<li class="form-summary__item repair-services__item" data-id="${service.id}">
           <div class="form-summary__checkbox-wrapper repair-services__checkbox-wrapper"> 
             <label class="form-summary__label">
-              <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" value=${service.model}>
+              <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" value=${service.price}>
               <div class="form-summary__checkbox-text"></div>
             </label>
           </div>
@@ -323,35 +346,46 @@ const handleCategoryClick = (event) => {
 // Обработка чекбоксов и формирование массива с выбранными значениями
 const handleServices = (event) => {
   const checkbox = event.target.closest('input[type="checkbox"]');
-  
+  const totalAmmount = document.querySelector(".form-summary__value-amount");
+
   if (checkbox != null) {
     const li = checkbox.closest('li');
     const value = checkbox.value;
+    const id = li.dataset.id
     
     if (checkbox.checked) {
       selectedServices.push(value);
+      selectedServicesId.push(id);
+      
       resultsList.append(li);
+
+      updateAmount(totalAmmount);
     } else {
       selectedServices.splice(selectedServices.indexOf(value), 1);
+      selectedServicesId.splice(selectedServices.indexOf(id), 1);
+
       servicesList.append(li);
+
+      updateAmount(totalAmmount);
     }
   };
 }
 
 
+
 // Отправка выбранных чекбоксов и данных пользователя 
 const handleResultsFormSubmit = (event) => {
   event.preventDefault();
-  
-  //  const form = event.target;
-  
-    // let data = {
-  //   name: 'Renko Hens',
-  //   model: form.elements.models.value,
-  //   brand: form.elements.brands.value,
-  //   year: form.elements.years.value,
-  //   services: selectedServices
-  // };
+    
+    let data = {
+    name: formResults.elements.inputName.value,
+    email: formResults.elements.inputEmail.value,
+    phone: formResults.elements.inputPhone.value,
+    id: selectedServicesId,
+    model: form.elements.models.value,
+    brand: form.elements.brands.value,
+    year: form.elements.years.value
+  };
     
   fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',

@@ -5,9 +5,6 @@ block variables
   - var description = "Калькулятор ремонта вашего автомобиля";
   - var pageCLass = "calculator-repair";
 
-  - var x = 12;
-  - var itemsCategory = ['Диагностика', 'Дополнительное оборудование', 'Тормозная система','Ходовая (подвеска)','Трансмиссия (сцепление)','Рулевое управление','Электрика', 'Топливная система', 'Трансмиссия (сцепление)', 'Рулевое управление', 'Электрика', 'Топливная система', '13', '14']
-
 block content
   section(
     class = "calculator-repair"
@@ -339,7 +336,7 @@ block content
         ) Итого : 
           span(
             class = "form-summary__value-amount"
-          ) 18 745 ₽
+          ) 0 ₽
 
         div(
           class = "form-summmary__controls"
@@ -411,7 +408,7 @@ block content
 
       //- Форма записи на сервис
       div(
-        class="modal fade" 
+        class="modal fade record" 
         id="exampleModalCenter" 
         tabindex="-1" 
         role="dialog" 
@@ -426,15 +423,11 @@ block content
             class="modal-content"
           )
             div(
-              class = "modal-header"
+              class = "modal-body record__body"
             )
-              h3(
-                class = "record-title title"
-              ) Запись на сервис
-              
               button(
                 type="button" 
-                class="close" 
+                class="close record__close" 
                 data-dismiss="modal" 
                 aria-label="Close"
               )
@@ -442,56 +435,88 @@ block content
                   aria-hidden="true"
                 ) &times;
 
-            div(
-              class = "modal-body"
-            )
-                
+              //- Форма успешной отправки
+
+              //- div(
+              //-   class = "contact-us__wrapper"
+              //- )
+              //-   div(
+              //-       class = "contact-us__picture-success  mb-4"
+              //-   )
+              //-     img(
+              //-       src = "site/templates/img/check.svg"
+              //-       class = "contact-us__image-success"
+              //-     )
+
+              //-   div(
+              //-     class = "contact-us__text col-sm-12 text-center"
+              //-   )
+              //-     h3(
+              //-       class = "contact-us__text-title title"
+              //-     ) Спасибо!
+
+              //-     p(
+              //-       class = "contact-us__text-description--success"
+              //-     ) Благодарим за оставленную заявку. <br> 
+              //-       |Мы обязательно свяжемся с Вами в ближайшее время.
+
+
+              h3(
+                class = "record__title title"
+              ) Запись на сервис
+              
               form(
                 class = "form-communication"
               )
                 div(
-                  class="form-group form-communication__group"
+                  class="form-group form-communication__group m-0"
                 )
                   label(
-                    class = "form-communication__label" 
-                    for="exampleInputName1"
+                    class = "record__label form-communication__label" 
+                    for="inputName"
                   ) Имя*
 
                   input(
                     type="text" 
                     class="form-control form-communication__input" 
-                    id="exampleInputName1"
+                    id="inputName"
+                    name = "inputName"
                   )
             
                 div(
-                  class="form-group form-communication__group"
+                  class = "form-group form-communication__group m-0"
                 )
                   label(
-                    class = "form-communication__label" 
-                    for = "exampleInputPhone1"
-                  ) Телефон*
-
-                  input(
-                    type = "text" 
-                    class = "form-control form-communication__input" 
-                    id = "exampleInputPhone1"
-                  )
-
-                div(
-                  class = "form-group form-communication__group"
-                )
-                  label(
-                    class = "form-communication__label" 
-                    for = "exampleInputEmail1"
+                    class = " record__label form-communication__label" 
+                    for = "inputEmail1"
                   ) E-mail*
 
                   input(
                     type = "text" 
                     class = "form-control form-communication__input" 
-                    id = "exampleInputEmail1"
+                    id = "inputEmail1"
+                    name = "inputEmail"
                   )
 
-                  div
+                div(
+                  class="form-group form-communication__group m-0"
+                )
+                  label(
+                    class = "record__label form-communication__label" 
+                    for = "inputPhone1"
+                  ) Телефон*
+
+                  input(
+                    type = "text" 
+                    class = "form-control form-communication__input" 
+                    id = "inputPhone1"
+                    name = "inputPhone"
+                  )
+
+
+                  div(
+                    class = "mb-3"
+                  )
                     input(
                       class = "checkbox form-communication__checkbox" 
                       type = "checkbox" 
@@ -500,15 +525,22 @@ block content
                     )
 
                     label(
-                      class = "form-communication__label" 
+                      class = "form-communication__label mb-0" 
                       for = "checkbox1"
                     ) 
                       span(
-                        class = "form-communication__text-checkbox"
-                      ) Даю согласие на обработку своих персональных данных и соглашаюсь 
+                        class = "form-communication__record-checkbox"
+                      ) Даю согласие на обработку своих персональных данных и соглашаюсь <br> 
                         |с политикой конфиденциальности
 
                 button(
                   type = "submit"
-                  class = "btn btn-primary btn-lg form-communication__button col-12 col-sm-7"
+                  class = "btn btn-primary btn-lg form-communication__button col-12 col-sm-7 mb-3"
                 ) Оставить заявку
+
+
+              
+                div
+                  p(
+                    class = "form-communication__required"
+                  ) * - поля, обязательные для заполнения

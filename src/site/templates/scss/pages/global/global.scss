@@ -177,31 +177,44 @@ body {
   margin: 40px 0;
 }
 
-.text__container h2 {
+.text__container h1 {
   font-size: 48px;
   font-weight: 600;
   margin-bottom: 32px;
 }
 
-.text__container h3 {
+.text__container h2 {
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 32px;
 }
 
-.text__container h4 {
+.text__container h3 {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 32px;
 }
 
+.text__container h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
 .text__container p {
-  font-size: 24px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
   margin-bottom: 24px;
 }
 
-.text__container p span {
+.text__container b {
   font-size: 16px;
+  font-weight: 600;
+}
+
+.text__container p span {
+  font-size: 12px;
 }
 
 .text__container ol li:not(:first-child) {
@@ -307,4 +320,62 @@ border-right: none;
   font-size: 14px;
   font-weight: 300;
   line-height: 21px;
+}
+
+
+//  record form 
+
+.record__title {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .record__title {
+    font-size: 18px;
+  } 
+}
+
+.record__body {
+  padding: 32px;
+}
+
+@media (max-width: 564px) {
+  .record__body {
+    padding: 32px 24px;
+  }
+}
+
+.record__close {
+  position: relative;
+  top: -28px;
+  left: 20px;
+}
+
+
+
+@media (max-width: 564px) {
+  .record__close {
+    top: -20px;
+    left: 12px;
+  }
+  
+}
+
+.form-communication__record-checkbox {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text-required);
+}
+
+.form-communication__required {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text-required);
+}
+
+.form-group  .record__label {
+  font-size: 12px;
 }
