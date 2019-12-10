@@ -201,6 +201,18 @@ body {
   margin-bottom: 32px;
 }
 
+.text__container h5 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.text__container h6 {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
 .text__container p {
   font-size: 16px;
   font-weight: 300;
@@ -216,6 +228,49 @@ body {
   font-size: 12px;
 }
 
+.text__container pre {
+  width: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: auto;
+	overflow-y: hidden;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.text__container strong {
+  font-weight: 500;
+}
+
+.text__container em {
+  font-style: italic;
+}
+
+.text__container blockquote {  
+
+  border-top: #999 4px solid;
+  
+  border-bottom: #999 4px solid;
+  
+  font-size: 16px;
+  
+  margin: 12px 50px;  
+  
+  color: #999;
+  
+  padding: 20px;
+  
+  }
+
+.text__container a {
+  text-decoration: none;
+}
+
+.text__container a:hover,
+.text__container a:focus {
+  text-decoration: none;
+}
+
 .text__container ol li {
   list-style: decimal;
   margin-left: 24px;
@@ -224,6 +279,9 @@ body {
 .text__container ul li{
   list-style-image: url('/site/templates/img/dot-in-a-circle.svg');
   margin-left: 24px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
 }
 
 .text__container ol li p ,

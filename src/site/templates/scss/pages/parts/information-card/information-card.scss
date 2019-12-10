@@ -44,9 +44,15 @@
   min-height: 400px;
 }
 
+.information-card__wrapper-text {
+  position: relative;
+  z-index: 2;
+}
+
 .information-card__wrapper-text--darken{
   color: var(--color-text-darken);
 }
+
 
 .information-card__title {
   margin-bottom: 0;
