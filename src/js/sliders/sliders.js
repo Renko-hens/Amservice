@@ -67,3 +67,6 @@ $('.information-cards--slider-stocks').owlCarousel({
     },
   }
 });
+
+
+

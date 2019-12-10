@@ -1,9 +1,10 @@
 // Bootstrap
 import './sliders/sliders';
+// import './pages/forms/main-form';
 
 // Components
 import './components/menu-button';
 
 // Pages 
-import './pages/calculator-repair/form-summary/form-summary';
-import './pages/calculator-repair/form-summary/calculator-repair/calculator-repair';
+import './pages/calculator-repair/calculator-repair';
+import './pages/calculator-technical-view/calculator-technical-view';

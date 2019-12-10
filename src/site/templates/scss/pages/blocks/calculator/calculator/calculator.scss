@@ -1,10 +1,10 @@
-.calculator-repair {
+.calculator {
   position: relative;
   color: var(--color-text-light);
   padding: 0 16px;
 }
 
-.calculator-repair__container {
+.calculator__container {
   max-width: 940px; 
 
   padding: 24px;
@@ -13,14 +13,14 @@
   border-radius: 12px;
 }
 
-.calculator-repair__title {
+.calculator__title {
   line-height: 0.9;
   font-size: 36px;
   margin-bottom: 20px;
 }
 
 @media(max-width: 768px) {
-  .calculator-repair__title {
+  .calculator__title {
     font-size: 28px;
   }
 }

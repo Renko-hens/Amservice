@@ -23,7 +23,7 @@ block content
         )
           a(
             class = "information-card__link payment__link payment__link--calculate-to link d-flex flex-column justify-content-between"
-            href = "/"
+            href = "/calculator-technical-view.html"
           )
             h3(
               class = "information-card__title title "
@@ -508,7 +508,7 @@ block content
       
       //- Форма отправки
       div(
-        class = "contact-us__wrapper contact-us__wrapper--loader row"
+        class = "contact-us__wrapper row"
       )
         div(
           class = "contact-us__text col-sm-7 col-md-6"
@@ -523,6 +523,7 @@ block content
 
           form(
             class = "contact-us__form form-communication"
+            id = "mainForm"
           )
             div(
               class="form-group form-communication__group"
@@ -534,7 +535,7 @@ block content
 
               input(
                 type="text" 
-                class="form-control form-communication__input is-invalid" 
+                class="form-control form-communication__input" 
                 id="exampleInputName1"
               )
         
@@ -593,11 +594,11 @@ block content
           src="https://www.google.com/maps/d/embed?mid=1U3qqAXUGQqlBbl5VQHbB5NeKotN2ClTo" 
         )
       
-      //- Лоадер загрузки
-      div(
-        class="lds-ring"
-      )
-        div
-        div
-        div
-        div
+      //- //- Лоадер загрузки
+      //- div(
+      //-   class="lds-ring"
+      //- )
+      //-   div
+      //-   div
+      //-   div
+      //-   div

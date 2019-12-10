@@ -61,7 +61,7 @@
   display: flex;
   align-items: center;
   flex-basis: 64%;
-  padding: 0 24px;
+  padding: 0 12px 0 24px;
 }
 
 @media (min-width:769px) and (max-width: 1024px) {
@@ -165,7 +165,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  flex-basis: 33%;
+  flex-basis: 32%;
 }
 
 @media (max-width: 768px) {
@@ -223,9 +223,14 @@
 
 @media (max-width: 425px) {
   .main-header__menu-button {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
   }
+}
+
+.main-header__button-svg {
+  width: 24px;
+  height: 24px;
 }
 
 .main-header__button-line {

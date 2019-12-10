@@ -7,20 +7,20 @@ block variables
 
 block content
   section(
-    class = "calculator-repair"
+    class = "calculator calculator-repair"
   )
     div(
-      class = "calculator-repair__container container container--custom"
+      class = "calculator__container calculator-repair__container container container--custom"
     )
       div(
-        class = "calculator-repair__title-text"
+        class = "calculator__title-text calculator-repair__title-text"
       )
         h2(
-          class = "calculator-repair__title title"
+          class = "calculator__title calculator-repair__title title"
         ) Калькулятор ремонта
 
         form(
-          class = "calculator-repair__form form-calculate"
+          class = "calculator__form calculator-repair__form form-calculate"
         )
           div(
             class = "form-calcuate__block row"
@@ -338,14 +338,14 @@ block content
             class = "form-summary__value-amount"
           ) 0 ₽
 
-        div(
-          class = "form-summmary__controls"
-        )
-          button(
-            class = "form-summary__button-sign btn btn-primary  col-12 col-sm-5 col-md-3"
-            data-toggle="modal" 
-            data-target="#exampleModalCenter"
-          ) Записаться на сервис
+      div(
+        class = "form-summary__controls"
+      )
+        button(
+          class = "form-summary__button-sign btn btn-primary  col-12 col-sm-5 col-md-3"
+          data-toggle="modal" 
+          data-target="#exampleModalCenter"
+        ) Записаться на сервис
 
       ul(
         class = "form-summary__rules-list"

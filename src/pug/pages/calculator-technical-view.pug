@@ -1,0 +1,310 @@
+extends ../layout/main
+
+block variables
+  - var title = "Калькулятор ТО";
+  - var description = "Калькулятор ТО вашего автомобиля";
+  - var pageCLass = "calculator-technical-view";
+
+block content
+  section(
+    class = "calculator calculator-technical-view"
+  )
+    div(
+      class = "calculator__container calculator-technical-view__container container container--custom"
+    )
+      div(
+        class = "calculator__title-text calculator-technical-view__title-text"
+      )
+        h2(
+          class = "calculator__title calculator-technical-view__title title"
+        ) Калькулятор ТО
+
+        form(
+          class = "calculator__form calculator-technical-view__form form-calculate"
+        )
+          div(
+            class = "form-calcuate__block row"
+          )
+            div(
+              class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
+            )
+              label(
+                class = "form-calculate__label"
+                for = "formControlSelectModel"
+              ) Выберить модель автомобиля
+
+              select(
+                class = "form-calculate__select form-control"
+                id = "formControlSelectModel"
+                name = "model"
+              )
+                option(
+                  class = "form-calculate__option"
+                  value = ""
+                ) Модель автомобиля
+
+            div(
+              class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
+            )
+              label(
+                class = "form-calculate__label"
+                for = "formControlSelectModification"
+              ) Выберите модификацию
+
+              select(
+                class = "form-calculate__select form-control"
+                id = "formControlSelectModification"
+                name = "modif"
+                disabled
+              )
+                option(
+                  class = "form-calculate__option"
+                  value = ""
+                ) Модификация
+
+            div(
+              class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
+            )
+              label(
+                class = "form-calculate__label"
+                for = "formControlSelectMileage"
+              ) Выберите пробег
+
+              select(
+                class = "form-calculate__select form-control"
+                id = "formControlSelectMileage"
+                name = "mileage"
+                disabled
+              )
+                option(
+                  class = "form-calculate__option"
+                  value = ""
+                ) Пробег или возраст
+
+          div(
+            class = "form-calculate__controls"
+          )
+            button(
+              class = "form-calculate__button btn btn-outline-light col-12 col-sm-3"
+              type = "submit"
+              disabled
+            ) Расчитать
+
+  section(
+    class = "form-summary"
+  )
+    div(
+      class = "form-summary__container container container--custom"
+    )
+      div(
+        class = "form-summary__wrapper"
+      )
+        table(
+          class = "form-summary__table"
+        )
+          thead(
+            class = "form-summary__thead"
+          )
+            tr(
+              class = "form-summary__thead-tr"
+            )
+              th(
+                class = "form-summary__thead-th"
+              ) Вид работы
+          
+              th(
+                class = "form-summary__thead-th"
+              ) Стоимость работы
+          
+              th(
+                class = "form-summary__thead-th"
+              ) Необходимые материалы
+          
+              th(
+                class = "form-summary__thead-th"
+              ) Стоимость материалов
+          
+              th(
+                class = "form-summary__thead-th"
+              ) Производитель
+          
+          tbody(
+            class = "form-summary__tbody"
+          )
+           -for(var i = 0; i < 6; i++)
+                tr(
+                  class = "form-summary__tbody-tr"
+                )
+                  td(
+                    class = "form-summary__tbody-td"
+                  ) Замена моторного масла
+
+                  td(
+                    class = "form-summary__tbody-td"
+                  ) 490 ₽
+
+                  td(
+                    class = "form-summary__tbody-td"
+                  ) Масло моторное GM Dexos 2 5W-30
+
+                  td(
+                    class = "form-summary__tbody-td"
+                  ) 1560 ₽
+
+                  td(
+                    class = "form-summary__tbody-td"
+                  ) GM
+
+      //- Итого 
+      div(
+        class = "form-summary__wrapper-amount"
+      )
+        div(
+          class = "form-summary__wrapper-work"
+        )
+          p(
+            class = "form-summary__work-title"
+          ) Итого по работам 
+
+          p(
+            class = "form-summary__total-amount"
+          ) 18 745 ₽ + 
+
+        div(
+          class = "form-summary__wrapper-work"
+        )
+          p(
+            class = "form-summary__work-title"
+          ) Итого по работам 
+
+          p(
+            class = "form-summary__total-amount"
+          ) 18 745 ₽
+          
+        div(
+          class = "form-summary__wrapper-work"
+        )
+          p(
+            class = "form-summary__total-amount form-summary__total-amount--strong"
+          ) =  18 745 ₽
+
+      div(
+        class = "form-summary__controls"
+      )
+        button(
+          class = "form-summary__button-sign btn btn-primary  col-12 col-sm-5 col-md-3"
+          data-toggle="modal" 
+          data-target="#exampleModalCenter"
+        ) Записаться на ТО
+
+
+      //- Форма записи на сервис
+      div(
+        class="modal fade record" 
+        id="exampleModalCenter" 
+        tabindex="-1" 
+        role="dialog" 
+        aria-labelledby="exampleModalCenterTitle" 
+        aria-hidden="true"
+      )
+        div(
+          class="modal-dialog modal-dialog-centered" 
+          role="document"
+        )
+          div(
+            class="modal-content"
+          )
+            div(
+              class = "modal-body record__body"
+            )
+              button(
+                type="button" 
+                class="close record__close" 
+                data-dismiss="modal" 
+                aria-label="Close"
+              )
+                span(
+                  aria-hidden="true"
+                ) &times;
+
+              h3(
+                class = "record__title title"
+              ) Запись на сервис
+              
+              form(
+                class = "form-communication"
+              )
+                div(
+                  class="form-group form-communication__group m-0"
+                )
+                  label(
+                    class = "record__label form-communication__label" 
+                    for="inputName"
+                  ) Имя*
+
+                  input(
+                    type="text" 
+                    class="form-control form-communication__input" 
+                    id="inputName"
+                    name = "inputName"
+                  )
+            
+                div(
+                  class = "form-group form-communication__group m-0"
+                )
+                  label(
+                    class = " record__label form-communication__label" 
+                    for = "inputEmail1"
+                  ) E-mail*
+
+                  input(
+                    type = "text" 
+                    class = "form-control form-communication__input" 
+                    id = "inputEmail1"
+                    name = "inputEmail"
+                  )
+
+                div(
+                  class="form-group form-communication__group m-0"
+                )
+                  label(
+                    class = "record__label form-communication__label" 
+                    for = "inputPhone1"
+                  ) Телефон*
+
+                  input(
+                    type = "text" 
+                    class = "form-control form-communication__input" 
+                    id = "inputPhone1"
+                    name = "inputPhone"
+                  )
+
+
+                  div(
+                    class = "mb-3"
+                  )
+                    input(
+                      class = "checkbox form-communication__checkbox" 
+                      type = "checkbox" 
+                      id = "checkbox1" 
+                      checked
+                    )
+
+                    label(
+                      class = "form-communication__label mb-0" 
+                      for = "checkbox1"
+                    ) 
+                      span(
+                        class = "form-communication__record-checkbox"
+                      ) Даю согласие на обработку своих персональных данных и соглашаюсь <br> 
+                        |с политикой конфиденциальности
+
+                button(
+                  type = "submit"
+                  class = "btn btn-primary btn-lg form-communication__button col-12 col-sm-7 mb-3"
+                ) Оставить заявку
+              
+                div
+                  p(
+                    class = "form-communication__required"
+                  ) * - поля, обязательные для заполнения
