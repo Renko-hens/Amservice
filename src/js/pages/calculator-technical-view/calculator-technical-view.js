@@ -229,6 +229,8 @@ const handleFormSubmit = (event) => {
     .then(response => response.json())
     .then((json) => {
       worksBodyTable.innerHTML = '';
+      worksPrice.splice(0, worksPrice.length);
+      materialsPrice.splice(0, materialsPrice.length);
       formSummaryContainer.style.display = "block";
       json.forEach((work) => {
         work.materials.forEach((material) => {
@@ -237,9 +239,9 @@ const handleFormSubmit = (event) => {
             ` 
             <tr class="form-summary__tbody-tr">
               <td class="form-summary__tbody-td" data-work-id="${work.id}">${work.name}</td>
-              <td class="form-summary__tbody-td">${work.price}</td>
+              <td class="form-summary__tbody-td">${work.price} ₽</td>
               <td class="form-summary__tbody-td" data-material-id="${material.id}">${material.name}</td>
-              <td class="form-summary__tbody-td">${material.price}</td>
+              <td class="form-summary__tbody-td">${material.price} ₽</td>
               <td class="form-summary__tbody-td">${material.maker}</td>
             </tr>
             `

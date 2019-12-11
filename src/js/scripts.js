@@ -8,3 +8,4 @@ import './components/menu-button';
 // Pages 
 import './pages/calculator-repair/calculator-repair';
 import './pages/calculator-technical-view/calculator-technical-view';
+import './pages/calculator-body-painting/calculator-body-painting';

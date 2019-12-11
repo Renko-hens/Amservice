@@ -247,19 +247,12 @@ body {
 }
 
 .text__container blockquote {  
-
-  border-top: #999 4px solid;
-  
-  border-bottom: #999 4px solid;
-  
-  font-size: 16px;
-  
-  margin: 12px 50px;  
-  
   color: #999;
-  
+  border-top: #999 4px solid;
+  border-bottom: #999 4px solid;
+  font-size: 16px;
   padding: 20px;
-  
+  margin: 12px 50px;  
   }
 
 .text__container a {
@@ -272,16 +265,34 @@ body {
 }
 
 .text__container ol li {
-  list-style: decimal;
-  margin-left: 24px;
+  margin-left: 20px;
 }
 
 .text__container ul li{
-  list-style-image: url('/site/templates/img/dot-in-a-circle.svg');
-  margin-left: 24px;
+  list-style: disc;
+  // list-style-image: url('/site/templates/img/dot-in-a-circle.svg');
+  margin-left: 20px;
   font-size: 16px;
   font-weight: 300;
   line-height: 1.4;
+}
+
+.text__container ol,
+.text__container ul {
+  margin-bottom: 16px;
+}
+
+.text__container ol li h1,
+.text__container ul li h1,
+.text__container ol li h2,
+.text__container ul li h2,
+.text__container ol li h3,
+.text__container ul li h3,
+.text__container ol li h4,
+.text__container ul li h4,
+.text__container ol li h5,
+.text__container ul li h5 {
+  margin-bottom: 0;
 }
 
 .text__container ol li p ,

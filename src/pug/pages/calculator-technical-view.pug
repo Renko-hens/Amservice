@@ -19,76 +19,76 @@ block content
           class = "calculator__title calculator-technical-view__title title"
         ) Калькулятор ТО
 
-        form(
-          class = "calculator__form calculator-technical-view__form form-calculate"
+      form(
+        class = "calculator__form calculator-technical-view__form form-calculate"
+      )
+        div(
+          class = "form-calcuate__block row"
         )
           div(
-            class = "form-calcuate__block row"
+            class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
           )
-            div(
-              class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
+            label(
+              class = "form-calculate__label"
+              for = "formControlSelectModel"
+            ) Выберить модель автомобиля
+
+            select(
+              class = "form-calculate__select form-control"
+              id = "formControlSelectModel"
+              name = "model"
             )
-              label(
-                class = "form-calculate__label"
-                for = "formControlSelectModel"
-              ) Выберить модель автомобиля
-
-              select(
-                class = "form-calculate__select form-control"
-                id = "formControlSelectModel"
-                name = "model"
-              )
-                option(
-                  class = "form-calculate__option"
-                  value = ""
-                ) Модель автомобиля
-
-            div(
-              class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
-            )
-              label(
-                class = "form-calculate__label"
-                for = "formControlSelectModification"
-              ) Выберите модификацию
-
-              select(
-                class = "form-calculate__select form-control"
-                id = "formControlSelectModification"
-                name = "modif"
-                disabled
-              )
-                option(
-                  class = "form-calculate__option"
-                  value = ""
-                ) Модификация
-
-            div(
-              class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
-            )
-              label(
-                class = "form-calculate__label"
-                for = "formControlSelectMileage"
-              ) Выберите пробег
-
-              select(
-                class = "form-calculate__select form-control"
-                id = "formControlSelectMileage"
-                name = "mileage"
-                disabled
-              )
-                option(
-                  class = "form-calculate__option"
-                  value = ""
-                ) Пробег или возраст
+              option(
+                class = "form-calculate__option"
+                value = ""
+              ) Модель автомобиля
 
           div(
-            class = "form-calculate__controls"
+            class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
           )
-            button(
-              class = "form-calculate__button btn btn-outline-light col-12 col-sm-3"
-              type = "submit"
+            label(
+              class = "form-calculate__label"
+              for = "formControlSelectModification"
+            ) Выберите модификацию
+
+            select(
+              class = "form-calculate__select form-control"
+              id = "formControlSelectModification"
+              name = "modif"
               disabled
-            ) Расчитать
+            )
+              option(
+                class = "form-calculate__option"
+                value = ""
+              ) Модификация
+
+          div(
+            class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
+          )
+            label(
+              class = "form-calculate__label"
+              for = "formControlSelectMileage"
+            ) Выберите пробег
+
+            select(
+              class = "form-calculate__select form-control"
+              id = "formControlSelectMileage"
+              name = "mileage"
+              disabled
+            )
+              option(
+                class = "form-calculate__option"
+                value = ""
+              ) Пробег или возраст
+
+        div(
+          class = "form-calculate__controls"
+        )
+          button(
+            class = "form-calculate__button btn btn-outline-light col-12 col-sm-3"
+            type = "submit"
+            disabled
+          ) Расчитать
 
   section(
     class = "form-summary"

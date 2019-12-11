@@ -62,21 +62,9 @@
   -webkit-box-shadow: 0 0 1px rgba(255,255,255,0.5);
 }
 
-.form-summary__item {
-  display: flex;
-  align-items: flex-start;
-
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 8px;
-
-  border: 0;
-  border-radius: 12px;
-  color: var(--color-text-darken);
-  background-color: var(--color-calculator);
-
-  font-size: 14px;
-}
+// .form-summary__item {
+//   display: flex;
+// }
 
 .form-summary__item:last-child {
   margin-bottom: 0;

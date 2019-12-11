@@ -31,6 +31,12 @@
   background-color: #ffffff;
 }
 
+@media(max-width: 940px) {
+  .owl-theme .owl-dots .owl-dot span {
+    background-color: var(--color-calculator-hover);
+  }
+}
+
 .owl-theme .owl-nav [class*='owl-']:hover {
   background: var(--color-primary);
 }

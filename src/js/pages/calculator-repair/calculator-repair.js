@@ -124,6 +124,7 @@ if (calculatorRepair) {
       emptySelectElement(repairSelectModel);
       emptySelectElement(repairSelectYears);
       disabledButton(servicesButtonElement);
+      categoriesList.innerHTML = '';
       return;
     };
 
@@ -163,6 +164,7 @@ if (calculatorRepair) {
     if (!id) {
       emptySelectElement(repairSelectYears);
       disabledButton(servicesButtonElement);
+      categoriesList.innerHTML = '';
       return;
     };
 
@@ -221,6 +223,7 @@ if (calculatorRepair) {
     const id = event.target.value;
     if (!id) {
       disabledButton(servicesButtonElement);
+      categoriesList.innerHTML = '';
     } else {
       includeButton(servicesButtonElement);
     }
@@ -243,38 +246,41 @@ if (calculatorRepair) {
 
     disabledButton(servicesButtonElement);
     createLoader(calculatorRepairContainer);
+    categoriesList.innerHTML = '';
 
-    // const form = event.target;
-    // let data = {
-    //   model: form.elements.models.value,
-    //   brand: form.elements.brands.value,
-    //   year: form.elements.years.value,
-    // };
+    const form = event.target;
+    let data = {
+      "modelID": form.elements.brands.value,
+      "year": form.elements.years.value,
+    };
+    console.log(data);
 
-    fetch('http://localhost:8081/site/templates/mocks/repair-calculate-categories.json'// ,{
-      //   method: 'POST',
-      //   body: JSON.stringify(data),
-      //   headers: {
-      //     "Content-type": "application/json; charset=UTF-8"
-      //   }
-      // }
+    fetch('https://amservice.unilead.team/api/calculators/post/calculator_repair/categories',{
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
     )
       .then(handleErrors)
       .then(response => response.json())
       .then((json) => {
         formSummaryContainer.style.display = "block";
         categoriesList.innerHTML = '';
-        json.forEach((category) => {
+        servicesList.innerHTML = '';
+        console.log(json);
+        json.response.forEach((category) => {
           categoriesList.insertAdjacentHTML(
             'beforeend',
             `<li class="form-summary__item-categories categories__item">
-        <button class="form-summary__button-category categories__button" data-id=${category.id}>
-          <div class="categories__picture-wrapper"><img class="categories__image" src="/site/templates/img/diagnostick.svg"></div>
-          <div class="categories__title-wrapper">
-            <h3 class="categories__title-category">${category.name}</h3>
-          </div>
-        </button>
-      </li>`
+                <button class="form-summary__button-category categories__button" data-id=${category.id}>
+                  <div class="categories__picture-wrapper"><img class="categories__image" src="/site/templates/img/diagnostick.svg"></div>
+                  <div class="categories__title-wrapper">
+                    <h3 class="categories__title-category">${category.title}</h3>
+                  </div>
+                </button>
+            </li>`
           );
         }
         );
@@ -308,26 +314,25 @@ if (calculatorRepair) {
 
     const buttonId = event.target.closest('button.form-summary__button-category');
 
-    // let data = {
-    //   model: form.elements.models.value,
-    //   brand: form.elements.brands.value,
-    //   year: form.elements.years.value,
-    //   id : buttonId.dataset.id
-    // };
+    let data = {
+      "modelID": form.elements.brands.value,
+      "year": form.elements.years.value,
+      "categoryID": buttonId.dataset.id
+    };
 
-    fetch(`http://localhost:8081/site/templates/mocks/repair-calculate-services-${buttonId.dataset.id}.json`// , {
-      //   method: 'POST',
-      //   body: JSON.stringify(data),
-      //   headers: {
-      //     "Content-type": "application/json; charset=UTF-8"
-      //   }
-      // }
+    fetch(`https://amservice.unilead.team/api/calculators/post/calculator_repair/services`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
     )
       .then(handleErrors)
       .then(response => response.json())
       .then((json) => {
         servicesList.innerHTML = '';
-        json.map((service) => {
+        json.response.map((service) => {
           let _id = null;
 
           if (selectedServicesId.length > 0) {
@@ -340,19 +345,21 @@ if (calculatorRepair) {
             servicesList.insertAdjacentHTML(
               'beforeend',
               `<li class="form-summary__item repair-services__item"  data-category-id="${buttonId.dataset.id}" data-service-id="${service.id}">
-          <div class="form-summary__checkbox-wrapper repair-services__checkbox-wrapper"> 
-            <label class="form-summary__label">
-              <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" value=${service.price}>
-              <div class="form-summary__checkbox-text"></div>
-            </label>
-          </div>
-          <div class="form-summary__description-wrapper repair-services__description-wrapper">
-            <p class="form-summary__description repair-services__description">${service.name}</p>
-          </div>
-          <div class="form-summary__price-wrapper repair-services__price-wrapper">
-            <p class="form-summary__price repair-services__price">${service.price}₽</p>
-          </div>
-        </li>`
+                <div class="form-summary__checkbox-block"> 
+                  <div class="form-summary__checkbox-wrapper repair-services__checkbox-wrapper"> 
+                    <label class="form-summary__label">
+                      <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" value=${service.price}>
+                      <div class="form-summary__checkbox-text"></div>
+                    </label>
+                  </div>
+                  <div class="form-summary__description-wrapper repair-services__description-wrapper">
+                    <p class="form-summary__description repair-services__description">${service.title} - ${service.type}</p>
+                  </div>
+                  <div class="form-summary__price-wrapper repair-services__price-wrapper">
+                    <p class="form-summary__price repair-services__price">${service.price}₽</p>
+                  </div>
+                </div>
+              </li>`
             );
           }
         });

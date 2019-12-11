@@ -5,11 +5,36 @@
 
 .repair-services__item {
   line-height: 1.4;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 8px;
+
+  border: 0;
+  border-radius: 12px;
+  color: var(--color-text-darken);
+  background-color: var(--color-calculator);
+
+  font-size: 14px;
+}
+
+.form-summary__checkbox-block {
+  line-height: 1.4;
+
+  display: flex;
+
+  width: 100%;
+  margin-bottom: 8px;
 }
 
 // .repair-services__item:hover {
 //   color: var(--color-text-light);
 // }
+
 
 .repair-services__item:hover {
   background-color: #C6CAD8;
@@ -20,10 +45,15 @@
 }
 
 .repair-services__description-wrapper {
-  flex-basis: calc(75% - 8px);
+  flex-basis: calc(75% - 20px);
 }
 
 .repair-services__price-wrapper {
-  flex-basis: calc(20% - 8px);
+  display: flex;
+  justify-content: flex-end;
+  flex-basis: calc(20% - 20px);
 }
 
+.repair-services__radio-wrapper{
+ flex-basis: 100%;
+}

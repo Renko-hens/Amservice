@@ -3,10 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 
 // OWL CAROUSEL
+import 'owl.carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import './site/templates/scss/owl.theme/owl.theme.custom.scss';
-import 'owl.carousel';
 
 // SCSS
 import './site/templates/scss/style.scss';

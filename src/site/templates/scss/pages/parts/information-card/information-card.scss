@@ -103,7 +103,7 @@
 }
 
 .information-card__description--small {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
 }
 
@@ -167,4 +167,8 @@
 .information-card__label {
   padding: 0;
   line-height: 1.4;
+}
+
+.information-card__dates {
+  font-size: 12px;
 }
