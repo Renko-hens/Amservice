@@ -226,10 +226,10 @@ if (calculatorRepair) {
     }
   }
 
-  const updateAmount = totalAmmountElement => {
+  const updateAmount = (arrayPrice, totalAmmountElement) => {
 
     // console.log(selectedServices);
-    let summary = selectedServicesPrice.reduce((previousValue, currentValue) => {
+    let summary = arrayPrice.reduce((previousValue, currentValue) => {
       return (+previousValue) + (+currentValue);
     }, 0);
 
@@ -383,13 +383,13 @@ if (calculatorRepair) {
 
         resultsList.append(li);
 
-        updateAmount(totalAmmount);
+        updateAmount(selectedServicesPrice , totalAmmount);
       } else {
         selectedServicesPrice.splice(selectedServicesPrice.indexOf(value), 1);
 
         selectedServicesId.splice(selectedServicesId.indexOf(serviceId), 1);
 
-        updateAmount(totalAmmount);
+        updateAmount(selectedServicesPrice , totalAmmount);
 
         if (activeCategoryElement != null) {
           const servicesCategoryId = activeCategoryElement.dataset.id;
@@ -447,9 +447,6 @@ if (calculatorRepair) {
             </div>
           </div>
         `
-      })
-      .then(() => {
-        deleteLoader(formResults);
       })
       .catch((error) => {
         console.error(error);

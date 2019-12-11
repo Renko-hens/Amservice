@@ -1,5 +1,5 @@
 const calculatorTechView = document.querySelector('.calculator-technical-view');
-const form = document.querySelector('.calculator-repair__form');
+const form = document.querySelector('.calculator-technical-view__form');
 const formResults = document.querySelector('.form-communication');
 
 const repairSelectModel = document.querySelector('#formControlSelectModel');
@@ -10,9 +10,19 @@ const formSummaryContainer = document.querySelector('.form-summary__container');
 const calculatorTechViewContainer = document.querySelector('.calculator-technical-view__container');
 const contentContainer = document.querySelector('.form-summary__wrapper');
 
+const worksBodyTable = document.querySelector('.form-summary__tbody');
 const servicesButtonElement = document.querySelector('.form-calculate__button');
 const modalResults = document.querySelector('.modal-body');
 
+const worksPrice = [];
+const materialsPrice = [];
+
+const dataWorksId = [];
+const dataMaterialsId = [];
+
+const worksPriceElement = document.querySelector('.works-price-amount');
+const materialsPriceElement = document.querySelector('.materials-price-amount');
+const totalAmmountElement = document.querySelector('.total-price-amount');
 
 if(calculatorTechView) {
 
@@ -80,8 +90,6 @@ let loader = document.querySelector('.lds-ring');
 loader.remove();
 item.classList.remove('contact-us__wrapper--loader');
 }
-
-
 
 
 
@@ -194,7 +202,121 @@ const getMileageById = (id) => {
       console.error(error);
     });
   }
-  
+
+// Отправка данных селектов и создание элементов на основе полученных данных 
+const handleFormSubmit = (event) => {
+  event.preventDefault();
+
+  disabledButton(servicesButtonElement);
+  createLoader(calculatorTechViewContainer);
+
+  // const form = event.target;
+  // let data = {
+  //   model: form.elements.models.value,
+  //   brand: form.elements.brands.value,
+  //   year: form.elements.years.value,
+  // };
+
+  fetch('http://localhost:8081/site/templates/mocks/technical-view-table.json'// ,{
+    //   method: 'POST',
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     "Content-type": "application/json; charset=UTF-8"
+    //   }
+    // }
+  )
+    .then(handleErrors)
+    .then(response => response.json())
+    .then((json) => {
+      worksBodyTable.innerHTML = '';
+      formSummaryContainer.style.display = "block";
+      json.forEach((work) => {
+        work.materials.forEach((material) => {
+          worksBodyTable.insertAdjacentHTML(
+            'beforeend',
+            ` 
+            <tr class="form-summary__tbody-tr">
+              <td class="form-summary__tbody-td" data-work-id="${work.id}">${work.name}</td>
+              <td class="form-summary__tbody-td">${work.price}</td>
+              <td class="form-summary__tbody-td" data-material-id="${material.id}">${material.name}</td>
+              <td class="form-summary__tbody-td">${material.price}</td>
+              <td class="form-summary__tbody-td">${material.maker}</td>
+            </tr>
+            `
+          );
+          materialsPrice.push(material.price);
+          dataMaterialsId.push(work.id);
+        })
+        worksPrice.push(work.price);
+        dataWorksId.push(work.id);
+      }
+      )
+    })
+    .then(() =>{
+      updateAmount(worksPrice, worksPriceElement);
+      updateAmount(materialsPrice, materialsPriceElement);
+
+      const totalAmmountPrice = worksPrice.concat(materialsPrice);
+      updateAmount(totalAmmountPrice, totalAmmountElement)
+    })
+    .then(() => {
+      deleteLoader(calculatorTechViewContainer);
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+}
+
+
+
+  // Отправка выбранных чекбоксов и данных пользователя 
+  const handleResultsFormSubmit = (event) => {
+    event.preventDefault();
+
+    createLoader(formResults);
+
+    let data = {
+      name: formResults.elements.inputName.value,
+      email: formResults.elements.inputEmail.value,
+      phone: formResults.elements.inputPhone.value,
+      worksId : dataWorksId,
+      materialsId : dataMaterialsId,
+      model: form.elements.model.value,
+      modification: form.elements.modif.value,
+      mileage: form.elements.mileage.value
+    };
+
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then(handleErrors)
+      .then(response => response.json())
+      .then((json) => {
+        modalResults.innerHTML = `
+          <button class="close record__close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <div class="contact-us__wrapper">
+            <div class="contact-us__picture-success">
+              <img class="contact-us__image-success" src="site/templates/img/check.svg">
+            </div>
+            <div class="contact-us__text col-sm-12 text-center">
+              <h3 class="contact-us__text-title title">Спасибо!</h3>
+              <p class="contact-us__text-description--success">
+                Благодарим за оставленную заявку. <br> 
+                Мы обязательно свяжемся с Вами в ближайшее время.
+              </p>
+            </div>
+          </div>
+        `
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+  }
+
 
 // Обработка change-события первого селекта
 const handleSelect1 = (event) => {
@@ -218,9 +340,23 @@ const handleSelect3 = (event) => {
   }
 }
 
+const updateAmount = (arrayPrice , totalAmmountElement) => {
+
+  // console.log(selectedServices);
+  let summary = arrayPrice.reduce((previousValue, currentValue) => {
+    return (+previousValue) + (+currentValue);
+  }, 0);
+
+  totalAmmountElement.textContent = summary + " ₽";
+}
+
+
 repairSelectModel.addEventListener('change', handleSelect1);
 repairSelectModification.addEventListener('change', handleSelect2);
 repairSelectMileage.addEventListener('change', handleSelect3);
+
+form.addEventListener('submit', handleFormSubmit);
+formResults.addEventListener('submit', handleResultsFormSubmit);
 
   // Браузер полностью загрузил HTML, теперь можно выполнять функции
 document.addEventListener("DOMContentLoaded", getModels);
