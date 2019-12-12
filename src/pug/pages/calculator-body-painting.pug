@@ -28,8 +28,8 @@ block content
           div(
             class = "car__map"
           )
-            <map name="image-map">
-              <area target="" alt="Дверь задняя слева" title="Дверь задняя слева" href="" coords="300,73,306,54,424,50,412,74,396,93,377,127,299,130,298,102" shape="poly">
+            <map class="image-mapa" name="image-map">
+              <area target="" alt="Дверь задняя слева" title="Дверь задняя слева" href="" coords="300,73,306,54,424,50,412,74,396,93,377,127,299,130,298,102" shape="poly" >
               <area target="" alt="Дверь передняя левая" title="Дверь передняя левая" href="" coords="306,55,182,62,171,81,170,107,175,137,241,133,277,132,300,130,297,110,298,77" shape="poly">
               <area target="" alt="Крыло переднее левое" title="Крыло переднее левое" href="" coords="176,68,111,72,76,77,49,85,61,88,40,101,59,109,69,97,92,88,112,89,132,103,141,124,144,138,160,137,173,136,170,113,169,87" shape="poly">
               <area target="" alt="Порог левый" title="Порог левый" href="" coords="141,139,143,151,388,147,389,126" shape="poly">
@@ -42,25 +42,44 @@ block content
             div(
               class = "car__picture-wrapper"
             )
-              img(
+              div(
                 class = "car__image"
-                src="/site/templates/img/car.svg"
+                style = "background-image:url('/site/templates/img/car.svg')"
                 usemap="#image-map"
               )
-
-              div(
-                class = "car__parts"
-              )
-                img(
-                  class = "car__left-back-door"
-                  src = "/site/templates/img/left-back-door.svg"
+                div(
+                  class = "car__areas-artificial-main"
                 )
+                  img(
+                    class = "car__usemap"
+                    src = "/site/templates/img/0.gif"
+                    usemap="#image-map"
+                  )
 
+                div(
+                  class = "car__areas-parts car__areas-parts--hover"
+                  style = "background-image:url('/site/templates/img/left-back-door.svg')"
+                )
+                  img(
+                    class = "car__image-empty"
+                    src = "/site/templates/img/0.gif"
+                    usemap="#image-map"
+                  )
+
+                div(
+                  class = "car__areas-parts car__areas-parts--active"
+                  style = "background-image:url('/site/templates/img/left-back-door.svg')"
+                )
+                  img(
+                    class = "car__image-empty"
+                    src = "/site/templates/img/0.gif"
+                    usemap="#image-map"
+                  )
   section(
     class = "form-summary"
   )
     div(
-      class = "container container--custom"
+      class = "form-summary__container container container--custom"
     )
       div(
         class = "form-summary__wrapper row"
@@ -83,27 +102,27 @@ block content
               class = "form-summary__list-categories categories__list"
               role="tablist"
             ) 
-              - for (var i = 0; i < 2; i++)
-                  li(
-                  class = "form-summary__item-categories categories__item"
-                  )
-                    button(
-                      class = "form-summary__button-category categories__button"
-                    )
-                      div(
-                        class = "categories__picture-wrapper"
-                      )
-                        img(
-                          src = "/site/templates/img/diagnostick.svg"
-                          class = "categories__image"
-                        )
+              //- - for (var i = 0; i < 2; i++)
+              //-     li(
+              //-     class = "form-summary__item-categories categories__item"
+              //-     )
+              //-       button(
+              //-         class = "form-summary__button-category categories__button"
+              //-       )
+              //-         div(
+              //-           class = "categories__picture-wrapper"
+              //-         )
+              //-           img(
+              //-             src = "/site/templates/img/diagnostick.svg"
+              //-             class = "categories__image"
+              //-           )
                       
-                      div(
-                        class = "categories__title-wrapper"
-                      )
-                        h3(
-                          class = "categories__title-category"
-                        ) Sas
+              //-         div(
+              //-           class = "categories__title-wrapper"
+              //-         )
+              //-           h3(
+              //-             class = "categories__title-category"
+              //-           ) Sas
                   
         //- Услуги
         div(
@@ -122,115 +141,115 @@ block content
             ul(
               class = "form-summary__list repair-services__list tab-content"
             )
-                li(
-                  class = "form-summary__item repair-services__item"
-                )
-                  div(
-                    class = "form-summary__checkbox-block"
-                  )
-                    div(
-                      class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
-                    ) 
-                      label(
-                        class = "form-summary__label"
-                      )
-                        input(
-                          class = "form-summary__checkbox repair-services__checkbox"
-                          type="checkbox" 
-                        )
-                        div(
-                          class = "form-summary__checkbox-text"
-                        )
+                //- li(
+                //-   class = "form-summary__item repair-services__item"
+                //- )
+                //-   div(
+                //-     class = "form-summary__checkbox-block"
+                //-   )
+                //-     div(
+                //-       class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
+                //-     ) 
+                //-       label(
+                //-         class = "form-summary__label"
+                //-       )
+                //-         input(
+                //-           class = "form-summary__checkbox repair-services__checkbox"
+                //-           type="checkbox" 
+                //-         )
+                //-         div(
+                //-           class = "form-summary__checkbox-text"
+                //-         )
                     
-                    div(
-                      class = "form-summary__description-wrapper repair-services__description-wrapper"
-                    )
-                      p(
-                        class = "form-summary__description repair-services__description"
-                      ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
+                //-     div(
+                //-       class = "form-summary__description-wrapper repair-services__description-wrapper"
+                //-     )
+                //-       p(
+                //-         class = "form-summary__description repair-services__description"
+                //-       ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
                     
-                    div(
-                      class = "form-summary__price-wrapper repair-services__price-wrapper"
-                    )
-                      p(
-                        class = "form-summary__price repair-services__price"
-                      ) 12&nbsp;245&nbsp;₽
+                //-     div(
+                //-       class = "form-summary__price-wrapper repair-services__price-wrapper"
+                //-     )
+                //-       p(
+                //-         class = "form-summary__price repair-services__price"
+                //-       ) 12&nbsp;245&nbsp;₽
 
-                li(
-                  class = "form-summary__item repair-services__item"
-                )
-                  div(
-                    class = "form-summary__checkbox-block"
-                  )
-                    div(
-                      class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
-                    ) 
-                      label(
-                        class = "form-summary__label"
-                      )
-                        input(
-                          class = "form-summary__checkbox repair-services__checkbox"
-                          type="checkbox" 
-                        )
-                        div(
-                          class = "form-summary__checkbox-text"
-                        )
+                //- li(
+                //-   class = "form-summary__item repair-services__item"
+                //- )
+                //-   div(
+                //-     class = "form-summary__checkbox-block"
+                //-   )
+                //-     div(
+                //-       class = "form-summary__checkbox-wrapper repair-services__checkbox-wrapper"
+                //-     ) 
+                //-       label(
+                //-         class = "form-summary__label"
+                //-       )
+                //-         input(
+                //-           class = "form-summary__checkbox repair-services__checkbox"
+                //-           type="checkbox" 
+                //-         )
+                //-         div(
+                //-           class = "form-summary__checkbox-text"
+                //-         )
                     
-                    div(
-                      class = "form-summary__description-wrapper repair-services__description-wrapper"
-                    )
-                      p(
-                        class = "form-summary__description repair-services__description"
-                      ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
+                //-     div(
+                //-       class = "form-summary__description-wrapper repair-services__description-wrapper"
+                //-     )
+                //-       p(
+                //-         class = "form-summary__description repair-services__description"
+                //-       ) Аппаратная прочистка форсунок - ДВС до 2,4 л (включительно)
                     
-                    div(
-                      class = "form-summary__price-wrapper repair-services__price-wrapper"
-                    )
-                      p(
-                        class = "form-summary__price repair-services__price"
-                      ) 12&nbsp;245&nbsp;₽
+                //-     div(
+                //-       class = "form-summary__price-wrapper repair-services__price-wrapper"
+                //-     )
+                //-       p(
+                //-         class = "form-summary__price repair-services__price"
+                //-       ) 12&nbsp;245&nbsp;₽
 
-                  div(
-                    class = "form-summary__radio-wrapper repair-services__radio-wrapper"
-                  )
-                    label(
-                      class = "form-summary__label"
-                    )
-                      input(
-                        type="radio"
-                        name="rr"
-                      )
-                      |Легкая степень повреждения
+                //-   div(
+                //-     class = "form-summary__radio-wrapper repair-services__radio-wrapper"
+                //-   )
+                //-     label(
+                //-       class = "form-summary__label"
+                //-     )
+                //-       input(
+                //-         type="radio"
+                //-         name="rr"
+                //-       )
+                //-       |Легкая степень повреждения
 
-                    label(
-                      class = "form-summary__label"
-                    )
-                      input(
-                        class = "form-summary__radio repair-services__radio"
-                        type="radio"
-                        name="rr"
-                      )
-                      |Средняя степень повреждения
+                //-     label(
+                //-       class = "form-summary__label"
+                //-     )
+                //-       input(
+                //-         class = "form-summary__radio repair-services__radio"
+                //-         type="radio"
+                //-         name="rr"
+                //-       )
+                //-       |Средняя степень повреждения
 
-                    label(
-                      class = "form-summary__label"
-                    )
-                      input(
-                        class = "form-summary__radio repair-services__radio"
-                        type="radio"
-                        name="rr"
-                      )
-                      |Тяжелая степень повреждения
+                //-     label(
+                //-       class = "form-summary__label"
+                //-     )
+                //-       input(
+                //-         class = "form-summary__radio repair-services__radio"
+                //-         type="radio"
+                //-         name="rr"
+                //-       )
+                //-       |Тяжелая степень повреждения
 
-                    label(
-                      class = "form-summary__label"
-                    )
-                      input(
-                        class = "form-summary__radio repair-services__radio"
-                        type="radio"
-                        name="rr"
-                      )
-                      | Замена детали
+                //-     label(
+                //-       class = "form-summary__label"
+                //-     )
+                //-       input(
+                //-         class = "form-summary__radio repair-services__radio"
+                //-         type="radio"
+                //-         name="rr"
+                //-       )
+                //-       | Замена детали
 
         //- Выбранные услуги
         div(

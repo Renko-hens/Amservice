@@ -18,6 +18,7 @@ const resultsList = document.querySelector('.selected-services__list');
 
 const servicesButtonElement = document.querySelector('.form-calculate__button');
 const modalResults = document.querySelector('.modal-body');
+const totalAmmount = document.querySelector(".form-summary__value-amount");
 
 const selectedServicesPrice = [];
 const selectedServicesId = [];
@@ -81,13 +82,49 @@ if (calculatorRepair) {
     );
   }
 
-
   // Удаление лоадера
   const deleteLoader = (item) => {
     let loader = document.querySelector('.lds-ring');
     loader.remove();
     item.classList.remove('contact-us__wrapper--loader');
   }
+
+
+  const updateAmount = (arrayPrice, totalAmmountElement) => {
+
+    // console.log(selectedServices);
+    let summary = arrayPrice.reduce((previousValue, currentValue) => {
+      return (+previousValue) + (+currentValue);
+    }, 0);
+
+    totalAmmountElement.textContent = summary + " ₽";
+  }
+
+
+  // Обработка change-события первого селекта
+  const handleSelect1 = (event) => {
+    const id = event.target.value;
+    getModelsById(id);
+  }
+
+
+  // Обработка change-события второго селекта
+  const handleSelect2 = (event) => {
+    const id = event.target.value;
+    getYearsById(id);
+  }
+
+
+  // Обработка change-события третьего селекта
+  const handleSelect3 = (event) => {
+    const id = event.target.value;
+    if (!id) {
+      disabledButton(servicesButtonElement);
+    } else {
+      includeButton(servicesButtonElement);
+    }
+  }
+
 
 
   // Запрос на получение списка марки автомобиля (данные для первого селекта)
@@ -204,42 +241,6 @@ if (calculatorRepair) {
   }
 
 
-  // Обработка change-события первого селекта
-  const handleSelect1 = (event) => {
-    const id = event.target.value;
-    getModelsById(id);
-  }
-
-
-  // Обработка change-события второго селекта
-  const handleSelect2 = (event) => {
-    const id = event.target.value;
-    getYearsById(id);
-  }
-
-
-  // Обработка change-события третьего селекта
-  const handleSelect3 = (event) => {
-    const id = event.target.value;
-    if (!id) {
-      disabledButton(servicesButtonElement);
-      categoriesList.innerHTML = '';
-    } else {
-      includeButton(servicesButtonElement);
-    }
-  }
-
-  const updateAmount = (arrayPrice, totalAmmountElement) => {
-
-    // console.log(selectedServices);
-    let summary = arrayPrice.reduce((previousValue, currentValue) => {
-      return (+previousValue) + (+currentValue);
-    }, 0);
-
-    totalAmmountElement.textContent = summary + " ₽";
-  }
-
-
   // Отправка данных селектов и создание элементов на основе полученных данных 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -253,7 +254,6 @@ if (calculatorRepair) {
       "modelID": form.elements.brands.value,
       "year": form.elements.years.value,
     };
-    console.log(data);
 
     fetch('https://amservice.unilead.team/api/calculators/post/calculator_repair/categories',{
         method: 'POST',
@@ -269,7 +269,14 @@ if (calculatorRepair) {
         formSummaryContainer.style.display = "block";
         categoriesList.innerHTML = '';
         servicesList.innerHTML = '';
-        console.log(json);
+        resultsList.innerHTML = '';
+
+        selectedServicesPrice.splice(0 , selectedServicesPrice.length)
+        updateAmount(selectedServicesPrice , totalAmmount);
+        
+        selectedServicesId.splice(0 , selectedServicesId.length)
+        updateAmount(selectedServicesId , totalAmmount);
+
         json.response.forEach((category) => {
           categoriesList.insertAdjacentHTML(
             'beforeend',
@@ -376,7 +383,6 @@ if (calculatorRepair) {
   // Обработка чекбоксов и формирование массива с выбранными значениями
   const handleServices = (event) => {
     const checkbox = event.target.closest('input[type="checkbox"]');
-    const totalAmmount = document.querySelector(".form-summary__value-amount");
 
     if (checkbox != null) {
       const li = checkbox.closest('li');

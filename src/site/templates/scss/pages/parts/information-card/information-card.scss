@@ -1,6 +1,6 @@
 .information-card{
-  padding: 0 12px;
-  margin: 12px 0;
+  padding: 0 10px;
+  margin: 10px 0;
 }
 
 .information-card__link {
@@ -171,4 +171,25 @@
 
 .information-card__dates {
   font-size: 12px;
+}
+
+.information-card__dates + .information-card__dates {
+  margin-left: 8px;
+}
+
+.information-card__filters {
+  display: flex;
+}
+
+.information-card__filter {
+  border-radius: 24px;
+  margin-right: 8px;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.information-cards__controls {
+  display: flex;
+  justify-content: center;
 }

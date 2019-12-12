@@ -4,7 +4,8 @@ import './sliders/sliders';
 
 // Components
 import './components/menu-button';
-
+// import '../../node_modules/image-map/dist/image-map';
+import './components/filters';
 // Pages 
 import './pages/calculator-repair/calculator-repair';
 import './pages/calculator-technical-view/calculator-technical-view';

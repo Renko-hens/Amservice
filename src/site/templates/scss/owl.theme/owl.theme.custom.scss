@@ -2,7 +2,7 @@
   table-layout: fixed;
 }
 
-@media(max-width:940px){
+@media(max-width:980px){
   .owl-carousel{
     padding: 0 16px;
   }
@@ -28,7 +28,12 @@
 .owl-theme .owl-dots .owl-dot span {
   width: 12px;
   height: 12px;
-  background-color: #ffffff;
+}
+
+@media(min-width: 941px) {
+  .owl-theme .owl-dots .owl-dot span {
+    background-color: #ffffff;
+  }
 }
 
 @media(max-width: 940px) {
@@ -108,4 +113,17 @@
     
 .owl-theme.carousel__cards .owl-nav .owl-next span{
   font-size: 0;
+}
+
+// .owl-stage {
+//   display: -webkit-box;
+//   display: -moz-box;
+//   display: -ms-box;
+//   display: box;
+//   }
+  
+@media(min-width: 980px) {
+  .promo-carousel .owl-item img {
+    width: auto !important;
+    }
 }

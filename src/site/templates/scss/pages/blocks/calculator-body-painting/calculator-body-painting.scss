@@ -3,14 +3,89 @@
   margin-bottom: 48px;
 }
 
-.car__picture-wrapper {
-  display: flex;
-  justify-content: center;
-  position: relative;
+.car{
+  display: none;
 }
 
-.car__left-back-door{
-  position: absolute;
-  top: 26%;
-  right: 31%;
-}
+// .car__map {
+//   position: relative;
+// }
+
+// .car__picture-wrapper {
+//   position: relative;
+//   z-index: 2;
+// }
+
+// .car__picture-wrapper .car__image {
+//   background-image: url("/site/templates/img/car.svg");
+//   display: block;
+//   overflow: hidden;
+//   background-size: contain;
+//   background-repeat: no-repeat;
+// }
+
+// .car__picture-wrapper .car__areas-artificial-main {
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   position: relative;
+//   z-index: 2;
+// }
+
+// .car__usemap {
+//   width: 284px;
+//   height: 157.165px;
+// }
+
+// @media(max-width: 768px) {
+//   .car__image{
+//     width: 100%;
+//   }
+// }
+
+// .car__parts{
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+// }
+
+// .car__left-back-door {
+//   width: 14%;
+//   top: 42px;
+//   position: absolute;
+//   left: 434px;
+//   z-index: 1;
+// }
+
+// .car__areas-parts--hover {
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   z-index: 1;
+//   background-repeat: no-repeat;
+//   background-size: contain;
+// }
+
+// .image-mapa{
+//   position: relative;
+//   z-index: 3;
+// }
+
+// .car__areas-parts + .car__areas-parts--active {
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   z-index: 1;
+//   background-repeat: no-repeat;
+//   background-size: contain;
+// }
+
+// .car__areas-parts .car__areas-parts--active img {
+//   width: 100%;
+//   height: 100%;
+// }
