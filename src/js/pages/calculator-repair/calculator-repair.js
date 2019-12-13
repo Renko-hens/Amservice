@@ -1,3 +1,9 @@
+// import isEmail from 'validator/lib/isEmail';
+// import isMobilePhone  from 'validator/lib/isMobilePhone';
+// import isEmpty from 'validator/lib/isEmpty';
+
+import validator from 'validator';
+
 const calculatorRepair = document.querySelector('.calculator-repair');
 const form = document.querySelector('.calculator-repair__form');
 const formResults = document.querySelector('.form-communication');
@@ -19,6 +25,11 @@ const resultsList = document.querySelector('.selected-services__list');
 const servicesButtonElement = document.querySelector('.form-calculate__button');
 const modalResults = document.querySelector('.modal-body');
 const totalAmmount = document.querySelector(".form-summary__value-amount");
+
+
+// const formResultstName = document.querySelector('#inputName');
+// const formResultsEmail = document.querySelector('#inputEmail1');
+// const formResultsPhone = document.querySelector('#inputPhone1');
 
 const selectedServicesPrice = [];
 const selectedServicesId = [];
@@ -418,11 +429,40 @@ if (calculatorRepair) {
   }
 
 
+  const handleValidator = (event) => {
+    event.preventDefault();
+
+    const email = formResults.elements.inputEmail;
+    const phone = formResults.elements.inputPhone;
+    const name = formResults.elements.inputName;
+
+    if(validator.isEmail(email.value) && validator.isMobilePhone(phone.value) && !validator.isEmpty(name.value)){
+      handleResultsFormSubmit(event)
+    }
+
+    if(validator.isEmpty(name.value)){
+      name.classList.add('is-invalid');
+    } else {
+      name.classList.remove('is-invalid');
+    }
+
+    if(!validator.isEmail(email.value)){
+      email.classList.add('is-invalid');
+    } else {
+      email.classList.remove('is-invalid');
+    }
+
+    if(!validator.isMobilePhone(phone.value, ['ru-RU'])){
+      phone.classList.add('is-invalid');
+    } else {
+      phone.classList.remove('is-invalid');
+    }
+
+  }
 
   // Отправка выбранных чекбоксов и данных пользователя 
   const handleResultsFormSubmit = (event) => {
     event.preventDefault();
-
     createLoader(formResults);
 
     let data = {
@@ -475,9 +515,14 @@ if (calculatorRepair) {
   categoriesList.addEventListener("click", handleCategoryClick);
   contentContainer.addEventListener('click', handleServices);
 
-  formResults.addEventListener('submit', handleResultsFormSubmit);
+  formResults.addEventListener('submit', handleValidator);
+
+  // formResultstName.addEventListener('change', handleValidator);
+  // formResultsEmail.addEventListener('change', handleValidator);
+  // formResultsPhone.addEventListener('change', handleValidator);
 
   // Браузер полностью загрузил HTML, теперь можно выполнять функции
   document.addEventListener("DOMContentLoaded", getBrands);
 
 }
+
