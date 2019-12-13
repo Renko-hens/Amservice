@@ -3,6 +3,13 @@ a {
   color: var(--color-text);
 }
 
+p{
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
 a:hover,
 a:focus {
   color: var(--color-secondary);
@@ -196,9 +203,9 @@ body {
 }
 
 .text__container h4 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 32px;
+  margin-bottom: 8px;
 }
 
 .text__container h5 {
@@ -226,6 +233,15 @@ body {
 
 .text__container p span {
   font-size: 12px;
+}
+
+.text__container p img {
+  width: 100%;
+  margin: 8px 0;
+}
+
+.page-link {
+  color: var(--color-primary);
 }
 
 .text__container pre {
@@ -446,4 +462,30 @@ border-right: none;
 
 .form-group  .record__label {
   font-size: 12px;
+}
+
+.btn-secondary {
+  background-color: var(--color-filter);
+  border-color: var(--color-filter);
+  color: var(--color-text-darken);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--color-filter-hover);
+  border-color: var(--color-filter-hover);
+  color: var(--color-text-darken);
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-light);
+}
+
+.btn-secondary.disabled,
+.btn-secondary:disabled {
+  background-color: var(--color-filter);
+  border-color: var(--color-filter);
+  color: var(--color-text-darken);
 }

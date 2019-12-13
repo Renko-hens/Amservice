@@ -23,19 +23,19 @@ block content
           class = "information-card__filters col-12 mb-1"
         )
           button(
-            class = "btn btn-secondary btn-lg information-card__filter col-12 col-sm-2 mb-4"
+            class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
             onclick="filterSelection('all')"
           ) #Все
           button(
-            class = "btn btn-secondary btn-lg information-card__filter col-12 col-sm-2 mb-4"
+            class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
             onclick="filterSelection('1')"
           ) #Акция1
           button(
-            class = "btn btn-secondary btn-lg information-card__filter col-12 col-sm-2 mb-4"
+            class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
             onclick="filterSelection('2')"
           ) #Акция2
           button(
-            class = "btn btn-secondary btn-lg information-card__filter col-12 col-sm-2 mb-4"
+            class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
             onclick="filterSelection('3')"
           ) #Акция3
 
@@ -150,7 +150,7 @@ block content
         )
           -for(var j = 0; j < 2; j++)
             button(
-              class = "btn btn-secondary btn-lg information-card__filter col-12 col-sm-2 mb-4"
+              class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
             ) #Новости
         -for(var i = 0; i < 6; i++)
           div(
@@ -249,9 +249,9 @@ block content
         div(
           class = "information-card__filters col-12 mb-1"
         )
-          -for(var j = 0; j < 2; j++)
+          -for(var j = 0; j < 56; j++)
             button(
-              class = "btn btn-secondary btn-lg information-card__filter col-12 col-sm-2 mb-4"
+              class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
             ) #Фотография
         -for(var i = 0; i < 6; i++)
           div(

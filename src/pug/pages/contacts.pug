@@ -1,0 +1,168 @@
+extends ../layout/main
+
+block variables
+  - var title = "Контакты";
+  - var description = "АМ - сервис";
+  - var pageCLass = "am-service";
+
+block content
+  section(
+    class = "contacs"
+  )
+    div(
+      class = "contacts__container container container--custom"
+    )
+      h2(
+        class = "contacts__title title"
+      ) Как нас найти
+
+      div(
+        class = "contacts__address row"
+      )
+        iframe(
+          class = "communication-map col-sm-5 col-md-6"
+          src="https://www.google.com/maps/d/embed?mid=1U3qqAXUGQqlBbl5VQHbB5NeKotN2ClTo" 
+        )
+
+        div(
+          class = "contacts__information-text col-md-6"
+        )
+          div(
+            class = "contacts__text-wrapper"
+          )
+            div(
+              class = "contacts__icon"
+            )
+              img(
+                class = "contacts__icon-image"
+              )
+
+            div(
+              class ="contacts__text"
+            )
+              p(
+                class ="contacts__description"
+              ) г. Санкт-Петербург, пр. Энергетиков, д. 53а
+          
+          div(
+            class = "contacts__text-wrapper"
+          )
+            div(
+              class = "contacts__icon"
+            )
+              img(
+                class = "contacts__icon-image"
+              )
+              
+            div(
+              class ="contacts__text"
+            )
+              p(
+                class ="contacts__description"
+              ) Тел.: +7 (812) 380-67-50
+          
+          div(
+            class = "contacts__text-wrapper"
+          )
+            div(
+              class = "contacts__icon"
+            )
+              img(
+                class = "contacts__icon-image"
+                src="/"
+              )
+
+            div(
+              class ="contacts__text"
+            )
+              p(
+                class ="contacts__description"
+              ) info@amservice.spb.ru
+
+  section(
+    class = "contact-us"
+  ) 
+    div(
+      class = "contact-us__container container container--custom grid grid-gap-md"
+    )
+      div(
+        class = "contact-us__wrapper row"
+      )
+        div(
+          class = "contact-us__text col-sm-7 col-md-6"
+        )
+          h3(
+            class = "contact-us__text-title title"
+          ) Свяжитесь с нами
+
+          p(
+            class = "contact-us__text-description"
+          ) Если у вас есть к нам вопросы, мы обязательно на них ответим
+
+          form(
+            class = "contact-us__form form-communication"
+            id = "mainForm"
+          )
+            div(
+              class="form-group form-communication__group"
+            )
+              label(
+                class = "form-communication__label" 
+                for="exampleInputName1"
+              ) Имя*
+
+              input(
+                type="text" 
+                class="form-control form-communication__input" 
+                id="exampleInputName1"
+              )
+        
+            div(
+              class="form-group form-communication__group"
+            )
+              label(
+                class = "form-communication__label" 
+                for = "exampleInputPhone1"
+              ) Телефон*
+
+              input(
+                type = "text" 
+                class = "form-control form-communication__input" 
+                id = "exampleInputPhone1"
+              )
+
+            div(
+              class = "form-group form-communication__group"
+            )
+              label(
+                class = "form-communication__label" 
+                for = "exampleInputEmail1"
+              ) E-mail*
+
+              input(
+                type = "text" 
+                class = "form-control form-communication__input" 
+                id = "exampleInputEmail1"
+              )
+
+              div
+                input(
+                  class = "checkbox form-communication__checkbox" 
+                  type = "checkbox" 
+                  id = "checkbox1" 
+                  checked
+                )
+
+                label(
+                  class = "form-communication__label" 
+                  for = "checkbox1"
+                ) 
+                  span(
+                    class = "form-communication__text-checkbox"
+                  ) Даю согласие на обработку своих персональных данных и соглашаюсь 
+                    |с политикой конфиденциальности
+
+            button(
+              type = "button" 
+              class = "btn btn-primary btn-lg form-communication__button col-12 col-sm-7"
+            ) Отправить

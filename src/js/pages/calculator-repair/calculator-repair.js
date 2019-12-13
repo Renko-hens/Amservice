@@ -1,7 +1,3 @@
-// import isEmail from 'validator/lib/isEmail';
-// import isMobilePhone  from 'validator/lib/isMobilePhone';
-// import isEmpty from 'validator/lib/isEmpty';
-
 import validator from 'validator';
 
 const calculatorRepair = document.querySelector('.calculator-repair');
@@ -436,26 +432,40 @@ if (calculatorRepair) {
     const phone = formResults.elements.inputPhone;
     const name = formResults.elements.inputName;
 
-    if(validator.isEmail(email.value) && validator.isMobilePhone(phone.value) && !validator.isEmpty(name.value)){
-      handleResultsFormSubmit(event)
-    }
+    const formButtonElement = document.querySelector('.form-communication__button');
+    let counter = 3;
 
     if(validator.isEmpty(name.value)){
       name.classList.add('is-invalid');
+      name.addEventListener('change', handleValidator);
     } else {
+      name.removeEventListener('change', handleValidator);
       name.classList.remove('is-invalid');
+      counter -= 1;
     }
 
     if(!validator.isEmail(email.value)){
       email.classList.add('is-invalid');
+      email.addEventListener('change', handleValidator);
     } else {
       email.classList.remove('is-invalid');
+      email.removeEventListener('change', handleValidator);
+      counter -= 1;
     }
 
     if(!validator.isMobilePhone(phone.value, ['ru-RU'])){
       phone.classList.add('is-invalid');
+      phone.addEventListener('change', handleValidator);
     } else {
       phone.classList.remove('is-invalid');
+      phone.removeEventListener('change', handleValidator);
+      counter -= 1;
+    }
+
+    console.log(counter);
+
+    if(counter == 0 && validator.isEmail(email.value) && validator.isMobilePhone(phone.value) && !validator.isEmpty(name.value)) {
+      handleResultsFormSubmit(event);
     }
 
   }
@@ -516,10 +526,6 @@ if (calculatorRepair) {
   contentContainer.addEventListener('click', handleServices);
 
   formResults.addEventListener('submit', handleValidator);
-
-  // formResultstName.addEventListener('change', handleValidator);
-  // formResultsEmail.addEventListener('change', handleValidator);
-  // formResultsPhone.addEventListener('change', handleValidator);
 
   // Браузер полностью загрузил HTML, теперь можно выполнять функции
   document.addEventListener("DOMContentLoaded", getBrands);

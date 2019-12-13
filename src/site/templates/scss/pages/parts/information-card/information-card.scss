@@ -179,6 +179,7 @@
 
 .information-card__filters {
   display: flex;
+  overflow-x: scroll;
 }
 
 .information-card__filter {
@@ -189,7 +190,25 @@
   letter-spacing: 0.02em;
 }
 
+@media(max-width: 480px) {
+  .information-card__filter {
+    font-size: 12px;
+  }
+}
+
 .information-cards__controls {
   display: flex;
   justify-content: center;
+}
+
+.information-card__filters::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 4px;
+  height: 8px;
+}
+
+.information-card__filters::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #C6CAD8;
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,0.5);
 }

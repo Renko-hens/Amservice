@@ -169,21 +169,25 @@ if (calculatorPainting) {
                   </div>
                 </div>
                 <div class = "form-summary__radio-wrapper repair-services__radio-wrapper">
-                  <label class = "form-summary__label">
+                  <label class = "form-summary__label form-summary__radio-label">
                     <input class = "form-summary__radio repair-services__radio" type="radio" data-power="light" name="radio${service.price}">
                     Легкая степень повреждения
+                    <div class="form-summary__radio-text"></div>
                   </label>
-                  <label class = "form-summary__label">
+                  <label class = "form-summary__label form-summary__radio-label">
                     <input class = "form-summary__radio repair-services__radio" type="radio" data-power="normal" name="radio${service.price}">
                     Средняя степень повреждения
+                    <div class="form-summary__radio-text"></div>
                   </label>
-                  <label class = "form-summary__label">
+                  <label class = "form-summary__label form-summary__radio-label">
                     <input class = "form-summary__radio repair-services__radio" type="radio" data-power="hard" name="radio${service.price}">
                     Тяжелая степень повреждения
+                    <div class="form-summary__radio-text"></div>
                   </label>
-                  <label class = "form-summary__label">
+                  <label class = "form-summary__label form-summary__radio-label">
                     <input class = "form-summary__radio repair-services__radio" type="radio" data-power="change" name="radio${service.price}">
                     Замена детали
+                    <div class="form-summary__radio-text"></div>
                   </label>
                 </div>
               </li>`
