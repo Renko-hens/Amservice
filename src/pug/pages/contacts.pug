@@ -7,7 +7,7 @@ block variables
 
 block content
   section(
-    class = "contacs"
+    class = "contacts"
   )
     div(
       class = "contacts__container container container--custom"
@@ -20,7 +20,7 @@ block content
         class = "contacts__address row"
       )
         iframe(
-          class = "communication-map col-sm-5 col-md-6"
+          class = "communication-map col-md-6"
           src="https://www.google.com/maps/d/embed?mid=1U3qqAXUGQqlBbl5VQHbB5NeKotN2ClTo" 
         )
 
@@ -35,6 +35,7 @@ block content
             )
               img(
                 class = "contacts__icon-image"
+                src="/site/templates/img/map.svg"
               )
 
             div(
@@ -52,12 +53,14 @@ block content
             )
               img(
                 class = "contacts__icon-image"
+                src="/site/templates/img/phone.svg"
               )
               
             div(
               class ="contacts__text"
             )
-              p(
+              a(
+                href="tel:+7812380-67-50"
                 class ="contacts__description"
               ) Тел.: +7 (812) 380-67-50
           
@@ -69,13 +72,14 @@ block content
             )
               img(
                 class = "contacts__icon-image"
-                src="/"
+                src="/site/templates/img/email.svg"
               )
 
             div(
               class ="contacts__text"
             )
-              p(
+              a(
+                href="mail:info@amservice.spb.ru"
                 class ="contacts__description"
               ) info@amservice.spb.ru
 
@@ -89,7 +93,7 @@ block content
         class = "contact-us__wrapper row"
       )
         div(
-          class = "contact-us__text col-sm-7 col-md-6"
+          class = "contact-us__text col-12 col-md-12"
         )
           h3(
             class = "contact-us__text-title title"
@@ -100,16 +104,16 @@ block content
           ) Если у вас есть к нам вопросы, мы обязательно на них ответим
 
           form(
-            class = "contact-us__form form-communication"
+            class = "contact-us__form form-communication row"
             id = "mainForm"
           )
             div(
-              class="form-group form-communication__group"
+              class="form-group form-communication__group col-12 col-sm-4 mb-4"
             )
               label(
                 class = "form-communication__label" 
                 for="exampleInputName1"
-              ) Имя*
+              ) Имя
 
               input(
                 type="text" 
@@ -118,12 +122,12 @@ block content
               )
         
             div(
-              class="form-group form-communication__group"
+              class="form-group form-communication__group col-12 col-sm-4 mb-4"
             )
               label(
                 class = "form-communication__label" 
                 for = "exampleInputPhone1"
-              ) Телефон*
+              ) Телефон
 
               input(
                 type = "text" 
@@ -132,12 +136,12 @@ block content
               )
 
             div(
-              class = "form-group form-communication__group"
+              class = "form-group form-communication__group col-12 col-sm-4 mb-4"
             )
               label(
                 class = "form-communication__label" 
                 for = "exampleInputEmail1"
-              ) E-mail*
+              ) E-mail
 
               input(
                 type = "text" 
@@ -145,24 +149,10 @@ block content
                 id = "exampleInputEmail1"
               )
 
-              div
-                input(
-                  class = "checkbox form-communication__checkbox" 
-                  type = "checkbox" 
-                  id = "checkbox1" 
-                  checked
-                )
-
-                label(
-                  class = "form-communication__label" 
-                  for = "checkbox1"
-                ) 
-                  span(
-                    class = "form-communication__text-checkbox"
-                  ) Даю согласие на обработку своих персональных данных и соглашаюсь 
-                    |с политикой конфиденциальности
-
-            button(
-              type = "button" 
-              class = "btn btn-primary btn-lg form-communication__button col-12 col-sm-7"
-            ) Отправить
+            div(
+              class = "form-group col-12"
+            )
+              button(
+                type = "button" 
+                class = "btn btn-primary btn-lg form-communication__button col-12 col-sm-3"
+              ) Отправить

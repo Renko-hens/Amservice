@@ -6,7 +6,13 @@ import './sliders/sliders';
 import './components/menu-button';
 // import '../../node_modules/image-map/dist/image-map';
 import './components/filters';
+
+
 // Pages 
 import './pages/calculator-repair/calculator-repair';
 import './pages/calculator-technical-view/calculator-technical-view';
 import './pages/calculator-body-painting/calculator-body-painting';
+
+
+import './pages/media/media';
+import './pages/gallery/gallery';

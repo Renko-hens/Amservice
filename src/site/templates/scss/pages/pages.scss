@@ -15,6 +15,7 @@
 @import 'parts/information-card/information-card';
 @import 'parts/breadcrumbs/breadcrumbs';
 
+
 // Blocks
 
 //// Main page
@@ -24,6 +25,8 @@
 @import 'blocks/main/about-us/about-us';
 @import 'blocks/main/carousel/carousel.scss';
 @import 'blocks/main/contact-us/contact-us';
+@import 'blocks/main/gallery/gallery';
+@import 'blocks/main/contacts/contacts';
 
 //// Calculator page
 @import 'blocks/calculator/calculator/calculator.scss';

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Боковые юбки",
+    "serviceLightPrice" : 1000,
+    "serviceNormalPrice" : 1300,
+    "serviceHardPrice" : 1700,
+    "serviceChangePrice" : 2000
+  },
+  {
+    "id": 2,
+    "title": "Передний бампер",
+    "serviceLightPrice" : 4200,
+    "serviceNormalPrice" : 4500,
+    "serviceHardPrice" : 5000,
+    "serviceChangePrice" : 6000
+  },
+  {
+    "id" : 3,
+    "title" : "Передняя арка",
+    "serviceLightPrice" : 4200,
+    "serviceNormalPrice" : 450,
+    "serviceHardPrice" : 4800,
+    "serviceChangePrice" : 5000
+  }
+]

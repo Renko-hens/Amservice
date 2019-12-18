@@ -1,0 +1,43 @@
+.contacts {
+  margin-bottom: 40px;
+}
+
+.contacts__address .communication-map{
+  height: 340px;
+}
+
+@media(max-width:768px) {
+  .contacts__address .communication-map{
+    margin-bottom: 24px;
+  }
+}
+
+.contacts__information-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contacts__text-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.contacts__icon{
+  margin-right: 16px;
+}
+
+.contacts__icon-image {
+  width: 40px;
+}
+
+.contacts__description {
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.contacts__description:hover {
+  text-decoration: none;
+}

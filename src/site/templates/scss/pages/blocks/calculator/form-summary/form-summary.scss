@@ -123,6 +123,10 @@
   transform: rotate(-45deg);
 }
 
+.form-summary__label  .form-summary__checkbox:disabled + .form-summary__checkbox-text:before{
+  background-color: var(--color-filter);
+}
+
 .form-summary__description-wrapper {
   margin-right: 8px;
 }
@@ -276,8 +280,8 @@
 }
 
 .form-summary__label  .form-summary__radio:checked + .form-summary__radio-text:after {
-  left: -12.6px;
-  top: -11.6px;
+  left: -11.8px;
+  top: -12.4px;
   width: 4.8px;
   height: 4.8px;
   border-radius: 50%;

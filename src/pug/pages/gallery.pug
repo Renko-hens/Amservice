@@ -9,3 +9,26 @@ block content
   section(
     class = "gallery"
   )
+    div(
+      class = "gallery__container container container--custom"
+    )
+      h2(
+        class = "gallery__title calculator-technical-view__title title"
+      ) Галерея
+      div(
+        class = "gallery__list"
+        id="lightgallery"
+      )
+        -for(let i = 0; i < 12; i++)
+          figure(
+            class = "gallery__item"
+            data-src = "site/templates/img/slider01.jpg"
+          )
+            a(
+              class = "gallery__image"
+              href = "site/templates/img/slider01.jpg"
+            )
+              img(
+                class ="g"
+                src="site/templates/img/slider01.jpg"
+              )

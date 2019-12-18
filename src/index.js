@@ -8,8 +8,12 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import './site/templates/scss/owl.theme/owl.theme.custom.scss';
 
+// LightGallery
+// import 'lightgallery.js/dist/css/lightgallery.css';
+
 // SCSS
 import './site/templates/scss/style.scss';
+
 
 // JAVASCRIPT (пример)
 import './js/scripts.js'

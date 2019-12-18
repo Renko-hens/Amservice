@@ -15,31 +15,33 @@ block content
       h2(
         class = "media__main-title title"
       ) Акции
+      
+      div(
+        class = "information-card__filters col-12 mb-1"
+      )
+        button(
+          class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
+          onclick="filterSelection('all')"
+        ) #Все
+        button(
+          class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
+          onclick="filterSelection('1')"
+        ) #Акция1
+        button(
+          class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
+          onclick="filterSelection('2')"
+        ) #Акция2
+        button(
+          class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
+          onclick="filterSelection('3')"
+        ) #Акция3
+      
       div(
         class = "information-cards row"
         id="myBtnContainer"
       )
-        div(
-          class = "information-card__filters col-12 mb-1"
-        )
-          button(
-            class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
-            onclick="filterSelection('all')"
-          ) #Все
-          button(
-            class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
-            onclick="filterSelection('1')"
-          ) #Акция1
-          button(
-            class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
-            onclick="filterSelection('2')"
-          ) #Акция2
-          button(
-            class = "btn btn-secondary btn-lg information-card__filter col-4 col-sm-2 mb-sm-4 mt-1 mb-2"
-            onclick="filterSelection('3')"
-          ) #Акция3
 
-        -for(var i = 0; i < 2; i++)
+        -for(var i = 0; i < 1; i++)
           div(
             class = "filterDiv information-card col-12 col-sm-3 1"
           )
@@ -124,13 +126,15 @@ block content
                   class = "information-card__dates"
                 ) ыфывцй
 
-        div(
-          class = "information-cards__controls col-12 mt-4"
-        )
-          button(
-            class="btn btn-primary btn-lg information-card__button col-12 col-sm-3"
-            type="button"
-            ) Показать еще
+      div(
+        class = "information-cards__controls col-12 mt-4"
+      )
+        button(
+          class="btn btn-primary btn-lg information-card__button col-12 col-sm-3"
+          data-count = "4"
+          data-page-id = "1050"
+          type="button"
+          ) Показать еще
 
   section(
     class = "media"

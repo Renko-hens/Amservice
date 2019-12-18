@@ -31,7 +31,7 @@ block content
             label(
               class = "form-calculate__label"
               for = "formControlSelectModel"
-            ) Выберить модель автомобиля
+            ) Выберите марку автомобиля
 
             select(
               class = "form-calculate__select form-control"
@@ -41,7 +41,7 @@ block content
               option(
                 class = "form-calculate__option"
                 value = ""
-              ) Модель автомобиля
+              ) Марка автомобиля
 
           div(
             class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
@@ -49,7 +49,7 @@ block content
             label(
               class = "form-calculate__label"
               for = "formControlSelectModification"
-            ) Выберите модификацию
+            ) Выберите модель автомобиля
 
             select(
               class = "form-calculate__select form-control"
@@ -60,7 +60,7 @@ block content
               option(
                 class = "form-calculate__option"
                 value = ""
-              ) Модификация
+              ) Модель
 
           div(
             class = "form-calcuate__group form-group col-12 col-sm-4 mb-4"
@@ -243,84 +243,95 @@ block content
                   aria-hidden="true"
                 ) &times;
 
-              h3(
-                class = "record__title title"
-              ) Запись на сервис
-              
-              form(
-                class = "form-communication"
+              div(
+                class = "modal-body__form"
               )
-                div(
-                  class="form-group form-communication__group m-0"
+                h3(
+                  class = "record__title title"
+                ) Запись на сервис
+                
+                form(
+                  class = "form-communication"
+                  name="demo-form-1"
                 )
-                  label(
-                    class = "record__label form-communication__label" 
-                    for="inputName"
-                  ) Имя*
-
-                  input(
-                    type="text" 
-                    class="form-control form-communication__input" 
-                    id="inputName"
-                    name = "inputName"
-                  )
-            
-                div(
-                  class = "form-group form-communication__group m-0"
-                )
-                  label(
-                    class = " record__label form-communication__label" 
-                    for = "inputEmail1"
-                  ) E-mail*
-
-                  input(
-                    type = "text" 
-                    class = "form-control form-communication__input" 
-                    id = "inputEmail1"
-                    name = "inputEmail"
-                  )
-
-                div(
-                  class="form-group form-communication__group m-0"
-                )
-                  label(
-                    class = "record__label form-communication__label" 
-                    for = "inputPhone1"
-                  ) Телефон*
-
-                  input(
-                    type = "text" 
-                    class = "form-control form-communication__input" 
-                    id = "inputPhone1"
-                    name = "inputPhone"
-                  )
-
-
                   div(
-                    class = "mb-3"
+                    class="form-group form-communication__group m-0"
                   )
+                    label(
+                      class = "record__label form-communication__label" 
+                      for="inputName"
+                    ) Имя*
+
                     input(
-                      class = "checkbox form-communication__checkbox" 
-                      type = "checkbox" 
-                      id = "checkbox1" 
-                      checked
+                      type="text" 
+                      class="form-control form-communication__input" 
+                      id="inputName"
+                      name = "inputName"
+                    )
+              
+                  div(
+                    class = "form-group form-communication__group m-0"
+                  )
+                    label(
+                      class = " record__label form-communication__label" 
+                      for = "inputEmail1"
+                    ) E-mail*
+
+                    input(
+                      type = "text" 
+                      class = "form-control form-communication__input" 
+                      id = "inputEmail1"
+                      name = "inputEmail"
                     )
 
+                  div(
+                    class="form-group form-communication__group m-0"
+                  )
                     label(
-                      class = "form-communication__label mb-0" 
-                      for = "checkbox1"
-                    ) 
-                      span(
-                        class = "form-communication__record-checkbox"
-                      ) Даю согласие на обработку своих персональных данных и соглашаюсь <br> 
-                        |с политикой конфиденциальности
+                      class = "record__label form-communication__label" 
+                      for = "inputPhone1"
+                    ) Телефон*
 
-                button(
-                  type = "submit"
-                  class = "btn btn-primary btn-lg form-communication__button col-12 col-sm-7 mb-3"
-                ) Оставить заявку
-              
-                div
-                  p(
-                    class = "form-communication__required"
-                  ) * - поля, обязательные для заполнения
+                    input(
+                      type = "text" 
+                      class = "form-control form-communication__input" 
+                      id = "inputPhone1"
+                      name = "inputPhone"
+                    )
+
+
+                    div(
+                      class = "mb-3"
+                    )
+                      input(
+                        class = "checkbox form-communication__checkbox" 
+                        type = "checkbox" 
+                        id = "checkbox1" 
+                        checked
+                      )
+
+                      label(
+                        class = "form-communication__label mb-0" 
+                        for = "checkbox1"
+                      ) 
+                        span(
+                          class = "form-communication__record-checkbox"
+                        ) Даю согласие на обработку своих персональных данных и соглашаюсь <br> 
+                          |с политикой конфиденциальности
+
+                  button(
+                    class = "btn btn-primary btn-lg form-communication__button col-12 col-sm-7 mb-3"
+                    disabled
+                  ) Оставить заявку
+
+
+                
+                  div
+                    p(
+                      class = "form-communication__required"
+                    ) * - поля, обязательные для заполнения
+
+      <form id="formPageInfo">
+        <input name="page_id" type="hidden" value="1029">
+        <input name="pageTitle" type="hidden" value="Ремонт авто">
+      </form>

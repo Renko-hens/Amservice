@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { VueLoaderPlugin } = require('vue-loader');
 
+
 const PATHS = {
   src: path.join(__dirname, "../src"),
   dist: path.join(__dirname, "../dist"),

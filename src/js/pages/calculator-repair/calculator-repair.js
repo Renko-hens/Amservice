@@ -1,36 +1,35 @@
 import validator from 'validator';
 
 const calculatorRepair = document.querySelector('.calculator-repair');
-const form = document.querySelector('.calculator-repair__form');
-const formResults = document.querySelector('.form-communication');
-
-const repairSelectMark = document.querySelector('#formControlSelectMark');
-const repairSelectModel = document.querySelector('#formControlSelectModel');
-const repairSelectYears = document.querySelector('#formControlSelectYears');
-
-const formSummaryContainer = document.querySelector('.form-summary__container');
-const calculatorRepairContainer = document.querySelector('.calculator-repair__container');
-const contentContainer = document.querySelector('.form-summary__wrapper');
-const servicesElementContainer = document.querySelector('.repair-services__wrapper-list');
-
-const categoriesList = document.querySelector('.form-summary__list-categories');
-const servicesList = document.querySelector('.repair-services__list');
-const resultsList = document.querySelector('.selected-services__list');
-
-
-const servicesButtonElement = document.querySelector('.form-calculate__button');
-const modalResults = document.querySelector('.modal-body');
-const totalAmmount = document.querySelector(".form-summary__value-amount");
-
-
-// const formResultstName = document.querySelector('#inputName');
-// const formResultsEmail = document.querySelector('#inputEmail1');
-// const formResultsPhone = document.querySelector('#inputPhone1');
-
-const selectedServicesPrice = [];
-const selectedServicesId = [];
 
 if (calculatorRepair) {
+  const form = document.querySelector('.calculator-repair__form');
+  const formResults = document.querySelector('.form-communication');
+
+  const repairSelectMark = document.querySelector('#formControlSelectMark');
+  const repairSelectModel = document.querySelector('#formControlSelectModel');
+  const repairSelectYears = document.querySelector('#formControlSelectYears');
+
+  const email = formResults.elements.inputEmail;
+  const phone = formResults.elements.inputPhone;
+  const name = formResults.elements.inputName;
+
+  const formSummaryContainer = document.querySelector('.form-summary__container');
+  const calculatorRepairContainer = document.querySelector('.calculator-repair__container');
+  const contentContainer = document.querySelector('.form-summary__wrapper');
+  const servicesElementContainer = document.querySelector('.repair-services__wrapper-list');
+
+  const categoriesList = document.querySelector('.form-summary__list-categories');
+  const servicesList = document.querySelector('.repair-services__list');
+  const resultsList = document.querySelector('.selected-services__list');
+
+  const formResultsButtonElement = document.querySelector('.form-communication__button');
+  const servicesButtonElement = document.querySelector('.form-calculate__button');
+  const modalResults = document.querySelector('.modal-body');
+  const totalAmmount = document.querySelector(".form-summary__value-amount");
+
+  const selectedServicesPrice = [];
+  const selectedServices = [];
 
   // Проверка на то что запрос не отправлен
   const handleErrors = (response) => {
@@ -78,14 +77,15 @@ if (calculatorRepair) {
   const createLoader = (item) => {
     item.classList.add('contact-us__wrapper--loader');
     item.parentNode.insertAdjacentHTML(
-      'beforeend', `
-  <div class="lds-ring">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  `
+      'beforeend',
+      `
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      `
     );
   }
 
@@ -98,8 +98,6 @@ if (calculatorRepair) {
 
 
   const updateAmount = (arrayPrice, totalAmmountElement) => {
-
-    // console.log(selectedServices);
     let summary = arrayPrice.reduce((previousValue, currentValue) => {
       return (+previousValue) + (+currentValue);
     }, 0);
@@ -136,7 +134,6 @@ if (calculatorRepair) {
 
   // Запрос на получение списка марки автомобиля (данные для первого селекта)
   const getBrands = () => {
-
     fetch('https://amservice.unilead.team/api/calculators/post/calculator_repair/marks', {
       method: 'POST',
       headers: {
@@ -281,15 +278,15 @@ if (calculatorRepair) {
         selectedServicesPrice.splice(0 , selectedServicesPrice.length)
         updateAmount(selectedServicesPrice , totalAmmount);
         
-        selectedServicesId.splice(0 , selectedServicesId.length)
-        updateAmount(selectedServicesId , totalAmmount);
+        selectedServices.splice(0 , selectedServices.length)
+        updateAmount(selectedServices , totalAmmount);
 
         json.response.forEach((category) => {
           categoriesList.insertAdjacentHTML(
             'beforeend',
             `<li class="form-summary__item-categories categories__item">
                 <button class="form-summary__button-category categories__button" data-id=${category.id}>
-                  <div class="categories__picture-wrapper"><img class="categories__image" src="/site/templates/img/diagnostick.svg"></div>
+                  <div class="categories__picture-wrapper"><img class="categories__image" src="${category.img}"></div>
                   <div class="categories__title-wrapper">
                     <h3 class="categories__title-category">${category.title}</h3>
                   </div>
@@ -314,15 +311,17 @@ if (calculatorRepair) {
 
     createLoader(servicesElementContainer);
 
-    // // Меняет цвет кнопки
+    // Меняет цвет кнопки
     const buttonCategoryElement = event.target.closest('button.categories__button');
     const categoriesButton = document.querySelectorAll('.categories__button');
 
     categoriesButton.forEach((button) => {
       if (buttonCategoryElement !== button) {
         button.classList.remove('categories__button--active');
+        includeButton(button)
       } else {
-        button.classList.toggle('categories__button--active');
+        button.classList.add('categories__button--active');
+        disabledButton(button)
       }
     });
 
@@ -349,10 +348,11 @@ if (calculatorRepair) {
         json.response.map((service) => {
           let _id = null;
 
-          if (selectedServicesId.length > 0) {
-            _id = selectedServicesId.find((id) => {
-              return id == service.id;
+          if (selectedServices.length > 0) {
+            _id = selectedServices.find((selectedService) => {
+              return selectedService.id == service.id;
             });
+
           }
 
           if (!_id) {
@@ -362,7 +362,7 @@ if (calculatorRepair) {
                 <div class="form-summary__checkbox-block"> 
                   <div class="form-summary__checkbox-wrapper repair-services__checkbox-wrapper"> 
                     <label class="form-summary__label">
-                      <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" value=${service.price}>
+                      <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" data-title="${service.title} - ${service.type}" value=${service.price}>
                       <div class="form-summary__checkbox-text"></div>
                     </label>
                   </div>
@@ -387,30 +387,36 @@ if (calculatorRepair) {
   }
 
 
-  // Обработка чекбоксов и формирование массива с выбранными значениями
+  // Обработка чекбоксов и формирование массива объектов с выбранными значениями
   const handleServices = (event) => {
     const checkbox = event.target.closest('input[type="checkbox"]');
 
     if (checkbox != null) {
       const li = checkbox.closest('li');
-      const value = checkbox.value;
-      const serviceId = li.dataset.serviceId;
-      const activeCategoryElement = document.querySelector('.categories__button--active');
+      const priceValue = checkbox.value;
+      
+      const activeCategoryElement = document.querySelector('.categories__button--active');    
+      const formButtonSignElement = document.querySelector('.form-summary__button-sign');
+      
+      let selectedService = {};
+      selectedService.price = checkbox.value;
+      selectedService.title = checkbox.dataset.title;
+      selectedService.id = li.dataset.serviceId;
+      selectedService.categoryId = li.dataset.categoryId;
 
       if (checkbox.checked == true) {
-        selectedServicesPrice.push(value);
-        selectedServicesId.push(serviceId);
+        selectedServicesPrice.push(priceValue);
+        selectedServices.push(selectedService);
 
         resultsList.append(li);
 
         updateAmount(selectedServicesPrice , totalAmmount);
       } else {
-        selectedServicesPrice.splice(selectedServicesPrice.indexOf(value), 1);
-
-        selectedServicesId.splice(selectedServicesId.indexOf(serviceId), 1);
+        selectedServicesPrice.splice(selectedServicesPrice.indexOf(priceValue), 1);
+        selectedServices.splice(selectedServices.indexOf(selectedService), 1);
 
         updateAmount(selectedServicesPrice , totalAmmount);
-
+       
         if (activeCategoryElement != null) {
           const servicesCategoryId = activeCategoryElement.dataset.id;
 
@@ -421,95 +427,126 @@ if (calculatorRepair) {
           }
         }
       }
+
+      if(selectedServicesPrice.length == 0) {      
+        disabledButton(formButtonSignElement);
+      } else {
+        includeButton(formButtonSignElement);
+      }
     }
   }
 
-
   const handleValidator = (event) => {
     event.preventDefault();
-
-    const email = formResults.elements.inputEmail;
-    const phone = formResults.elements.inputPhone;
-    const name = formResults.elements.inputName;
-
-    const formButtonElement = document.querySelector('.form-communication__button');
     let counter = 3;
 
-    if(validator.isEmpty(name.value)){
+    if(validator.isEmpty(name.value.trim())){
       name.classList.add('is-invalid');
-      name.addEventListener('change', handleValidator);
     } else {
-      name.removeEventListener('change', handleValidator);
       name.classList.remove('is-invalid');
       counter -= 1;
     }
 
     if(!validator.isEmail(email.value)){
       email.classList.add('is-invalid');
-      email.addEventListener('change', handleValidator);
     } else {
       email.classList.remove('is-invalid');
-      email.removeEventListener('change', handleValidator);
       counter -= 1;
     }
 
     if(!validator.isMobilePhone(phone.value, ['ru-RU'])){
       phone.classList.add('is-invalid');
-      phone.addEventListener('change', handleValidator);
+
     } else {
       phone.classList.remove('is-invalid');
-      phone.removeEventListener('change', handleValidator);
       counter -= 1;
     }
 
-    console.log(counter);
-
-    if(counter == 0 && validator.isEmail(email.value) && validator.isMobilePhone(phone.value) && !validator.isEmpty(name.value)) {
-      handleResultsFormSubmit(event);
+    if(counter == 0 && validator.isEmail(email.value) && validator.isMobilePhone(phone.value) && !validator.isEmpty(name.value.trim())) {
+      setTimeout(() => {
+        includeButton(formResultsButtonElement);
+      }, 400);
+    } else {
+        disabledButton(formResultsButtonElement);
     }
-
   }
 
   // Отправка выбранных чекбоксов и данных пользователя 
   const handleResultsFormSubmit = (event) => {
     event.preventDefault();
+
     createLoader(formResults);
+    const formPageInfo = document.querySelector('#formPageInfo');
+    const pageId = formPageInfo.querySelector('input[name="page_id"]');
+    const pageTitle = formPageInfo.querySelector('input[name="pageTitle"]');
+
+    const modalForm = document.querySelector('.modal-body__form');
+
+    const formId = new FormData();
+    formId.append('name', formResults.elements.inputName.value);
+    formId.append('email', formResults.elements.inputEmail.value);
+    formId.append('phone', formResults.elements.inputPhone.value);
+    formId.append('model',  form.elements.models.value);
+    formId.append('brand',  form.elements.brands.value);
+    formId.append('year',  form.elements.years.value);
+    formId.append('selectedServices', JSON.stringify(selectedServices));
+    formId.append('pageId', pageId.value);
+    formId.append('pageTitle', pageTitle.value);
+    console.log(formId);
 
     let data = {
       name: formResults.elements.inputName.value,
       email: formResults.elements.inputEmail.value,
       phone: formResults.elements.inputPhone.value,
-      id: selectedServicesId,
+      selectedServices: selectedServices,
       model: form.elements.models.value,
       brand: form.elements.brands.value,
       year: form.elements.years.value
     };
 
-    fetch('https://jsonplaceholder.typicode.com/posts', {
+    fetch('https://amservice.unilead.team/api/forms/post/calculator_repair/', {
       method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
+      body: formId,
     })
       .then(handleErrors)
       .then(response => response.json())
+      .then(() =>{
+        modalForm.style.display = "none";
+        return;
+      })
       .then((json) => {
-        modalResults.innerHTML = `
-          <button class="close record__close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-          <div class="contact-us__wrapper">
-            <div class="contact-us__picture-success">
-              <img class="contact-us__image-success" src="site/templates/img/check.svg">
+        modalResults.insertAdjacentHTML(
+          'beforeend',
+          ` <div class="contact-us__wrapper">
+              <div class="contact-us__picture-success">
+                <img class="contact-us__image-success" src="/site/templates/img/check.svg">
+              </div>
+              <div class="contact-us__text col-sm-12 text-center">
+                <h3 class="contact-us__text-title title">Спасибо!</h3>
+                <p class="contact-us__text-description--success">
+                  Благодарим за оставленную заявку. <br> 
+                  Мы обязательно свяжемся с Вами в ближайшее время.
+                </p>
+              </div>
             </div>
-            <div class="contact-us__text col-sm-12 text-center">
-              <h3 class="contact-us__text-title title">Спасибо!</h3>
-              <p class="contact-us__text-description--success">
-                Благодарим за оставленную заявку. <br> 
-                Мы обязательно свяжемся с Вами в ближайшее время.
-              </p>
-            </div>
-          </div>
-        `
+          `
+        );
+      })
+      .then(() => {
+        deleteLoader(formResults);
+      })
+      .then(() => {
+        const formSuccess = document.querySelector('.contact-us__wrapper');
+
+        setTimeout(() => {
+          formSuccess.remove();
+          name.value = '';
+          email.value = '';
+          phone.value = '';
+          disabledButton(formResultsButtonElement);
+          modalForm.style.display = "block";
+          return;
+        }, 5000);
       })
       .catch((error) => {
         console.error(error);
@@ -519,16 +556,17 @@ if (calculatorRepair) {
   repairSelectMark.addEventListener('change', handleSelect1);
   repairSelectModel.addEventListener('change', handleSelect2);
   repairSelectYears.addEventListener('change', handleSelect3);
-
   form.addEventListener('submit', handleFormSubmit);
 
   categoriesList.addEventListener("click", handleCategoryClick);
   contentContainer.addEventListener('click', handleServices);
-
-  formResults.addEventListener('submit', handleValidator);
+  
+  name.addEventListener('change', handleValidator);
+  email.addEventListener('change', handleValidator);
+  phone.addEventListener('change', handleValidator);  
+  formResults.addEventListener('submit', handleResultsFormSubmit);
 
   // Браузер полностью загрузил HTML, теперь можно выполнять функции
   document.addEventListener("DOMContentLoaded", getBrands);
-
 }
 
