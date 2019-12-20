@@ -11,38 +11,6 @@ if(cardsContainer) {
     return response;
   }
 
-
-  // const getCards = (event) => {
-  //   event.preventDefault();
-    
-  //   const formPageInfo = document.querySelector('#formPageInfo');
-  //   const pageId = formPageInfo.querySelector('input[name="page_id"]');
-  //   const pageTitle = formPageInfo.querySelector('input[name="pageTitle"]');
-  
-  //   let data = {
-  //     "offset":"0",
-  //     "count": "12",
-  //     "parent_id": pageId.value
-  //   };
-
-  //   fetch('https://amservice.unilead.team/api/content/list_item/', {
-  //     method: 'POST',
-  //     body: JSON.stringify(data),
-  //     headers: {
-  //       "Content-type": "application/json; charset=UTF-8"
-  //     }
-  //   })
-  //     .then(handleErrors)
-  //     .then(response => response.json())
-  //     .then((json) => {
-  //       cardsContainer.innerHTML = json.response;
-  //       showMoreButton.dataset.count = json.count;
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     })
-  // }
-
   const handleShowMore = (event) => {
     event.preventDefault();
     let offset = cardsContainer.querySelectorAll('.information-card');

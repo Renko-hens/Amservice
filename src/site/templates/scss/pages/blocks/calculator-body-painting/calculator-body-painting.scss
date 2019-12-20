@@ -3,46 +3,89 @@
   margin-bottom: 48px;
 }
 
-// .car{
-//   display: none;
-// }
+@media(max-width: 768px) {
+  .calculator-painting__title {
+    font-size: 24px;
+  }
+}
+
+@media(max-width: 576px) {
+  .car__container {
+    padding: 0;
+  }
+}
 
 .car__map {
   position: relative;
 }
 
 .st0{fill:#D7E2E2;}
-.st1{fill:#4D4D4D;}
-.st2{fill:#262626;}
-.st3{fill:#1A1A1A;}
-.st4{fill:#DEDEDB;}
-.st5{fill:#4D0000;}
-.st6{fill:#EE0000;}
-.st7{fill:#999999;}
-.st8{fill:url(#SVGID_1_);}
-.st9{fill:url(#SVGID_2_);}
-.st10{fill:url(#SVGID_3_);}
-.st11{fill:url(#SVGID_4_);}
-.st12{fill:url(#SVGID_5_);}
-.st13{fill:url(#SVGID_6_);}
-.st14{fill:url(#SVGID_7_);}
-.st15{fill:url(#SVGID_8_);}
-.st16{fill:url(#SVGID_9_);}
-.st17{fill:#171916;}
-.st18{fill:url(#SVGID_10_);}
-.st19{fill:url(#SVGID_11_);}
-.st20{fill:url(#SVGID_12_);}
-.st21{fill:url(#SVGID_13_);}
-.st22{fill:url(#SVGID_14_);}
-.st23{fill:url(#SVGID_15_);}
-.st24{fill:url(#SVGID_16_);}
-.st25{fill:url(#SVGID_17_);}
-.st26{display:none;}
-.st27{display:inline;fill:#264FA4;}
+.st1{fill:#DEDEDB;}
+.st2{fill:#999999;}
+.st3{fill:#4D4D4D;}
+.st4{fill:#262626;}
+.st5{fill:#1A1A1A;}
+.st6{fill:none;}
+.st7{display:none;fill:#999999;}
+.st8{fill:#4D0000;}
+.st9{fill:#EE0000;}
+.st10{fill:url(#SVGID_1_);}
+.st11{fill:url(#SVGID_2_);}
+.st12{fill:url(#SVGID_3_);}
+.st13{fill:url(#SVGID_4_);}
+.st14{fill:url(#SVGID_5_);}
+.st15{fill:url(#SVGID_6_);}
+.st16{fill:url(#SVGID_7_);}
+.st17{fill:url(#SVGID_8_);}
+.st18{fill:url(#SVGID_9_);}
+.st19{fill:#171916;}
+.st20{fill:url(#SVGID_10_);}
+.st21{fill:url(#SVGID_11_);}
+.st22{fill:url(#SVGID_12_);}
+.st23{fill:url(#SVGID_13_);}
+.st24{fill:url(#SVGID_14_);}
+.st25{fill:url(#SVGID_15_);}
+.st26{fill:url(#SVGID_16_);}
+.st27{fill:url(#SVGID_17_);}
+.st28{fill:url(#SVGID_18_);}
+.st29{fill:#f9eb6d;}
+.st30{fill:#f9eb6d;}
+.st31{fill:#CCCAC6;}
+.st32{display:none;}
+.st33{display:inline;}
+.st34{fill:#264FA4;}
 
-#Mirror_1_:hover a path {
-  fill: red;
-  transition: 0.3s;
+svg a path[data-parts='true'] {
+  transition: 0.2s;
+}
+
+svg a path[data-parts='true']:hover {
+  fill: var(--color-calculator-hover);
+  transition: 0.4s;
+}
+
+svg a path.svg--active[data-parts='true']:hover{
+  fill: rgba($color: #004EC2, $alpha: 1);
+  transition: 0.2s;
+}
+
+g a path[data-parts='true'] {
+  transition: 0.2s;
+}
+
+g a path[data-parts='true']:hover {
+  fill: var(--color-calculator-hover);
+  transition: 0.4s;
+}
+
+g a path.svg--active[data-parts='true']:hover{
+  fill: rgba($color: #004EC2, $alpha: 1);
+  transition: 0.2s;
+}
+
+.svg--active {
+  fill: rgba($color: #004EC2, $alpha: 1);
+  transition: 0.2s;
 }
 
 .car__picture-wrapper {

@@ -2,26 +2,6 @@ import validator from 'validator';
 import ImageMap from 'image-map/dist/image-map';
 
 ImageMap( 'img[usemap]' );
-console.log(ImageMap('img[usemap]'));
-
-const dd = document.querySelector('#Mirror_1_');
-
-dd.addEventListener("click", () => {
-  if(dd.classList.contains('reds')){
-    dd.classList.remove("reds");
-    handleCategoryClick();
-  }else{
-    dd.classList.add("reds");
-  }
-});
-
-dd.addEventListener("mouseover", () => {
-  dd.classList.toggle("reds")
-})
-
-dd.addEventListener("mouseout", () => {
-  dd.classList.toggle("reds")
-})
 
 const calculatorPainting = document.querySelector('.calculator-painting');
 
@@ -29,6 +9,8 @@ if (calculatorPainting) {
   const form = document.querySelector('.calculator-repair__form');
   const formResults = document.querySelector('.form-communication');
   const formPageInfo = document.querySelector('#formPageInfo');
+
+  const carItem = document.querySelector('.map');
 
   const email = formResults.elements.inputEmail;
   const phone = formResults.elements.inputPhone;
@@ -41,6 +23,7 @@ if (calculatorPainting) {
   const categoriesList = document.querySelector('.form-summary__list-categories');
   const servicesList = document.querySelector('.repair-services__list');
   const resultsList = document.querySelector('.selected-services__list');
+  const pictureItems = document.querySelectorAll('path[data-parts = "true"]');
 
   const formResultsButtonElement = document.querySelector('.form-communication__button');
   const modalResults = document.querySelector('.modal-body');
@@ -105,8 +88,7 @@ if (calculatorPainting) {
     return prices;
   }
 
-  // Отправка данных селектов и создание элементов на основе полученных данных 
-  const handleFormSubmit = (event) => {
+  const handlePictureBuild = (event) => {
     event.preventDefault();
 
     fetch('https://amservice.unilead.team/api/calculators/post/painting/categories' , {
@@ -115,6 +97,34 @@ if (calculatorPainting) {
           "Content-type": "application/json; charset=UTF-8"
         }
     })
+    .then(handleErrors)
+    .then(response => response.json())
+    .then((json) => {
+      json.response.forEach((category) => {
+        pictureItems.forEach((item) => {
+          if(item.dataset.title == category.title){
+            item.dataset.categoryId = category.id;
+          }
+        })
+      }
+      );
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+  }
+
+  
+  // Отправка данных селектов и создание элементов на основе полученных данных 
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    fetch('https://amservice.unilead.team/api/calculators/post/painting/categories' , {
+      method: 'POST',
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
       .then(handleErrors)
       .then(response => response.json())
       .then((json) => {
@@ -125,13 +135,13 @@ if (calculatorPainting) {
             'beforeend',
             `<li class="form-summary__item-categories categories__item">
                 <button class="form-summary__button-category categories__button" data-id=${category.id}>
-                  <div class="categories__picture-wrapper"><img class="categories__image" src="${category.img}"></div>
+                <div class="categories__picture-wrapper"><img class="categories__image" src="${category.img}"></div>
                   <div class="categories__title-wrapper">
-                    <h3 class="categories__title-category">${category.title}</h3>
+                  <h3 class="categories__title-category">${category.title}</h3>
                   </div>
                 </button>
             </li>`
-          );
+            );
         }
         );
       })
@@ -140,9 +150,105 @@ if (calculatorPainting) {
       })
   }
 
-   // Отправка данных селектов и id нажатой кнопки для создания чекбоксов на основе полученных данных 
-   const handleCategoryClick = (event) => {
+  const handleClickPictureItem = (event) => {
     event.preventDefault();
+    const pictureItem = event.target.closest('path[data-parts = "true"]');
+    const categoriesButton = document.querySelectorAll('.categories__button');
+
+    pictureItems.forEach((item) => {
+      if(pictureItem !== item) {
+        item.classList.remove("svg--active");
+      }else {
+        item.classList.add("svg--active");
+        categoriesButton.forEach((button) => {
+          if(pictureItem.dataset.categoryId == button.dataset.id) {
+            button.classList.add('categories__button--active');
+          } else {
+            button.classList.remove('categories__button--active');
+          }
+        })
+      }
+    })
+
+    let data = {
+      "categoryID" : pictureItem.dataset.categoryId
+    };
+
+    fetch(`https://amservice.unilead.team/api/calculators/post/painting/services` , {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }
+    )
+      .then(handleErrors)
+      .then(response => response.json())
+      .then((json) => {
+        servicesList.innerHTML = '';
+        json.response.map((service) => {
+          let _id = null;
+
+          if (selectedServices.length > 0) {
+            _id = selectedServices.find((selectedService) => {
+              return selectedService.id == service.id;
+            });
+          }
+
+          if (!_id) {
+            servicesList.insertAdjacentHTML(
+              'beforeend',
+              `<li class="form-summary__item repair-services__item"  data-category-id="${pictureItem.dataset.categoryId}" data-service-id="${service.id}">
+                <div class="form-summary__checkbox-block"> 
+                  <div class="form-summary__checkbox-wrapper repair-services__checkbox-wrapper"> 
+                      <label class="form-summary__label">
+                        <input class="form-summary__checkbox repair-services__checkbox" type="checkbox" data-radioPower="light"  data-title="${service.title}" value=${service.serviceLightPrice}>
+                        <div class="form-summary__checkbox-text"></div>
+                      </label>
+                  </div>
+                  <div class="form-summary__description-wrapper repair-services__description-wrapper">
+                    <p class="form-summary__description repair-services__description">${service.title}</p>
+                  </div>
+                  <div class="form-summary__price-wrapper repair-services__price-wrapper">
+                    <p class="form-summary__price repair-services__price">${service.serviceLightPrice}₽</p>
+                  </div>
+                </div>
+                <div class = "form-summary__radio-wrapper repair-services__radio-wrapper">
+                  <label class = "form-summary__label form-summary__radio-label">
+                    <input class = "form-summary__radio repair-services__radio" type="radio" data-power="light" data-price="${service.serviceLightPrice}" name="radio${service.id}" checked>
+                    Легкая степень повреждения
+                    <div class="form-summary__radio-text"></div>
+                  </label>
+                  <label class = "form-summary__label form-summary__radio-label">
+                    <input class = "form-summary__radio repair-services__radio" type="radio" data-power="normal" data-price="${service.serviceNormalPrice}" name="radio${service.id}">
+                    Средняя степень повреждения
+                    <div class="form-summary__radio-text"></div>
+                  </label>
+                  <label class = "form-summary__label form-summary__radio-label">
+                    <input class = "form-summary__radio repair-services__radio" type="radio" data-power="hard" data-price="${service.serviceHardPrice}" name="radio${service.id}">
+                    Тяжелая степень повреждения
+                    <div class="form-summary__radio-text"></div>
+                  </label>
+                  <label class = "form-summary__label form-summary__radio-label">
+                    <input class = "form-summary__radio repair-services__radio" type="radio" data-power="change" data-price="${service.serviceChangePrice}" name="radio${service.id}">
+                    Замена детали
+                    <div class="form-summary__radio-text"></div>
+                  </label>
+                </div>
+              </li>`
+            );
+          }
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+
+  }
+
+  // Отправка данных селектов и id нажатой кнопки для создания чекбоксов на основе полученных данных 
+   const handleCategoryClick = (event) => {
+     event.preventDefault();
 
     createLoader(servicesElementContainer);
 
@@ -157,6 +263,13 @@ if (calculatorPainting) {
       } else {
         button.classList.add('categories__button--active');
         disabledButton(button)
+        pictureItems.forEach((item) =>{
+          if(item.dataset.categoryId == button.dataset.id){
+            item.classList.add("svg--active");
+          } else {
+            item.classList.remove("svg--active");
+          }
+        });
       }
     });
 
@@ -425,6 +538,8 @@ if (calculatorPainting) {
   }
 
 
+  
+  carItem.addEventListener("click", handleClickPictureItem);
   categoriesList.addEventListener("click", handleCategoryClick);
   contentContainer.addEventListener('click', handleServices);
 
@@ -435,5 +550,6 @@ if (calculatorPainting) {
 
   // Браузер полностью загрузил HTML, теперь можно выполнять функции
   document.addEventListener("DOMContentLoaded", handleFormSubmit);
+  document.addEventListener("DOMContentLoaded", handlePictureBuild);
 
 }

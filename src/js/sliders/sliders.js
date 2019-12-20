@@ -50,6 +50,21 @@ $('.information-cards--slider-carousel').owlCarousel({
 });
 
 
+$('.car__slider').owlCarousel({
+  margin: 20,
+  nav:true,
+  loop:true,
+  dots: false,
+  responsive:{
+    0:{
+      items: 1,
+      autoWidth: false,
+      touchDrag: true 
+    }
+  }
+});
+
+
 // $('.information-cards--slider-stocks').owlCarousel({
 //   margin: 30,
 //   nav:true,
