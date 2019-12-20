@@ -103,6 +103,7 @@ if (calculatorRepair) {
     }, 0);
 
     totalAmmountElement.textContent = summary + " ₽";
+    return summary;
   }
 
 
@@ -474,12 +475,10 @@ if (calculatorRepair) {
   // Отправка выбранных чекбоксов и данных пользователя 
   const handleResultsFormSubmit = (event) => {
     event.preventDefault();
-
     createLoader(formResults);
     const formPageInfo = document.querySelector('#formPageInfo');
     const pageId = formPageInfo.querySelector('input[name="page_id"]');
     const pageTitle = formPageInfo.querySelector('input[name="pageTitle"]');
-
     const modalForm = document.querySelector('.modal-body__form');
 
     const formId = new FormData();
@@ -492,6 +491,7 @@ if (calculatorRepair) {
     formId.append('selectedServices', JSON.stringify(selectedServices));
     formId.append('pageId', pageId.value);
     formId.append('pageTitle', pageTitle.value);
+    formId.append('totalAmmount', updateAmount(selectedServicesPrice , totalAmmount));
     console.log(formId);
 
     let data = {

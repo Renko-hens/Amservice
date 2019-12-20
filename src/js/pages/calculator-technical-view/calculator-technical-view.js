@@ -30,6 +30,7 @@ if(calculatorTechView) {
 
   const worksPrice = [];
   const materialsPrice = [];
+  let totalAmmountPrice = [];
   const table = [];
 
   // Проверка на то что запрос не отправлен
@@ -105,6 +106,7 @@ if(calculatorTechView) {
     }, 0);
 
     totalAmmountElement.textContent = summary + " ₽";
+    return summary;
   }
 
   
@@ -309,7 +311,7 @@ if(calculatorTechView) {
         updateAmount(worksPrice, worksPriceElement);
         updateAmount(materialsPrice, materialsPriceElement);
 
-        const totalAmmountPrice = worksPrice.concat(materialsPrice);
+        totalAmmountPrice = worksPrice.concat(materialsPrice);
         updateAmount(totalAmmountPrice, totalAmmountElement);
       })
       .then(() => {
@@ -378,6 +380,7 @@ if(calculatorTechView) {
       formId.append('worksId', JSON.stringify(table));
       formId.append('pageId', pageId.value);
       formId.append('pageTitle', pageTitle.value);
+      formId.append('totalAmmount', updateAmount(totalAmmountPrice, totalAmmountElement));
       console.log(formId);
 
       // let data = {
@@ -390,7 +393,7 @@ if(calculatorTechView) {
       //   mileage: form.elements.mileage.value
       // };
 
-      fetch('https://amservice.unilead.team/api/forms/post/calculator_repair/', {
+      fetch('https://amservice.unilead.team/api/forms/post/calculator_technical_inspection/', {
         method: 'POST',
         body: formId,
       })

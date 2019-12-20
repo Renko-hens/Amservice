@@ -1,8 +1,27 @@
 import validator from 'validator';
-// import ImageMap from 'image-map/dist/image-map';
+import ImageMap from 'image-map/dist/image-map';
 
-// ImageMap( 'img[usemap]' );
-// console.log(ImageMap('img[usemap]'));
+ImageMap( 'img[usemap]' );
+console.log(ImageMap('img[usemap]'));
+
+const dd = document.querySelector('#Mirror_1_');
+
+dd.addEventListener("click", () => {
+  if(dd.classList.contains('reds')){
+    dd.classList.remove("reds");
+    handleCategoryClick();
+  }else{
+    dd.classList.add("reds");
+  }
+});
+
+dd.addEventListener("mouseover", () => {
+  dd.classList.toggle("reds")
+})
+
+dd.addEventListener("mouseout", () => {
+  dd.classList.toggle("reds")
+})
 
 const calculatorPainting = document.querySelector('.calculator-painting');
 
@@ -45,6 +64,7 @@ if (calculatorPainting) {
       }, 0);
 
       totalAmmountElement.textContent = summary + " ₽";
+      return summary;
     }  
 
     // Создание лоадера
@@ -339,7 +359,7 @@ if (calculatorPainting) {
     const formPageInfo = document.querySelector('#formPageInfo');
     const pageId = formPageInfo.querySelector('input[name="page_id"]');
     const pageTitle = formPageInfo.querySelector('input[name="pageTitle"]');
-    
+    const totalAmmount = document.querySelector('.form-summary__value-amount');
     const modalForm = document.querySelector('.modal-body__form');
 
     const formId = new FormData();
@@ -349,6 +369,7 @@ if (calculatorPainting) {
     formId.append('selectedServices', JSON.stringify(selectedServices));
     formId.append('pageId', pageId.value);
     formId.append('pageTitle', pageTitle.value);
+    formId.append('totalAmmount', totalAmmount.textContent.replace(/\D+/g,""));
 
     // let data = {
     //   name: formResults.elements.inputName.value,
@@ -357,7 +378,7 @@ if (calculatorPainting) {
     //   selectedServices: selectedServices
     // };
 
-    fetch('https://amservice.unilead.team/api/forms/post/calculator_repair/', {
+    fetch('https://amservice.unilead.team/api/forms/post/painting/', {
       method: 'POST',
       body: formId,
     })
