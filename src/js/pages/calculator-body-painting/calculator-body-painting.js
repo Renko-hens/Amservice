@@ -15,6 +15,7 @@ if (calculatorPainting) {
   const email = formResults.elements.inputEmail;
   const phone = formResults.elements.inputPhone;
   const name = formResults.elements.inputName;
+  const comments = formResults.elements.comments.value;
 
   const formSummaryContainer = document.querySelector('.form-summary__container');
   const contentContainer = document.querySelector('.form-summary__wrapper');
@@ -479,6 +480,7 @@ if (calculatorPainting) {
     formId.append('name', formResults.elements.inputName.value);
     formId.append('email', formResults.elements.inputEmail.value);
     formId.append('phone', formResults.elements.inputPhone.value);
+    formId.append('comments', formResults.elements.comments.value);
     formId.append('selectedServices', JSON.stringify(selectedServices));
     formId.append('pageId', pageId.value);
     formId.append('pageTitle', pageTitle.value);
@@ -528,6 +530,7 @@ if (calculatorPainting) {
           name.value = '';
           email.value = '';
           phone.value = '';
+          comments.value = '';
           disabledButton(formResultsButtonElement);
           modalForm.style.display = 'block';
         }, 5000);

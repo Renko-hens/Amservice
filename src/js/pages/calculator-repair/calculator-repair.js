@@ -13,6 +13,7 @@ if (calculatorRepair) {
   const email = formResults.elements.inputEmail;
   const phone = formResults.elements.inputPhone;
   const name = formResults.elements.inputName;
+  const comments = formResults.elements.comments.value;
 
   const formSummaryContainer = document.querySelector('.form-summary__container');
   const calculatorRepairContainer = document.querySelector('.calculator-repair__container');
@@ -485,6 +486,7 @@ if (calculatorRepair) {
     formId.append('name', formResults.elements.inputName.value);
     formId.append('email', formResults.elements.inputEmail.value);
     formId.append('phone', formResults.elements.inputPhone.value);
+    formId.append('comments', formResults.elements.comments.value);
     formId.append('model',  form.elements.models.value);
     formId.append('brand',  form.elements.brands.value);
     formId.append('year',  form.elements.years.value);
@@ -492,7 +494,6 @@ if (calculatorRepair) {
     formId.append('pageId', pageId.value);
     formId.append('pageTitle', pageTitle.value);
     formId.append('totalAmmount', updateAmount(selectedServicesPrice , totalAmmount));
-    console.log(formId);
 
     let data = {
       name: formResults.elements.inputName.value,
@@ -543,6 +544,7 @@ if (calculatorRepair) {
           name.value = '';
           email.value = '';
           phone.value = '';
+          comments.value = '';
           disabledButton(formResultsButtonElement);
           modalForm.style.display = "block";
           return;

@@ -492,25 +492,38 @@ block content
                       name = "inputPhone"
                     )
 
+                  div(
+                    class="form-group form-communication__group"
+                  )
+                    label(
+                      class = "record__label form-communication__label" 
+                      for = "exampleComment"
+                    ) Комментарий
 
-                    div(
-                      class = "mb-3"
+                    textarea(
+                      class="form-control form-communication__input" 
+                      id="exampleComment" 
+                      name="comment" 
                     )
-                      input(
-                        class = "checkbox form-communication__checkbox" 
-                        type = "checkbox" 
-                        id = "checkbox1" 
-                        checked
-                      )
 
-                      label(
-                        class = "form-communication__label mb-0" 
-                        for = "checkbox1"
-                      ) 
-                        span(
-                          class = "form-communication__record-checkbox"
-                        ) Даю согласие на обработку своих персональных данных и соглашаюсь <br> 
-                          |с политикой конфиденциальности
+                  div(
+                    class = "mb-3"
+                  )
+                    input(
+                      class = "checkbox form-communication__checkbox" 
+                      type = "checkbox" 
+                      id = "checkbox1" 
+                      checked
+                    )
+
+                    label(
+                      class = "form-communication__label mb-0" 
+                      for = "checkbox1"
+                    ) 
+                      span(
+                        class = "form-communication__record-checkbox"
+                      ) Даю согласие на обработку своих персональных данных и соглашаюсь <br> 
+                        |с политикой конфиденциальности
 
                   button(
                     class = "btn btn-primary btn-lg form-communication__button col-12 col-sm-7 mb-3"

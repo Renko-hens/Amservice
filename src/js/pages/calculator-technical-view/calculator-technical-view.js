@@ -14,6 +14,7 @@ if(calculatorTechView) {
   const email = formResults.elements.inputEmail;
   const phone = formResults.elements.inputPhone;
   const name = formResults.elements.inputName;
+  const comments = formResults.elements.comments.value;
 
   const formSummaryContainer = document.querySelector('.form-summary__container');
   const calculatorTechViewContainer = document.querySelector('.calculator-technical-view__container');
@@ -374,6 +375,7 @@ if(calculatorTechView) {
       formId.append('name', formResults.elements.inputName.value);
       formId.append('email', formResults.elements.inputEmail.value);
       formId.append('phone', formResults.elements.inputPhone.value);
+      formId.append('comments', formResults.elements.comments.value);
       formId.append('model',  form.elements.model.value);
       formId.append('modification',  form.elements.modif.value);
       formId.append('mileage',  form.elements.mileage.value);
@@ -381,7 +383,6 @@ if(calculatorTechView) {
       formId.append('pageId', pageId.value);
       formId.append('pageTitle', pageTitle.value);
       formId.append('totalAmmount', updateAmount(totalAmmountPrice, totalAmmountElement));
-      console.log(formId);
 
       // let data = {
       //   name: formResults.elements.inputName.value,
@@ -431,6 +432,7 @@ if(calculatorTechView) {
             name.value = '';
             email.value = '';
             phone.value = '';
+            comments.value = '';
             disabledButton(formResultsButtonElement);
             modalForm.style.display = 'block';
           }, 5000);

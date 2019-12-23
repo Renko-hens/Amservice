@@ -19,41 +19,58 @@
   position: relative;
 }
 
-.st0{fill:#D7E2E2;}
-.st1{fill:#DEDEDB;}
-.st2{fill:#999999;}
-.st3{fill:#4D4D4D;}
-.st4{fill:#262626;}
-.st5{fill:#1A1A1A;}
-.st6{fill:none;}
-.st7{display:none;fill:#999999;}
-.st8{fill:#4D0000;}
-.st9{fill:#EE0000;}
-.st10{fill:url(#SVGID_1_);}
-.st11{fill:url(#SVGID_2_);}
-.st12{fill:url(#SVGID_3_);}
-.st13{fill:url(#SVGID_4_);}
-.st14{fill:url(#SVGID_5_);}
-.st15{fill:url(#SVGID_6_);}
-.st16{fill:url(#SVGID_7_);}
-.st17{fill:url(#SVGID_8_);}
-.st18{fill:url(#SVGID_9_);}
-.st19{fill:#171916;}
-.st20{fill:url(#SVGID_10_);}
-.st21{fill:url(#SVGID_11_);}
-.st22{fill:url(#SVGID_12_);}
-.st23{fill:url(#SVGID_13_);}
-.st24{fill:url(#SVGID_14_);}
-.st25{fill:url(#SVGID_15_);}
-.st26{fill:url(#SVGID_16_);}
-.st27{fill:url(#SVGID_17_);}
-.st28{fill:url(#SVGID_18_);}
-.st29{fill:#f9eb6d;}
-.st30{fill:#f9eb6d;}
-.st31{fill:#CCCAC6;}
-.st32{display:none;}
-.st33{display:inline;}
-.st34{fill:#264FA4;}
+.car__left-image{
+  .st0__left{fill:#D7E2E2;}
+  .st1__left{fill:#DEDEDB;}
+  .st2__left{fill:#999999;}
+  .st3__left{fill:#4D4D4D;}
+  .st4__left{fill:#262626;}
+  .st5__left{fill:#1A1A1A;}
+  .st6__left{fill:none;}
+  .st7__left{display:none;fill:#999999;}
+  .st8__left{fill:#4D0000;}
+  .st9__left{fill:#EE0000;}
+  .st10__left{fill:url(#SVGID_1_);}
+  .st11__left{fill:url(#SVGID_2_);}
+  .st12__left{fill:url(#SVGID_3_);}
+  .st13__left{fill:url(#SVGID_4_);}
+  .st14__left{fill:url(#SVGID_5_);}
+  .st15__left{fill:url(#SVGID_6_);}
+  .st16__left{fill:url(#SVGID_7_);}
+  .st17__left{fill:url(#SVGID_8_);}
+  .st18__left{fill:url(#SVGID_9_);}
+  .st19__left{fill:#171916;}
+  .st20__left{fill:url(#SVGID_10_);}
+  .st21__left{fill:url(#SVGID_11_);}
+  .st22__left{fill:url(#SVGID_12_);}
+  .st23__left{fill:url(#SVGID_13_);}
+  .st24__left{fill:url(#SVGID_14_);}
+  .st25__left{fill:url(#SVGID_15_);}
+  .st26__left{fill:url(#SVGID_16_);}
+  .st27__left{fill:url(#SVGID_17_);}
+  .st28__left{fill:url(#SVGID_18_);}
+  .st29__left{fill:#f9eb6d;}
+  .st30__left{fill:#f9eb6d;}
+  .st31__left{fill:#CCCAC6;}
+  .st32__left{display:none;}
+  .st33__left{display:inline;}
+  .st34__left{fill:#264FA4;}
+}
+
+.car__front-image {
+  .st0__front{display:none;}
+  .st1__front{display:inline;fill:#004EC2;}
+  .st2__front{fill:#4D4D4D;}
+  .st3__front{fill:none;}
+  .st4__front{fill:url(#SVGID_1_);}
+  .st5__front{fill:#2D2828;}
+  // .st6__front{fill:url(#SVGID_2_);}
+  .st7__front{fill:#DEDEDB;}
+  .st8__front{fill:#B2B2B2;}
+  .st9__front{fill:#E5B12E;}
+  .st10__front{fill:#A0A0A0;}
+  .st11__front{fill:#D7E2E2;}
+}
 
 svg a path[data-parts='true'] {
   transition: 0.2s;
@@ -65,6 +82,11 @@ svg a path[data-parts='true']:hover {
 }
 
 svg a path.svg--active[data-parts='true']:hover{
+  fill: rgba($color: #004EC2, $alpha: 1);
+  transition: 0.2s;
+}
+
+svg a path.svg--active[data-parts='true']{
   fill: rgba($color: #004EC2, $alpha: 1);
   transition: 0.2s;
 }
