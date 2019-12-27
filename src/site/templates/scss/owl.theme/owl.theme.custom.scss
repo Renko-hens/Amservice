@@ -1,4 +1,4 @@
-.owl-carousel {
+ .owl-carousel {
   table-layout: fixed;
 }
 
@@ -121,9 +121,88 @@
 //   display: -ms-box;
 //   display: box;
 //   }
-  
+
+
+// Очень не хотел использовать !important сорян
 @media(min-width: 980px) {
   .promo-carousel .owl-item img {
     width: auto !important;
     }
+}
+
+
+.car__slider .owl-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 104%;
+  position: absolute;
+  top: 38%;
+  right: -2%;
+  transform: translateY(-50%);
+  height: 0px;
+  margin: 0;
+}
+
+
+.car__slider .owl-nav .owl-prev {
+  position: relative;
+  width: 20px;
+  height: 36px;
+  background: #E9EBF2 !important;
+  border-radius: 4px;
+}
+
+
+.car__slider .owl-nav .owl-prev:hover {
+  background: var(--color-calculator-hover) !important;
+}
+
+.car__slider .owl-nav .owl-prev::after{
+  content: "";
+  display: block;
+  width: 8px;
+  height: 14px;
+  background-image: url("/site/templates/img/arrow-prev.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+}
+
+.car__slider .owl-nav .owl-prev span{
+  font-size: 0;
+}
+
+.car__slider .owl-nav .owl-next {
+  position: relative;
+  width: 20px;
+  height: 36px;
+  background: #E9EBF2 !important;
+  border-radius: 4px;
+}
+
+.car__slider .owl-nav .owl-next:hover {
+  background: var(--color-calculator-hover) !important;
+}
+
+
+.car__slider .owl-nav .owl-next::after{
+  content: "";
+  display: block;
+  width: 8px;
+  height: 14px;
+  background-image: url("/site/templates/img/arrow-prev.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: 29%;
+  left: 33%;
+  transform: translate(-50% , -50%);
+  transform: rotate(180deg);
+}
+    
+.car__slider .owl-nav .owl-next span{
+  font-size: 0;
 }

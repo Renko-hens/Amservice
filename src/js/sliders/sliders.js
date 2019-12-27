@@ -59,48 +59,13 @@ $('.car__slider').owlCarousel({
     0:{
       items: 1,
       autoWidth: false,
-      touchDrag: true 
+      touchDrag: true,
+      dots: true,
+      nav:false
+    },
+    768:{
+      items: 1,
+      dots: false,
     }
   }
 });
-
-
-// $('.information-cards--slider-stocks').owlCarousel({
-//   margin: 30,
-//   nav:true,
-//   dots: false,
-//   responsive:{
-//     0:{
-//       items: 1,
-//       autoWidth: false,
-//       touchDrag: true 
-//     },
-//     768:{
-//       items: 2
-//     },
-//     940:{
-//       items: 3
-//     },
-//   }
-// });
-
-// var $this = $('.promo-carousel').owlCarousel({ autoWidth: true });
-// var $stageOuter = $this.find('.owl-stage-outer');
-// var stageOuterWidth = $stageOuter.width();
-// var $stage = $this.find('.owl-stage');
-// var stageWidth = $stage.width();
-// var $items = $stage.children();
-// var largestChild = 0;
-// for (var i = 0, ic = $items.length; i < ic; i++) {
-// 	var itemWidth = $($items[i]).width();
-// 	largestChild = largestChild > itemWidth ? largestChild : itemWidth;
-// }
-// if (largestChild > stageOuterWidth) {
-// 	$stage.width(stageWidth + Math.ceil((largestChild - stageOuterWidth) * 1.2));
-// 	var addedWidth = Math.ceil((largestChild - stageOuterWidth) * 1.2)
-// 	var stageNewWidth = $stage.width();
-// 	console.log(stageOuterWidth, stageWidth, stageNewWidth, addedWidth, largestChild);
-// }
-
-
-// var $this = $('.promo-carousel').owlCarousel({ autoWidth: true }).trigger('refresh.owl.carousel');
