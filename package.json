@@ -27,7 +27,7 @@
     "html-webpack-plugin": "^3.2.0",
     "image-map": "^1.1.7",
     "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "path": "^0.12.7",
     "postcss-calc": "^7.0.1",
     "postcss-css-variables": "git+https://github.com/CodyHouse/postcss-css-variables.git",
